@@ -141,7 +141,6 @@
     <ClCompile Include="include\alvironment\GenericObject.cpp" />
     <ClCompile Include="include\alvironment\2d\Environment2D.cpp" />
     <ClCompile Include="include\alvironment\WindowProperties.cpp" />
-    <ClCompile Include="include\glad.c" />
     <ClCompile Include="include\alvironment\2d\object\Object2D.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Rectangle2D.cpp" />
     <ClCompile Include="scr\main.cpp" />

@@ -8,6 +8,8 @@
  * @author Álvaro Fernández Barrero
  */
 
+#define DEBUG_ENGINE false
+
 #define RESET_COLOR "\x1b[0m"
 
 // ------------------------------------------------------
@@ -52,7 +54,8 @@
 
 #define PRINT(x) std::cout << x << std::endl
 
-#define DEBUG_PRINT(x) PRINT(CYAN << "[DEBUG]: " << x << RESET_COLOR)
-#define WARNING_PRINT(x) PRINT(YELLOW << "[WARN]: " << x << RESET_COLOR)
-#define ERROR_PRINT(x) PRINT(RED << "[ERROR]: " << x << RESET_COLOR)
-#define SUCCESS_PRINT(x) PRINT(GREEN << "[SUCCESS]: " << x << RESET_COLOR)
+#define DEBUG(x) if (DEBUG_ENGINE) PRINT(x)
+#define DEBUG_PRINT(x) DEBUG(CYAN << "[DEBUG]: " << x << RESET_COLOR)
+#define WARNING_PRINT(x) DEBUG(YELLOW << "[WARN]: " << x << RESET_COLOR)
+#define ERROR_PRINT(x) DEBUG(RED << "[ERROR]: " << x << RESET_COLOR)
+#define SUCCESS_PRINT(x) DEBUG(GREEN << "[SUCCESS]: " << x << RESET_COLOR)
