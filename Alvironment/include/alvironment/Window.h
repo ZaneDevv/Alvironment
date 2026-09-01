@@ -7,11 +7,10 @@
 #include <GL/glew.h>
 
 #include "data_types/numbers.h"
-#include "./GenericObject.h"
 
 /**
  * @brief Class for creating a window easily using OpenGL
- * @version 1.0
+ * @version 2.1
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -22,22 +21,9 @@ private:
 
 	bool isRenderLoopPaused = false;
 
-	std::vector<GenericObject*> elementsToRender;
-
 	// ------------------------------------------------------
 	// METHODS
 	// ------------------------------------------------------
-
-	/**
-	 * @brief Checks if the conditions are right to keep going with the render loop
-	 * @pre The window has to be created
-	 * @exception The window was not created yet
-	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-08-31
-	 * @author Álvaro Fernández Barrero
-	 */
-	inline bool shouldGoToNextRenerIteration();
 
 public:
 
@@ -79,42 +65,30 @@ public:
 	// ------------------------------------------------------
 
 	/**
-	 * @brief Initializes the render loop
-	 * @pre The window has to be created
+	 * @brief Checks if the window should close
+	 * @return True if the window should close, false otherwise
 	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-08-31
+	 * @since 2.0
+	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	void startRenderLoop();
+	bool shouldWindowClose();
 
 	/**
-	 * @brief Pauses the render loop
-	 * @pre The window has to be created
+	 * @brief Prepares the window to start rendering
 	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-08-31
+	 * @since 2.0
+	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	void pauseRenderLoop();
+	void prepareWindowForRendering();
 
 	/**
-	 * @brief Adds a new element to be rendered on screen
-	 * @param The element to render on screen
+	 * @brief Finishes the rendering tasks in screen
 	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-08-31
+	 * @since 2.0
+	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	void addElementToRender(GenericObject*);
-
-	/**
-	 * @brief Removes the given element to be rendered on screen
-	 * @param The element to quite from rendering on screen
-	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-08-31
-	 * @author Álvaro Fernández Barrero
-	 */
-	void removeElementToRender(GenericObject*);
+	void finishRendering();
 };

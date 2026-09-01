@@ -11,16 +11,16 @@
 #include "math/constants.h"
 #include "math/Vector2D.h"
 
+
 int main()
 {
 	WindowProperties properties(500, 500, "Test", false);
 	Environment2D environment(&properties);
 
 	Rectangle2D shape;
-	shape.setTheta(ONE_DEGREE_IN_RADIANS * 20);
 	environment.addObject(&shape);
 
-	environment.initialize();
+	environment.initialize([]() {});
 	
 	std::cin.get();
 	return 0;

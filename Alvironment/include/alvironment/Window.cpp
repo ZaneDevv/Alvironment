@@ -42,41 +42,18 @@ Window::~Window()
 // METHODS
 // ------------------------------------------------------
 
-void Window::startRenderLoop()
+bool Window::shouldWindowClose()
 {
-	this->isRenderLoopPaused = false;
-
-	DEBUG_PRINT("Starting rendering loop");
-
-	while (this->shouldGoToNextRenerIteration())
-	{
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		for (GenericObject* object : this->elementsToRender)
-		{
-			object->render();
-		}
-
-		glfwSwapBuffers(this->window);
-		glfwPollEvents();
-	}
+	return glfwWindowShouldClose(this->window);
 }
 
-void Window::pauseRenderLoop()
+void Window::prepareWindowForRendering()
 {
-	this->isRenderLoopPaused = true;
-	DEBUG_PRINT("Rendering paused");
+	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-inline bool Window::shouldGoToNextRenerIteration()
+void Window::finishRendering()
 {
-	return !this->isRenderLoopPaused && !glfwWindowShouldClose(this->window);
-}
-
-void Window::addElementToRender(GenericObject* object)
-{
-	DEBUG_PRINT("A new object was added to the rendering queue!");
-
-	object->setUpBuffers();
-	this->elementsToRender.push_back(object);
+	glfwSwapBuffers(this->window);
+	glfwPollEvents();
 }
