@@ -5,7 +5,7 @@
 
 /**
  * @brief Class for generic objects
- * @version 1.4
+ * @version 1.5
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -100,4 +100,13 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	virtual void setUpBuffers() = 0;
+	
+	/**
+	 * @brief Updates the object's vertices according to the transformation evolved
+	 * @version 1.0
+	 * @since 1.4
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	virtual void updateVertices() = 0;
 };

@@ -14,6 +14,12 @@ private:
 	double z = 0;
 
 public:
+	static const Vector3D zero;
+	static const Vector3D one;
+
+	static const Vector3D i;
+	static const Vector3D j;
+	static const Vector3D k;
 
 	// ------------------------------------------------------
 	// CONSTRUCTORS

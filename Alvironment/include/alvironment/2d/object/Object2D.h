@@ -1,10 +1,11 @@
 #pragma once
 
 #include "alvironment/GenericObject.h"
+#include "math/Vector2D.h"
 
 /**
  * @brief Class for creating 2D objects
- * @version 2.1
+ * @version 3.0
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -12,6 +13,9 @@ class Object2D : public GenericObject
 {
 private:
 	double theta = 0;
+
+	Vector2D scale = Vector2D::one;
+	Vector2D position = Vector2D::zero;
 
 public:
 
@@ -67,6 +71,15 @@ public:
 	void setUpBuffers() override;
 
 	/**
+	 * @brief Updates the object's vertices according to the transformation evolved
+	 * @version 1.0
+	 * @since 1.4
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	void updateVertices() override;
+
+	/**
 	 * @brief Rotates the object by the given angle
 	 * @param The angle in radians to rotate the object
 	 * @version 1.0
@@ -78,6 +91,7 @@ public:
 
 	/**
 	 * @brief Gets the rotation angle of the object in radians
+	 * @return Object's rotation in radians
 	 * @version 1.0
 	 * @since 2.0
 	 * @date 2026-08-31
@@ -94,4 +108,44 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setTheta(double);
+
+	/**
+	 * @brief Gets the scale of the object
+	 * @return The object's scale
+	 * @version 1.0
+	 * @since 3.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	Vector2D getScale();
+
+	/**
+	 * @brief Sets the scale of the object
+	 * @param The new object's scale
+	 * @version 1.0
+	 * @since 3.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setScale(Vector2D&);
+
+	/**
+	 * @brief Gets the position of the object
+	 * @return The object's position
+	 * @version 1.0
+	 * @since 3.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	Vector2D getPosition();
+
+	/**
+	 * @brief Sets the position of the object
+	 * @param The new object's position
+	 * @version 1.0
+	 * @since 3.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setPosition(Vector2D&);
 };

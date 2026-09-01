@@ -3,6 +3,17 @@
 #include <cmath>
 
 // ------------------------------------------------------
+// STATIC FIELDS
+// ------------------------------------------------------
+
+const Vector3D Vector3D::zero(0, 0, 0);
+const Vector3D Vector3D::one(1, 1, 1);
+
+const Vector3D Vector3D::i(1, 0, 0);
+const Vector3D Vector3D::j(0, 1, 0);
+const Vector3D Vector3D::k(0, 0, 1);
+
+// ------------------------------------------------------
 // CONSTRUCTORS
 // ------------------------------------------------------
 

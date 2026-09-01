@@ -13,6 +13,11 @@ private:
 	double y = 0;
 
 public:
+	static const Vector2D zero;
+	static const Vector2D one;
+
+	static const Vector2D i;
+	static const Vector2D j;
 
 	// ------------------------------------------------------
 	// CONSTRUCTORS

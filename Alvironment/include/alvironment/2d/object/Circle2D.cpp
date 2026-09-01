@@ -10,7 +10,7 @@
 // STATIC FIELDS
 // ------------------------------------------------------
 
-const double Circle2D::DEFAULT_SMOOTHNESS = ONE_DEGREE_IN_RADIANS;
+const double Circle2D::DEFAULT_SMOOTHNESS = RIGHT_ANGLE / 4;
 const double Circle2D::MAXIMUM_SMOOTHNESS = RIGHT_ANGLE;
 const double Circle2D::MINIMUM_SMOOTHNESS = ONE_DEGREE_IN_RADIANS;
 

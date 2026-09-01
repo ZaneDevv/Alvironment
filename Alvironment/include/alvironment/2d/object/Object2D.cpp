@@ -21,7 +21,7 @@ void Object2D::setUpBuffers()
 
     glGenBuffers(1, &this->vbo);
     glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_STATIC_DRAW);
 
     glGenBuffers(1, &this->ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
@@ -45,6 +45,15 @@ void Object2D::render()
 	glDrawElements(GL_TRIANGLES, this->indicesAmount, GL_UNSIGNED_INT, nullptr);
 }
 
+void Object2D::updateVertices()
+{
+    for (int i = 0; i < this->verticesAmount; i += 2)
+    {
+        this->verticesToRender[i] = this->scale.getX() * (cosf(this->theta) * this->vertices[i] + sinf(this->theta) * this->vertices[i + 1]) + this->position.getX();
+        this->verticesToRender[i + 1] = this->scale.getY() * (cosf(this->theta) * this->vertices[i + 1] - sinf(this->theta) * this->vertices[i]) + this->position.getY();
+    }
+}
+
 void Object2D::rotate(double alpha)
 {
     this->setTheta(std::fmod(alpha + this->getTheta(), TAU));
@@ -58,4 +67,27 @@ double Object2D::getTheta()
 void Object2D::setTheta(double alpha)
 {
     this->theta = std::fmod(alpha, TAU);
+    this->updateVertices();
+}
+
+Vector2D Object2D::getScale()
+{
+    return this->scale;
+}
+
+void Object2D::setScale(Vector2D& scale)
+{
+    this->scale = scale;
+    this->updateVertices();
+}
+
+Vector2D Object2D::getPosition()
+{
+    return this->position;
+}
+
+void Object2D::setPosition(Vector2D& position)
+{
+    this->position = position;
+    this->updateVertices();
 }

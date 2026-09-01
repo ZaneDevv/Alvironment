@@ -8,7 +8,7 @@
  * @author Álvaro Fernández Barrero
  */
 
-#define DEBUG_ENGINE false
+#define DEBUG_ENGINE true
 
 #define RESET_COLOR "\x1b[0m"
 
