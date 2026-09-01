@@ -14,7 +14,7 @@
 	* Corner shape
 	* 2D segment
 	* Screen normalization
-	* 2D Transformations
+	* ~~2D Transformations~~
 	* System for uploading images
 
 * 3D:
