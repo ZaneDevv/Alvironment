@@ -148,6 +148,8 @@
     <ClCompile Include="include\alvironment\Window.cpp" />
     <ClCompile Include="include\alvironment\shaders\Shader.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Triangle2D.cpp" />
+    <ClCompile Include="include\math\Vector2D.cpp" />
+    <ClCompile Include="include\math\Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\alvironment\2d\object\Circle2D.h" />
@@ -163,6 +165,8 @@
     <ClInclude Include="include\alvironment\Window.h" />
     <ClInclude Include="include\alvironment\shaders\Shader.h" />
     <ClInclude Include="include\alvironment\2d\object\Triangle2D.h" />
+    <ClInclude Include="include\math\Vector2D.h" />
+    <ClInclude Include="include\math\Vector3D.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\alvironment\shaders\common_shaders\Basic.fsha" />

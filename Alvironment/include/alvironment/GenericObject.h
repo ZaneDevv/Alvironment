@@ -30,6 +30,11 @@ protected:
 	Shader* shader;
 
 public:
+
+	// ------------------------------------------------------
+	// CONSTRUCTORS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Creates a brand new abstract object with the given vertices, indices and shaders
 	 * @param Vertices' positions list
@@ -61,6 +66,10 @@ public:
 	GenericObject(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount)
 		: GenericObject(vertices, verticesAmount, indices, indicesAmount, GenericObject::DEFAULT_VERTEX_SHADER, GenericObject::DEFAULT_FRAGMENT_SHADER) {};
 
+	// ------------------------------------------------------
+	// DESTRUCTORS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Removes the object and frees the memory
 	 * @version 1.0
@@ -69,6 +78,10 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	~GenericObject();
+
+	// ------------------------------------------------------
+	// METHODS
+	// ------------------------------------------------------
 
 	/**
 	 * @brief Renders the object

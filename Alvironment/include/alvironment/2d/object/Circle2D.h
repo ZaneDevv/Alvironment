@@ -22,6 +22,10 @@ private:
 	float* vertices = nullptr;
 	u32_t* indices = nullptr;
 
+	// ------------------------------------------------------
+	// METHODS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Adjusts the smoothness value to fit a proper interval
 	 * @param Smoothness to adjust
@@ -97,6 +101,11 @@ private:
 	u32_t getIndicesAmount();
 
 public:
+
+	// ------------------------------------------------------
+	// CONSTRUCTORS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Creates a brand new 2D circle with the given shaders
 	 * @param Circle's smoothness (the lower this number is, the smoother the circle is)
@@ -147,6 +156,10 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	Circle2D() : Circle2D(Circle2D::DEFAULT_SMOOTHNESS) {};
+
+	// ------------------------------------------------------
+	// DESCTRUCTORS
+	// ------------------------------------------------------
 
 	/**
 	 * @brief Removes the circle and frees the memory

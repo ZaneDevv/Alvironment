@@ -1,14 +1,14 @@
 #include "GenericObject.h"
 
 // ------------------------------------------------------
-// DEFINING STATIC FIELDS
+// STATIC FIELDS
 // ------------------------------------------------------
 
 const char* const GenericObject::DEFAULT_VERTEX_SHADER = "include/alvironment/shaders/common_shaders/Basic.vsha";
 const char* const GenericObject::DEFAULT_FRAGMENT_SHADER = "include/alvironment/shaders/common_shaders/Basic.fsha";
 
 // ------------------------------------------------------
-// DEFINDING METHODS
+// METHODS
 // ------------------------------------------------------
 
 GenericObject::GenericObject(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)

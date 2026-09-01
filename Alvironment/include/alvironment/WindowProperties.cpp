@@ -1,5 +1,9 @@
 #include "./WindowProperties.h"
 
+// ------------------------------------------------------
+// CONSTRUCTORS
+// ------------------------------------------------------
+
 WindowProperties::WindowProperties(u16_t width, u16_t height, const char* title, bool resizeable)
 {
 	this->width = width;

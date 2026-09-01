@@ -18,6 +18,10 @@ public:
 
 	bool resizeable = false;
 
+	// ------------------------------------------------------
+	// CONSTRUCTORS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Creates a new set of properties for a window
 	 * @param Window's width

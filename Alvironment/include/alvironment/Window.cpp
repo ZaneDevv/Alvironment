@@ -1,6 +1,10 @@
 #include "Window.h"
 #include "debug_helper/print.h"
 
+// ------------------------------------------------------
+// CONSTRUCTORS
+// ------------------------------------------------------
+
 Window::Window(u16_t width, u16_t height, const char* title, bool allowResizing)
 {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -25,10 +29,18 @@ Window::Window(u16_t width, u16_t height, const char* title, bool allowResizing)
 	SUCCESS_PRINT("Window created successfully");
 }
 
+// ------------------------------------------------------
+// DESTRUCTORS
+// ------------------------------------------------------
+
 Window::~Window()
 {
 	glfwDestroyWindow(this->window);
 }
+
+// ------------------------------------------------------
+// METHODS
+// ------------------------------------------------------
 
 void Window::startRenderLoop()
 {

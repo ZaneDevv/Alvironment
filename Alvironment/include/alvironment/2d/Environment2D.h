@@ -21,6 +21,11 @@ private:
 	std::unique_ptr<Window> window;
 
 public:
+
+	// ------------------------------------------------------
+	// CONSTRUCTORS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Creates a brand new environment with the given parameters
 	 * @param Window's properties
@@ -30,6 +35,10 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	Environment2D(WindowProperties*);
+
+	// ------------------------------------------------------
+	// METHODS
+	// ------------------------------------------------------
 
 	/**
 	 * @brief Initializes the environment

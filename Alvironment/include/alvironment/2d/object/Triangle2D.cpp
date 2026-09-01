@@ -1,5 +1,9 @@
 #include "Triangle2D.h"
 
+// ------------------------------------------------------
+// STATIC FIELDS
+// ------------------------------------------------------
+
 float Triangle2D::vertices[Triangle2D::verticesAmount] = {
     -0.5f, -0.5f,
      0.5f, -0.5f,

@@ -7,7 +7,7 @@
 #include "math/constants.h"
 
 // ------------------------------------------------------
-// DEFINING STATIC FIELDS
+// STATIC FIELDS
 // ------------------------------------------------------
 
 const double Circle2D::DEFAULT_SMOOTHNESS = ONE_DEGREE_IN_RADIANS;
@@ -15,7 +15,7 @@ const double Circle2D::MAXIMUM_SMOOTHNESS = RIGHT_ANGLE;
 const double Circle2D::MINIMUM_SMOOTHNESS = ONE_DEGREE_IN_RADIANS;
 
 // ------------------------------------------------------
-// DEFINDING METHODS
+// DESTRUCTORS
 // ------------------------------------------------------
 
 Circle2D::~Circle2D()
@@ -23,6 +23,10 @@ Circle2D::~Circle2D()
 	delete[] this->vertices;
 	delete[] this->indices;
 }
+
+// ------------------------------------------------------
+// METHODS
+// ------------------------------------------------------
 
 void Circle2D::adjustSmoothness(double& smoothness)
 {

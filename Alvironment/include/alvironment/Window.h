@@ -24,6 +24,10 @@ private:
 
 	std::vector<GenericObject*> elementsToRender;
 
+	// ------------------------------------------------------
+	// METHODS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Checks if the conditions are right to keep going with the render loop
 	 * @pre The window has to be created
@@ -36,6 +40,11 @@ private:
 	inline bool shouldGoToNextRenerIteration();
 
 public:
+
+	// ------------------------------------------------------
+	// CONSTRUCTORS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Creates a brand new window with the given parameters
 	 * @param Window's width
@@ -51,6 +60,10 @@ public:
 	 */
 	Window(u16_t, u16_t, const char*, bool);
 
+	// ------------------------------------------------------
+	// DESTRUCTORS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Frees the window instance's memory
 	 * @pre The window should have been created
@@ -60,6 +73,10 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	~Window();
+
+	// ------------------------------------------------------
+	// METHODS
+	// ------------------------------------------------------
 
 	/**
 	 * @brief Initializes the render loop

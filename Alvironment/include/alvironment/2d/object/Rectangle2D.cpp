@@ -1,5 +1,9 @@
 #include "Rectangle2D.h"
 
+// ------------------------------------------------------
+// STATIC FIELDS
+// ------------------------------------------------------
+
 float Rectangle2D::vertices[Rectangle2D::verticesAmount] = {
     -0.5f, -0.5f,
      0.5f, -0.5f,

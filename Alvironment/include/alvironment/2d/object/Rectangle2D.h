@@ -19,6 +19,11 @@ private:
 	static u32_t indices[Rectangle2D::indicesAmount];
 
 public:
+
+	// ------------------------------------------------------
+	// CONSTRUCTORS
+	// ------------------------------------------------------
+
 	/**
 	 * @brief Creates a brand new 2D rectangle with the given shaders
 	 * @param Vertex shader's code's path

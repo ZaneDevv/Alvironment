@@ -4,6 +4,10 @@
 #include <GLFW/glfw3.h>
 #include "debug_helper/print.h"
 
+// ------------------------------------------------------
+// CONSTRUCTORS
+// ------------------------------------------------------
+
 Environment2D::Environment2D(WindowProperties* windowProperties)
 {
     if (!glfwInit())
@@ -25,6 +29,10 @@ Environment2D::Environment2D(WindowProperties* windowProperties)
         throw "Glew could not be initialized!";
     }
 }
+
+// ------------------------------------------------------
+// METHODS
+// ------------------------------------------------------
 
 void Environment2D::initialize()
 {

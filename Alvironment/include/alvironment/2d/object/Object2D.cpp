@@ -10,6 +10,10 @@
 
 #include "alvironment/shaders/Shader.h"
 
+// ------------------------------------------------------
+// METHODS
+// ------------------------------------------------------
+
 void Object2D::setUpBuffers()
 {
     glGenVertexArrays(1, &this->vao);

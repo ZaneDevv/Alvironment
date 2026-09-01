@@ -27,3 +27,7 @@
 	* 3D camera
 	* System for uploading meshes
 	* System for uploading textures
+
+* Math:
+	* ~~Numerical constants~~
+	* ~~Vector2D & Vector3D class~~

@@ -7,6 +7,10 @@
 #include "data_types/numbers.h"
 #include "debug_helper/print.h"
 
+// ------------------------------------------------------
+// CONSTRUCTORS
+// ------------------------------------------------------
+
 Shader::Shader(const char* vertexShaderCode, const char* fragmentShaderCode)
 {
 	this->program = glCreateProgram();
@@ -24,10 +28,18 @@ Shader::Shader(const char* vertexShaderCode, const char* fragmentShaderCode)
 	glValidateProgram(this->program);
 }
 
+// ------------------------------------------------------
+// DESTRUCTORS
+// ------------------------------------------------------
+
 Shader::~Shader()
 {
 	glDeleteProgram(this->program);
 }
+
+// ------------------------------------------------------
+// METHODS
+// ------------------------------------------------------
 
 std::string Shader::getShaderCodeFromFile(const char* codePath)
 {
