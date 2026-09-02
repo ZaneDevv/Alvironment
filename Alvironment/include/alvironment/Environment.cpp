@@ -1,14 +1,15 @@
-#include "Environment2D.h"
+#include "Environment.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
 #include "debug_helper/print.h"
 
 // ------------------------------------------------------
 // CONSTRUCTORS
 // ------------------------------------------------------
 
-Environment2D::Environment2D(WindowProperties* windowProperties)
+Environment::Environment(WindowProperties* windowProperties)
 {
     if (!glfwInit())
     {
@@ -34,39 +35,50 @@ Environment2D::Environment2D(WindowProperties* windowProperties)
 // METHODS
 // ------------------------------------------------------
 
-void Environment2D::initialize(void(*update)())
+inline bool Environment::shouldGoToNextRenerIteration()
+{
+    return !this->window->shouldWindowClose();
+}
+
+void Environment::initialize(updateMethod update)
 {
     DEBUG_PRINT("Environment has just initialized");
     DEBUG_PRINT("Starting simulation loop");
 
+    double lastTime = glfwGetTime();
+    double deltaTime = 0;
+
     while (!this->window->shouldWindowClose())
     {
+        this->computeDeltaTime(lastTime, deltaTime);
+
         this->window->prepareWindowForRendering();
 
-        update();
         this->renderObjects();
+        update(deltaTime);
 
         this->window->finishRendering();
     }
 }
 
-void Environment2D::renderObjects()
+void Environment::computeDeltaTime(double& lastTime, double& deltaTime)
 {
-    for (Object2D* object : this->objectsInEnvironment)
+    deltaTime = glfwGetTime() - lastTime;
+    lastTime = glfwGetTime();
+}
+
+void Environment::renderObjects()
+{
+    for (GenericObject* object : this->objectsInEnvironment)
     {
         object->render();
     }
 }
 
-inline bool Environment2D::shouldGoToNextRenerIteration()
-{
-    return !this->window->shouldWindowClose();
-}
-
-void Environment2D::addObject(Object2D* object)
+void Environment::addObject(GenericObject* object)
 {
     DEBUG_PRINT("A new object was added to the 2D enviroment!");
 
     object->setUpBuffers();
-	this->objectsInEnvironment.push_back(object);
+    this->objectsInEnvironment.push_back(object);
 }

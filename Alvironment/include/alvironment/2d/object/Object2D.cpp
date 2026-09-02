@@ -52,6 +52,8 @@ void Object2D::updateVertices()
         this->verticesToRender[i] = this->scale.getX() * (cosf(this->theta) * this->vertices[i] + sinf(this->theta) * this->vertices[i + 1]) + this->position.getX();
         this->verticesToRender[i + 1] = this->scale.getY() * (cosf(this->theta) * this->vertices[i + 1] - sinf(this->theta) * this->vertices[i]) + this->position.getY();
     }
+
+    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_STATIC_DRAW);
 }
 
 void Object2D::rotate(double alpha)

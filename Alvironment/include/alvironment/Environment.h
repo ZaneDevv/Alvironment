@@ -1,25 +1,26 @@
 #pragma once
 
-#include <vector>
 #include <memory>
+#include <functional>
 
-#include "../WindowProperties.h"
-#include "../Window.h"
+#include "./GenericObject.h"
 
-#include "./object/Object2D.h"
+#include "./window/Window.h"
+#include "./window/WindowProperties.h"
 
-typedef void(*updateMethod)();
+using updateMethod = std::function<void(double)>;
 
 /**
- * @brief Class for creating a new project's environment
- * @version 2.3
- * @date 2026-08-31
+ * @brief Abstract class for the environments
+ * @version 3.2
+ * @date 2026-09-02
  * @author Álvaro Fernández Barrero
  */
-class Environment2D
+class Environment
 {
-private:
-	std::vector<Object2D*> objectsInEnvironment;
+protected:
+	std::vector<GenericObject*> objectsInEnvironment;
+
 	std::unique_ptr<Window> window;
 
 	// ------------------------------------------------------
@@ -38,14 +39,24 @@ private:
 	inline bool shouldGoToNextRenerIteration();
 
 	/**
-	 * @brief Initializes the environment
+	 * @brief Computes the delta time for any frame
+	 * @param Reference to where thr last time variable is placed
+	 * @param Reference to where the variable for the delta time is placed
+	 * @version 1.0
+	 * @since 2.4
+	 * @date 2026-09-02
+	 * @author Álvaro Fernández Barrero
+	 */
+	void computeDeltaTime(double&, double&);
+
+	/**
+	 * @brief Renders all the listed objects
 	 * @version 1.0
 	 * @since 2.1
-	 * @date 2026-08-31
+	 * @date 2026-09-02
 	 * @author Álvaro Fernández Barrero
 	 */
 	void renderObjects();
-
 public:
 
 	// ------------------------------------------------------
@@ -57,10 +68,10 @@ public:
 	 * @param Window's properties
 	 * @version 1.0
 	 * @since 1.0
-	 * @date 2026-08-31
+	 * @date 2026-09-02
 	 * @author Álvaro Fernández Barrero
 	 */
-	Environment2D(WindowProperties*);
+	Environment(WindowProperties*);
 
 	// ------------------------------------------------------
 	// METHODS
@@ -68,10 +79,10 @@ public:
 
 	/**
 	 * @brief Initializes the environment
-	 * @param Update method to tun every iteration
-	 * @version 2.4
+	 * @param Method callback for every frame
+	 * @version 1.0
 	 * @since 1.0
-	 * @date 2026-08-31
+	 * @date 2026-09-02
 	 * @author Álvaro Fernández Barrero
 	 */
 	void initialize(updateMethod);
@@ -84,5 +95,5 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	void addObject(Object2D*);
+	void addObject(GenericObject*);
 };

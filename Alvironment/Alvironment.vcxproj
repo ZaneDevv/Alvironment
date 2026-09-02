@@ -78,6 +78,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(ProjectDir)include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,35 +138,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\alvironment\AbstractWorld.cpp" />
+    <ClCompile Include="include\alvironment\Environment.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Circle2D.cpp" />
     <ClCompile Include="include\alvironment\GenericObject.cpp" />
-    <ClCompile Include="include\alvironment\2d\Environment2D.cpp" />
-    <ClCompile Include="include\alvironment\WindowProperties.cpp" />
+    <ClCompile Include="include\alvironment\window\WindowProperties.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Object2D.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Rectangle2D.cpp" />
+    <ClCompile Include="include\alvironment\WorldSetUp.cpp" />
     <ClCompile Include="scr\main.cpp" />
-    <ClCompile Include="include\alvironment\Window.cpp" />
+    <ClCompile Include="include\alvironment\window\Window.cpp" />
     <ClCompile Include="include\alvironment\shaders\Shader.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Triangle2D.cpp" />
     <ClCompile Include="include\math\Vector2D.cpp" />
     <ClCompile Include="include\math\Vector3D.cpp" />
+    <ClCompile Include="scr\world\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\alvironment\Environment.h" />
+    <ClInclude Include="include\alvironment\AbstractWorld.h" />
     <ClInclude Include="include\alvironment\2d\object\Circle2D.h" />
     <ClInclude Include="include\alvironment\GenericObject.h" />
+    <ClInclude Include="include\alvironment\WorldSetUp.h" />
     <ClInclude Include="include\data_types\numbers.h" />
-    <ClInclude Include="include\alvironment\2d\Environment2D.h" />
     <ClInclude Include="include\alvironment\2d\object\Object2D.h" />
     <ClInclude Include="include\alvironment\2d\object\Rectangle2D.h" />
     <ClInclude Include="include\math\constants.h" />
     <ClInclude Include="scr\Classes\Object.h" />
     <ClInclude Include="include\debug_helper\print.h" />
-    <ClInclude Include="include\alvironment\WindowProperties.h" />
-    <ClInclude Include="include\alvironment\Window.h" />
+    <ClInclude Include="include\alvironment\window\WindowProperties.h" />
+    <ClInclude Include="include\alvironment\window\Window.h" />
     <ClInclude Include="include\alvironment\shaders\Shader.h" />
     <ClInclude Include="include\alvironment\2d\object\Triangle2D.h" />
     <ClInclude Include="include\math\Vector2D.h" />
     <ClInclude Include="include\math\Vector3D.h" />
+    <ClInclude Include="scr\world\World.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\alvironment\shaders\common_shaders\Basic.fsha" />
