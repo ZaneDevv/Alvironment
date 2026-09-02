@@ -130,6 +130,16 @@ public:
 	void setScale(Vector2D&);
 
 	/**
+	 * @brief Sets the scale of the object
+	 * @param The new object's scale
+	 * @version 1.0
+	 * @since 3.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setScale(Vector2D);
+
+	/**
 	 * @brief Gets the position of the object
 	 * @return The object's position
 	 * @version 1.0
@@ -148,4 +158,14 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setPosition(Vector2D&);
+
+	/**
+	 * @brief Sets the position of the object
+	 * @param The new object's position
+	 * @version 1.0
+	 * @since 3.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setPosition(Vector2D);
 };

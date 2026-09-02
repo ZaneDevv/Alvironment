@@ -8,10 +8,16 @@
 #include "alvironment/2d/object/Circle2D.h"
 
 
-class World : public AbstractWorld
+class SolarSystem : public AbstractWorld
 {
 private:
-	std::unique_ptr<Object2D> shape;
+	std::unique_ptr<Circle2D> sun;
+	std::unique_ptr<Circle2D> planet;
+	std::unique_ptr<Circle2D> moon;
+
+	float theta = 0;
+	float alpha = 0;
+	float phi = 0;
 
 public:
 

@@ -53,7 +53,9 @@ void Object2D::updateVertices()
         this->verticesToRender[i + 1] = this->scale.getY() * (cosf(this->theta) * this->vertices[i + 1] - sinf(this->theta) * this->vertices[i]) + this->position.getY();
     }
 
+    glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
     glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 void Object2D::rotate(double alpha)
@@ -76,8 +78,14 @@ Vector2D Object2D::getScale()
 {
     return this->scale;
 }
-
+    
 void Object2D::setScale(Vector2D& scale)
+{
+    this->scale = scale;
+    this->updateVertices();
+}
+
+void Object2D::setScale(Vector2D scale)
 {
     this->scale = scale;
     this->updateVertices();
@@ -89,6 +97,12 @@ Vector2D Object2D::getPosition()
 }
 
 void Object2D::setPosition(Vector2D& position)
+{
+    this->position = position;
+    this->updateVertices();
+}
+
+void Object2D::setPosition(Vector2D position)
 {
     this->position = position;
     this->updateVertices();
