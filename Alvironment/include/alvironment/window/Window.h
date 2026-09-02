@@ -10,7 +10,7 @@
 
 /**
  * @brief Class for creating a window easily using OpenGL
- * @version 2.1
+ * @version 2.2
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -26,6 +26,9 @@ private:
 	// ------------------------------------------------------
 
 public:
+
+	u32_t width = 0;
+	u32_t height = 0;
 
 	// ------------------------------------------------------
 	// CONSTRUCTORS
@@ -91,4 +94,15 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void finishRendering();
+
+	/**
+	 * @brief Gets the window's dimensions
+	 * @param Window's width
+	 * @param Window's height
+	 * @version 1.0
+	 * @since 2.1
+	 * @date 2026-09-02
+	 * @author Álvaro Fernández Barrero
+	 */
+	void getDimensions(u32_t&, u32_t&);
 };

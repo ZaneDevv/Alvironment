@@ -21,7 +21,7 @@ void Object2D::setUpBuffers()
 
     glGenBuffers(1, &this->vbo);
     glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
 
     glGenBuffers(1, &this->ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
@@ -51,10 +51,13 @@ void Object2D::updateVertices()
     {
         this->verticesToRender[i] = this->scale.getX() * (cosf(this->theta) * this->vertices[i] + sinf(this->theta) * this->vertices[i + 1]) + this->position.getX();
         this->verticesToRender[i + 1] = this->scale.getY() * (cosf(this->theta) * this->vertices[i + 1] - sinf(this->theta) * this->vertices[i]) + this->position.getY();
+
+        this->verticesToRender[i] /= this->windowWidth * this->windowAspectRatio;
+        this->verticesToRender[i + 1] /= this->windowWidth;
     }
 
     glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 

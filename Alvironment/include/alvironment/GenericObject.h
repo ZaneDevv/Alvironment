@@ -3,9 +3,11 @@
 #include "data_types/numbers.h"
 #include "alvironment/shaders/Shader.h"
 
+class Environment;
+
 /**
  * @brief Class for generic objects
- * @version 1.5
+ * @version 1.6
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -16,6 +18,10 @@ private:
 	static const char* const DEFAULT_FRAGMENT_SHADER;
 
 protected:
+	u32_t windowWidth = 1;
+	u32_t windowHeight = 1;
+	float windowAspectRatio = 1.0f;
+
 	float* verticesToRender;
 	float* vertices;
 	u32_t* indices;
@@ -100,7 +106,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	virtual void setUpBuffers() = 0;
-	
+
 	/**
 	 * @brief Updates the object's vertices according to the transformation evolved
 	 * @version 1.0
@@ -109,4 +115,13 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	virtual void updateVertices() = 0;
+
+	/**
+	 * @brief Updates the window's dimensions
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-02
+	 * @author Álvaro Fernández Barrero
+	 */
+	void updateWindowDimensions(u32_t, u32_t);
 };

@@ -2,6 +2,7 @@
 
 #include "alvironment/AbstractWorld.h"
 #include "alvironment/2d/object/Circle2D.h"
+#include "alvironment/2d/object/Rectangle2D.h"
 
 #include "math/Vector2D.h"
 

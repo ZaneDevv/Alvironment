@@ -12,7 +12,7 @@ using updateMethod = std::function<void(double)>;
 
 /**
  * @brief Abstract class for the environments
- * @version 3.2
+ * @version 3.3
  * @date 2026-09-02
  * @author Álvaro Fernández Barrero
  */
@@ -22,6 +22,9 @@ protected:
 	std::vector<GenericObject*> objectsInEnvironment;
 
 	std::unique_ptr<Window> window;
+
+	u32_t lastWindowWidth;
+	u32_t lastWindowHeight;
 
 	// ------------------------------------------------------
 	// METHODS
@@ -57,6 +60,15 @@ protected:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void renderObjects();
+
+	/**
+	 * @brief Updates the window's scale
+	 * @version 1.0
+	 * @since 2.2
+	 * @date 2026-09-02
+	 * @author Álvaro Fernández Barrero
+	 */
+	void updateProportionsOnWindowSize();
 public:
 
 	// ------------------------------------------------------

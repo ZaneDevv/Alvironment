@@ -3,7 +3,7 @@
 * ~~Window creation~~
 * ~~Basic shaders management~~
 * ~~Program structure~~
-* Update loop
+* ~~Update loop~~
 * Input recognition
 
 * 2D:	
@@ -13,7 +13,6 @@
 	* ~~Basic 2D triangles~~
 	* ~~Basic 2D circle~~
 	* Corner shape
-	* 2D segment
 	* Screen normalization
 	* ~~2D Transformations~~
 	* System for uploading images

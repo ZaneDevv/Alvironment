@@ -54,7 +54,9 @@ void Environment::initialize(updateMethod update)
 
         this->window->prepareWindowForRendering();
 
+        this->updateProportionsOnWindowSize();
         this->renderObjects();
+
         update(deltaTime);
 
         this->window->finishRendering();
@@ -71,7 +73,24 @@ void Environment::renderObjects()
 {
     for (GenericObject* object : this->objectsInEnvironment)
     {
+        object->updateWindowDimensions(this->lastWindowWidth, this->lastWindowHeight);
         object->render();
+    }
+}
+
+void Environment::updateProportionsOnWindowSize()
+{
+    u32_t newWidth = 0;
+    u32_t newHeight = 0;
+
+    this->window->getDimensions(newWidth, newHeight);
+
+    bool wasScreenSizeChanged = this->lastWindowWidth != newWidth || this->lastWindowHeight != newHeight;
+
+    if (wasScreenSizeChanged)
+    {
+        this->lastWindowWidth = newWidth;
+        this->lastWindowHeight = newHeight;
     }
 }
 
@@ -80,5 +99,7 @@ void Environment::addObject(GenericObject* object)
     DEBUG_PRINT("A new object was added to the 2D enviroment!");
 
     object->setUpBuffers();
+    object->updateVertices();
+
     this->objectsInEnvironment.push_back(object);
 }

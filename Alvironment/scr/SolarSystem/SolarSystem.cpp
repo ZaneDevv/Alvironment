@@ -11,19 +11,17 @@
 
 void SolarSystem::initialize()
 {
-	WindowProperties properties(800, 800, "Solar system", false);
+	WindowProperties properties(800, 1200, "Solar system", true);
 	this->environment.emplace(&properties);
 
 	this->planet = std::make_unique<Circle2D>();
-	this->planet->setScale(Vector2D(0.25f, 0.25f));
-	this->planet->setPosition(Vector2D(-0.8f, 0.0f));
+	this->planet->setScale(Vector2D::one * 200);
 
 	this->sun = std::make_unique<Circle2D>();
 	this->sun->setScale(this->planet->getScale() * 2);
 
 	this->moon = std::make_unique<Circle2D>();
 	this->moon->setScale(this->planet->getScale() / 2);
-	this->moon->setPosition(Vector2D(0.8f, 0.0f));
 
 	this->environment->addObject(this->sun.get());
 	this->environment->addObject(this->planet.get());
@@ -40,7 +38,7 @@ void SolarSystem::update(double deltaTime)
 	this->alpha = fmod(this->alpha, TAU);
 	this->phi = fmod(this->phi, TAU);
 
-	this->sun->setPosition(Vector2D(0, sin(phi) * 0.1f));
-	this->planet->setPosition(sun->getPosition() + Vector2D(cos(theta), sin(theta)) * 0.7f);
-	this->moon->setPosition(planet->getPosition() + Vector2D(cos(alpha), sin(alpha)) * 0.2f);
+	this->sun->setPosition(Vector2D(0, sin(phi) * 20));
+	this->planet->setPosition(sun->getPosition() + Vector2D(cos(theta), sin(theta)) * 500);
+	this->moon->setPosition(planet->getPosition() + Vector2D(cos(alpha), sin(alpha)) * 200);
 }
