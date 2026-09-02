@@ -3,11 +3,10 @@
 #include "alvironment/WorldSetUp.h"
 #include "./world/World.h"
 
-
 int main()
 {
-	World world;
-	setUp(world);
+	World myWorld;
+	setUp(myWorld);
 
 	std::cin.get();
 	return 0;

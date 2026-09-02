@@ -2,6 +2,7 @@
 
 * ~~Window creation~~
 * ~~Basic shaders management~~
+* ~~Program structure~~
 * Update loop
 * Input recognition
 

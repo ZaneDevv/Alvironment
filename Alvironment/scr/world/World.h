@@ -2,9 +2,6 @@
 
 #include "alvironment/AbstractWorld.h"
 
-#include "alvironment/window/WindowProperties.h"
-#include "alvironment/Environment.h"
-
 #include "alvironment/2d/object/Object2D.h"
 #include "alvironment/2d/object/Rectangle2D.h"
 #include "alvironment/2d/object/Triangle2D.h"

@@ -1,5 +1,7 @@
 #include "World.h"
 
+#include "alvironment/window/WindowProperties.h"
+
 #include "math/constants.h"
 #include "math/Vector2D.h"
 

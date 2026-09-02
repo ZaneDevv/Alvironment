@@ -8,23 +8,56 @@ It has no graphics environment like other engines such as [Unity](https://unity.
 
 ### Getting started
 
-As any C++ project, a method  `int main()` is absolutly required to initialize anything we are building.
+To start a project in this environment, the first thing we need to create is a class which inherits from the class  `AbstractWorld`, which will offer a protected variable Environment you will need to set and forces the new class to contain the methods `initialize` and  `update`.
 
 ```cpp
-#include "./engine/WindowProperties.h"
-#include "./engine/Environment.h"
+#pragma once
+
+#include "alvironment/AbstractWorld.h"
+
+class World : public AbstractWorld
+{
+public:
+	void initialize() override;
+	void update(double) override;
+};
+ ```
+
+ The method  `initialize` will be automatically fired once the world is created, which means we have to set up its configutations as the windows properties (width, height, title and whether the window is resizeable) with the WindowProperties and set it to the environment like the example below.
+
+ ```cpp
+#include "World.h"
+
+#include "alvironment/window/WindowProperties.h"
+
+void World::initialize()
+{
+	WindowProperties properties(500, 500, "Test", false);
+	this->environment.emplace(&properties);
+}
+
+void World::update(double deltaTime) {}
+```
+
+The  `update` method we will fired once for frame, offering a variable $\Delta t$ that corresponds to the time passed between the last frame and the current one.
+
+Once finished our world, we will go to  `main.cpp`, create an instance of it and issue it to the method `setUp` included in `alvironment/WorldSetUp.h`. Once this is finished, we are free to test our worlds and make our simulations.
+
+```cpp
+#include <iostream>
+
+#include "alvironment/WorldSetUp.h"
+#include "./world/World.h"
 
 int main()
 {
-	WindowProperties properties(500, 500, "Test");
-	Environment environment(&properties);
+	World myWorld;
+	setUp(myWorld);
 
 	std::cin.get();
 	return 0;
 }
 ```
-
-This will create a 500 x 500 dark window on screen under the title "Test".
 
 ---
 
