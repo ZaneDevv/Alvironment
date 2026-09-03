@@ -13,7 +13,7 @@
 	* ~~Basic 2D triangles~~
 	* ~~Basic 2D circle~~
 	* Corner shape
-	* Screen normalization
+	* ~~Screen normalization~~
 	* ~~2D Transformations~~
 	* System for uploading images
 
