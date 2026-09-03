@@ -2,6 +2,8 @@
 
 #include <cmath>
 
+#include "alvironment/Key.h";
+
 // Runs when the world sets up
 
 void LinearInterpolation::initialize()
@@ -32,6 +34,8 @@ void LinearInterpolation::initialize()
 	this->segment = std::make_unique<Rectangle2D>();
 	this->segment->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
 
+	this->updateSegment();
+
 	// Adding all the objects created to the environment so that they can be rendered on screen
 
 	this->environment->addObject(this->segment.get());
@@ -49,24 +53,58 @@ void LinearInterpolation::update(double deltaTime)
 	alpha += deltaTime;
 	alpha = fmod(alpha, 1);
 
-	// Setting the goal position to the cursor's position
+	// Checking if cursor is selecting anything
 
-	double x = 0;
-	double y = 0;
+	if (this->environment->isKeyPressed(Key::Space))
+	{
+		// Getting mouse's position
 
-	this->environment->getMousePosition(x, y);
-	this->goal->setPosition(Vector2D(x, y));
+		double x = 0;
+		double y = 0;
 
-	PRINT("Mouse's position: " << x << ", " << y);
-	PRINT("Goal's position: " << this->goal->getPosition().getX() << ", " << this->goal->getPosition().getY());
+		this->environment->getMousePosition(x, y);
+		PRINT("Mouse's position: " << x << ", " << y);
 
-	// Updating the segment
+		// Checking the distance between cursor and circle
 
-	Vector2D difference = this->goal->getPosition() - this->start->getPosition();
+		double distanceToStartPoint = (Vector2D(x, y) - this->start->getPosition()).getMagnitude();
+		double distanceToGoalPoint = (Vector2D(x, y) - this->goal->getPosition()).getMagnitude();
 
-	this->segment->setPosition((this->start->getPosition() + this->goal->getPosition()) / 2);
-	this->segment->setTheta(atan2(difference.getY(), difference.getX()));
-	this->segment->setScale(Vector2D(difference.getMagnitude(), 10));
+		// Checking if the cursor is over any circle
+
+		bool isOverStartPoint = distanceToStartPoint <= this->start->getScale().getX();
+		bool isOverGoalPoint = distanceToGoalPoint <= this->start->getScale().getY();
+
+		// Getting the selected circle
+
+		if (isOverStartPoint && isOverGoalPoint)
+		{
+			this->selected = distanceToStartPoint < distanceToGoalPoint ? this->start.get() : this->goal.get();
+		}
+		else if (isOverStartPoint)
+		{
+			this->selected = this->start.get();
+		}
+		else if (isOverGoalPoint)
+		{
+			this->selected = this->goal.get();
+		}
+		else
+		{
+			this->selected = nullptr;
+		}
+
+		// Update position of the selected circle if there is one
+
+		if (this->selected != nullptr)
+		{
+			this->selected->setPosition(Vector2D(x, y));
+
+			// Updating the segment
+
+			this->updateSegment();
+		}
+	}
 
 	// Computing the new circle's position and placing it there
 
@@ -74,4 +112,13 @@ void LinearInterpolation::update(double deltaTime)
 		this->start->getPosition().getX() + (this->goal->getPosition().getX() - this->start->getPosition().getX()) * alpha,
 		this->start->getPosition().getY() + (this->goal->getPosition().getY() - this->start->getPosition().getY()) * alpha
 	));
+}
+
+void LinearInterpolation::updateSegment()
+{
+	Vector2D difference = this->goal->getPosition() - this->start->getPosition();
+
+	this->segment->setPosition((this->start->getPosition() + this->goal->getPosition()) / 2);
+	this->segment->setTheta(atan2(difference.getY(), difference.getX()));
+	this->segment->setScale(Vector2D(difference.getMagnitude(), 10));
 }

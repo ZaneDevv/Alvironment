@@ -17,10 +17,24 @@ private:
 
 	std::unique_ptr<Rectangle2D> segment;
 
+	Circle2D* selected = nullptr;
+
 	// Simulation's parameters
 
 	float alpha = 0;
 	float circleRadius = 50;
+
+	// ------------------------------------------------------
+	// METHODS
+	// ------------------------------------------------------
+
+	/**
+	 * @brief Updates the segment to connect the start and the goal circles
+	 * @version 1.0
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void updateSegment();
 
 public:
 

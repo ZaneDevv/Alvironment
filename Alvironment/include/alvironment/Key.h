@@ -46,5 +46,9 @@ enum Key
 	Y = GLFW_KEY_Y,
 	Z = GLFW_KEY_Z,
 
-	Space = GLFW_KEY_SPACE
+	Space = GLFW_KEY_SPACE,
+
+	MouseLeftButton = GLFW_MOUSE_BUTTON_LEFT,
+	MouseRightButton = GLFW_MOUSE_BUTTON_RIGHT,
+	MouseMiddleButton = GLFW_MOUSE_BUTTON_MIDDLE
 };
