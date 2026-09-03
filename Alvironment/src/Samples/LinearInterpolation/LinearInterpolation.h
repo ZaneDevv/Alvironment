@@ -17,6 +17,7 @@ private:
 
 	std::unique_ptr<Rectangle2D> segment;
 
+	Vector2D offset = Vector2D::zero;
 	Circle2D* selected = nullptr;
 
 	// Simulation's parameters

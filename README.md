@@ -1,6 +1,6 @@
 # Alvironment
 
-Alvironment is a custom OpenGL environment done to allow to create rapidly simple testigs and simulations without relying on another engin and removing all the extra tools other softwares offer that are not needed to what is actually required.
+Alvironment is a custom OpenGL environment done to allow to create rapidly simple testings and simulations without relying on another engin and removing all the extra tools other softwares offer that are not needed to what is actually required.
 
 It has no graphics environment like other engines such as [Unity](https://unity.com/) or [Unreal](https://www.unrealengine.com/), everything is made by code, sort of similar to [MonoGame](https://monogame.net/) but using C++.
 

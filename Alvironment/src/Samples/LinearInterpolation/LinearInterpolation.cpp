@@ -63,12 +63,17 @@ void LinearInterpolation::update(double deltaTime)
 		double y = 0;
 
 		this->environment->getMousePosition(x, y);
-		PRINT("Mouse's position: " << x << ", " << y);
+		//PRINT("Mouse's position: " << x << ", " << y);
+
+		Vector2D cursorVector = Vector2D(x, y);
 
 		// Checking the distance between cursor and circle
 
-		double distanceToStartPoint = (Vector2D(x, y) - this->start->getPosition()).getMagnitude();
-		double distanceToGoalPoint = (Vector2D(x, y) - this->goal->getPosition()).getMagnitude();
+		Vector2D startToCursor = cursorVector - this->start->getPosition();
+		Vector2D goalToCursor = cursorVector - this->goal->getPosition();
+
+		double distanceToStartPoint = startToCursor.getMagnitude();
+		double distanceToGoalPoint = goalToCursor.getMagnitude();
 
 		// Checking if the cursor is over any circle
 
@@ -80,30 +85,45 @@ void LinearInterpolation::update(double deltaTime)
 		if (isOverStartPoint && isOverGoalPoint)
 		{
 			this->selected = distanceToStartPoint < distanceToGoalPoint ? this->start.get() : this->goal.get();
+			this->offset = distanceToStartPoint < distanceToGoalPoint ? startToCursor : goalToCursor;
 		}
 		else if (isOverStartPoint)
 		{
-			this->selected = this->start.get();
+			if (this->selected != this->start.get())
+			{
+				this->selected = this->start.get();
+				this->offset = startToCursor;
+			}
 		}
 		else if (isOverGoalPoint)
 		{
-			this->selected = this->goal.get();
+			if (this->selected != this->goal.get())
+			{
+				this->selected = this->goal.get();
+				this->offset = goalToCursor;
+			}
 		}
 		else
 		{
 			this->selected = nullptr;
+			this->offset = Vector2D::zero;
 		}
 
 		// Update position of the selected circle if there is one
 
 		if (this->selected != nullptr)
 		{
-			this->selected->setPosition(Vector2D(x, y));
+			this->selected->setPosition(cursorVector - this->offset);
 
 			// Updating the segment
 
 			this->updateSegment();
 		}
+	}
+	else
+	{
+		this->selected = nullptr;
+		this->offset = Vector2D::zero;
 	}
 
 	// Computing the new circle's position and placing it there

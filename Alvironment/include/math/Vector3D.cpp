@@ -53,6 +53,11 @@ Vector3D Vector3D::operator / (const double& scalar) const
 	return Vector3D(this->x / scalar, this->y / scalar, this->z / scalar);
 }
 
+bool Vector3D::operator == (const Vector3D& v) const
+{
+	return this->x == v.x && this->y == y && this->z == v.z;
+}
+
 // ------------------------------------------------------
 // METHODS
 // ------------------------------------------------------

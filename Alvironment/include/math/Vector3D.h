@@ -2,7 +2,7 @@
 
 /**
  * @brief Class for 3D vectors
- * @version 1.0
+ * @version 1.1
  * @date 2026-09-01
  * @author Álvaro Fernández Barrero
  */
@@ -64,6 +64,7 @@ public:
 	Vector3D operator - (const Vector3D&) const;
 	Vector3D operator * (const double&) const;
 	Vector3D operator / (const double&) const;
+	bool operator == (const Vector3D&) const;
 
 	// ------------------------------------------------------
 	// METHODS

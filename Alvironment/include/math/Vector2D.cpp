@@ -51,6 +51,11 @@ Vector2D Vector2D::operator / (const double& scalar) const
 	return Vector2D(this->x / scalar, this->y / scalar);
 }
 
+bool Vector2D::operator == (const Vector2D& v) const
+{
+	return this->x == v.x && this->y == v.y;
+}
+
 // ------------------------------------------------------
 // METHODS
 // ------------------------------------------------------

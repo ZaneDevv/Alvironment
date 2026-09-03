@@ -2,7 +2,7 @@
 
 /**
  * @brief Class for 2D vectors
- * @version 1.0
+ * @version 1.1
  * @date 2026-09-01
  * @author Álvaro Fernández Barrero
  */
@@ -61,6 +61,7 @@ public:
 	Vector2D operator - (const Vector2D&) const;
 	Vector2D operator * (const double&) const;
 	Vector2D operator / (const double&) const;
+	bool operator == (const Vector2D&) const;
 
 	// ------------------------------------------------------
 	// METHODS
