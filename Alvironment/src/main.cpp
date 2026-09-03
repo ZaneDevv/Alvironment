@@ -3,9 +3,9 @@
 
 #include "alvironment/WorldSetUp.h"
 
-#include "./LinearInterpolation/LinearInterpolation.h"
-#include "./SolarSystem/SolarSystem.h"
-#include "./Dvd/Dvd.h"
+#include "./Samples/LinearInterpolation/LinearInterpolation.h"
+#include "./Samples/SolarSystem/SolarSystem.h"
+#include "./Samples/Dvd/Dvd.h"
 
 #include "debug_helper/print.h"
 

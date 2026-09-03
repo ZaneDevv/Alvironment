@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="scr\main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\alvironment\window\Window.cpp">
@@ -48,7 +48,7 @@
     <ClCompile Include="include\math\Vector3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scr\SolarSystem\SolarSystem.cpp">
+    <ClCompile Include="src\Samples\SolarSystem\SolarSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\alvironment\Environment.cpp">
@@ -60,10 +60,13 @@
     <ClCompile Include="include\alvironment\WorldSetUp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scr\LinearInterpolation\LinearInterpolation.cpp">
+    <ClCompile Include="src\Samples\LinearInterpolation\LinearInterpolation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scr\Dvd\Dvd.cpp">
+    <ClCompile Include="src\Samples\Dvd\Dvd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Project\MyWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,7 +113,7 @@
     <ClInclude Include="include\math\Vector3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="scr\SolarSystem\SolarSystem.h">
+    <ClInclude Include="src\Samples\SolarSystem\SolarSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\alvironment\AbstractWorld.h">
@@ -122,10 +125,13 @@
     <ClInclude Include="include\alvironment\WorldSetUp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="scr\LinearInterpolation\LinearInterpolation.h">
+    <ClInclude Include="src\Samples\LinearInterpolation\LinearInterpolation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="scr\Dvd\Dvd.h">
+    <ClInclude Include="src\Samples\Dvd\Dvd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Project\MyWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

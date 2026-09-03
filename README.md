@@ -59,6 +59,8 @@ int main()
 }
 ```
 
+Additionally, this project also offers a few examples of simulations and a template for a new world in the directory [Project](./Alvironment/src/Project).
+
 ---
 
 ### Inside the engine

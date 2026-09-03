@@ -8,12 +8,18 @@
 class Dvd : public AbstractWorld
 {
 private:
+	// Simulation's parameters
+
 	const float SPEED = 150.0f;
 
 	const int SCREEN_WIDTH = 700;
 	const int SCREEN_HEIGHT = 500;
 
+	// Objects variables
+
 	std::unique_ptr<Circle2D> dvdCircle;
+
+	// Direction to compute on code
 
 	Vector2D direction = Vector2D::i;
 

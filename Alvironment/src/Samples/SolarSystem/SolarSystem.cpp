@@ -9,10 +9,16 @@
 
 #include "debug_helper/print.h"
 
+// Runs when the world sets up
+
 void SolarSystem::initialize()
 {
+	// Creating the environment with the given window's parameters
+
 	WindowProperties properties(800, 1200, "Solar system", true);
 	this->environment.emplace(&properties);
+
+	// Creating the objects to show on screen
 
 	this->planet = std::make_unique<Circle2D>();
 	this->planet->setScale(Vector2D::one * 200);
@@ -26,20 +32,30 @@ void SolarSystem::initialize()
 	this->moon->setScale(this->planet->getScale() / 2);
 	this->moon->setShaderProperty("color4", 0.4f, 0.4f, 0.5f, 1.0f);
 
+	// Adding the created objects to the environment so that they can be rendered on screen
+
 	this->environment->addObject(this->sun.get());
 	this->environment->addObject(this->planet.get());
 	this->environment->addObject(this->moon.get());
 }
 
+// Runs every frame after setting up the world
+
 void SolarSystem::update(double deltaTime)
 {
+	// Increasing the angles
+
 	this->theta += deltaTime;
 	this->alpha += deltaTime * 2;
 	this->phi += deltaTime / 2;
 
+	// Limiting the angles to be within -tau and tau
+
 	this->theta = fmod(this->theta, TAU);
 	this->alpha = fmod(this->alpha, TAU);
 	this->phi = fmod(this->phi, TAU);
+
+	// Computing the sun, planet and moon's positions and placing them
 
 	this->sun->setPosition(Vector2D(0, sin(phi) * 20));
 	this->planet->setPosition(sun->getPosition() + Vector2D(cos(theta), sin(theta)) * 500);

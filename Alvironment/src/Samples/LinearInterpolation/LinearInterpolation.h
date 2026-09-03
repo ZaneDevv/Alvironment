@@ -1,23 +1,26 @@
 #pragma once
 
 #include "alvironment/AbstractWorld.h"
-
-#include "alvironment/2d/object/Object2D.h"
-#include "alvironment/2d/object/Rectangle2D.h"
-#include "alvironment/2d/object/Triangle2D.h"
 #include "alvironment/2d/object/Circle2D.h"
+#include "alvironment/2d/object/Rectangle2D.h"
 
+#include "math/Vector2D.h"
 
-class SolarSystem : public AbstractWorld
+class LinearInterpolation : public AbstractWorld
 {
 private:
-	std::unique_ptr<Circle2D> sun;
-	std::unique_ptr<Circle2D> planet;
-	std::unique_ptr<Circle2D> moon;
+	// Objects variables
 
-	float theta = 0;
+	std::unique_ptr<Circle2D> start;
+	std::unique_ptr<Circle2D> goal;
+	std::unique_ptr<Circle2D> mover;
+
+	std::unique_ptr<Rectangle2D> segment;
+
+	// Simulation's parameters
+
 	float alpha = 0;
-	float phi = 0;
+	float circleRadius = 50;
 
 public:
 
@@ -36,7 +39,7 @@ public:
 
 	/**
 	 * @brief Updates the world. This method will be fired every frame
-	 * @param Time difference (delta time) between the last frame and the currect one 
+	 * @param Time difference (delta time) between the last frame and the currect one
 	 * @version 1.0
 	 * @since 1.0
 	 * @date 2026-09-01

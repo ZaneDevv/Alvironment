@@ -138,7 +138,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="scr\Dvd\Dvd.cpp" />
+    <ClCompile Include="src\Project\MyWorld.cpp" />
+    <ClCompile Include="src\Samples\Dvd\Dvd.cpp" />
     <ClCompile Include="include\alvironment\AbstractWorld.cpp" />
     <ClCompile Include="include\alvironment\Environment.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Circle2D.cpp" />
@@ -147,17 +148,18 @@
     <ClCompile Include="include\alvironment\2d\object\Object2D.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Rectangle2D.cpp" />
     <ClCompile Include="include\alvironment\WorldSetUp.cpp" />
-    <ClCompile Include="scr\LinearInterpolation\LinearInterpolation.cpp" />
-    <ClCompile Include="scr\main.cpp" />
+    <ClCompile Include="src\Samples\LinearInterpolation\LinearInterpolation.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="include\alvironment\window\Window.cpp" />
     <ClCompile Include="include\alvironment\shaders\Shader.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Triangle2D.cpp" />
     <ClCompile Include="include\math\Vector2D.cpp" />
     <ClCompile Include="include\math\Vector3D.cpp" />
-    <ClCompile Include="scr\SolarSystem\SolarSystem.cpp" />
+    <ClCompile Include="src\Samples\SolarSystem\SolarSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="scr\Dvd\Dvd.h" />
+    <ClInclude Include="src\Project\MyWorld.h" />
+    <ClInclude Include="src\Samples\Dvd\Dvd.h" />
     <ClInclude Include="include\alvironment\Environment.h" />
     <ClInclude Include="include\alvironment\AbstractWorld.h" />
     <ClInclude Include="include\alvironment\2d\object\Circle2D.h" />
@@ -167,7 +169,7 @@
     <ClInclude Include="include\alvironment\2d\object\Object2D.h" />
     <ClInclude Include="include\alvironment\2d\object\Rectangle2D.h" />
     <ClInclude Include="include\math\constants.h" />
-    <ClInclude Include="scr\LinearInterpolation\LinearInterpolation.h" />
+    <ClInclude Include="src\Samples\LinearInterpolation\LinearInterpolation.h" />
     <ClInclude Include="scr\Classes\Object.h" />
     <ClInclude Include="include\debug_helper\print.h" />
     <ClInclude Include="include\alvironment\window\WindowProperties.h" />
@@ -176,7 +178,7 @@
     <ClInclude Include="include\alvironment\2d\object\Triangle2D.h" />
     <ClInclude Include="include\math\Vector2D.h" />
     <ClInclude Include="include\math\Vector3D.h" />
-    <ClInclude Include="scr\SolarSystem\SolarSystem.h" />
+    <ClInclude Include="src\Samples\SolarSystem\SolarSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\alvironment\shaders\common_shaders\Basic.fsha" />
