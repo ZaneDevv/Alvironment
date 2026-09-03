@@ -34,14 +34,8 @@ void Object2D::setUpBuffers()
 
 void Object2D::render()
 {
-    u32_t shaderId = this->shader->getShaderId();
-	glUseProgram(shaderId);
-
-    int location = glGetUniformLocation(shaderId, "color4");
-    glUniform4f(location, 0.85f, 0.2f, 0.2f, 1.0f);
-
+	glUseProgram(this->shader->getShaderId());
     glBindVertexArray(this->vao);
-
 	glDrawElements(GL_TRIANGLES, this->indicesAmount, GL_UNSIGNED_INT, nullptr);
 }
 

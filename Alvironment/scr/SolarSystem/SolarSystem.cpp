@@ -16,12 +16,15 @@ void SolarSystem::initialize()
 
 	this->planet = std::make_unique<Circle2D>();
 	this->planet->setScale(Vector2D::one * 200);
+	this->planet->setShaderProperty("color4", 0.3f, 0.3f, 0.7f, 1.0f);
 
 	this->sun = std::make_unique<Circle2D>();
 	this->sun->setScale(this->planet->getScale() * 2);
+	this->sun->setShaderProperty("color4", 0.8f, 0.8f, 0.1f, 1.0f);
 
 	this->moon = std::make_unique<Circle2D>();
 	this->moon->setScale(this->planet->getScale() / 2);
+	this->moon->setShaderProperty("color4", 0.4f, 0.4f, 0.5f, 1.0f);
 
 	this->environment->addObject(this->sun.get());
 	this->environment->addObject(this->planet.get());

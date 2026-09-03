@@ -7,7 +7,7 @@ class Environment;
 
 /**
  * @brief Class for generic objects
- * @version 1.6
+ * @version 2.0
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -124,4 +124,325 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void updateWindowDimensions(u32_t, u32_t);
+
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Value to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, int);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, int, int);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, int, int, int);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, int, int, int, int);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Value to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u8_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u8_t, u8_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u8_t, u8_t, u8_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u8_t, u8_t, u8_t, u8_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Value to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u16_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u16_t, u16_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u16_t, u16_t, u16_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u16_t, u16_t, u16_t, u16_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Value to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u32_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u32_t, u32_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u32_t, u32_t, u32_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u32_t, u32_t, u32_t, u32_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Value to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u64_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u64_t, u64_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u64_t, u64_t, u64_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, u64_t, u64_t, u64_t, u64_t);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Value to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, float);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, float, float);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, float, float, float);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, float, float, float, float);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Value to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, double);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, double, double);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, double, double, double);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, double, double, double, double);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Value to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, bool);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, bool, bool);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, bool, bool, bool);
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Values to set
+	 * @version 1.0
+	 * @since 1.5
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, bool, bool, bool, bool);
 };

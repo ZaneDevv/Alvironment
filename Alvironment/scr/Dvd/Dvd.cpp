@@ -13,6 +13,7 @@ void Dvd::initialize()
 
 	this->dvdCircle = std::make_unique<Circle2D>();
 	this->dvdCircle->setScale(Vector2D(80, 150));
+	this->dvdCircle->setShaderProperty("color4", 0.0f, 0.0f, 0.5f, 1.0f);
 
 	float theta = rand();
 	this->direction = Vector2D(cosf(theta), sinf(theta));
