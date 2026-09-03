@@ -95,5 +95,6 @@ void getSimulationByIndex(std::unique_ptr<AbstractWorld>& world, short simulatio
 			WARNING_PRINT("Unknown simulation!");
 			break;
 		}
-	} while (world.get() == nullptr);
+	}
+	while (world.get() == nullptr);
 }
