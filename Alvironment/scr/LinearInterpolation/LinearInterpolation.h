@@ -13,7 +13,10 @@ private:
 	std::unique_ptr<Circle2D> goal;
 	std::unique_ptr<Circle2D> mover;
 
+	std::unique_ptr<Rectangle2D> segment;
+
 	float alpha = 0;
+	float circleRadius = 50;
 
 public:
 

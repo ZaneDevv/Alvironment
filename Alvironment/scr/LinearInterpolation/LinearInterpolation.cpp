@@ -4,25 +4,30 @@
 
 void LinearInterpolation::initialize()
 {
-	WindowProperties properties(400, 400, "Linear interpolator", true);
+	WindowProperties properties(500, 500, "Linear interpolator", true);
 	this->environment.emplace(&properties);
 
 	this->start = std::make_unique<Circle2D>();
-	this->start->setScale(Vector2D::one * 20);
+	this->start->setScale(Vector2D::one * this->circleRadius);
 	this->start->setPosition(Vector2D(-350, -350));
 
 	this->goal = std::make_unique<Circle2D>();
-	this->goal->setScale(Vector2D::one * 20);
+	this->goal->setScale(Vector2D::one * this->circleRadius);
 	this->goal->setPosition(Vector2D(350, 350));
 
 	this->mover = std::make_unique<Circle2D>();
-	this->mover->setScale(Vector2D::one * 30);
+	this->mover->setScale(Vector2D::one * this->circleRadius);
 
 	Vector2D difference = this->goal->getPosition() - this->start->getPosition();
+
+	this->segment = std::make_unique<Rectangle2D>();
+	this->segment->setTheta(-atan2(difference.getY(), difference.getX()));
+	this->segment->setScale(Vector2D(difference.getMagnitude(), 10));
 
 	this->environment->addObject(this->start.get());
 	this->environment->addObject(this->goal.get());
 	this->environment->addObject(this->mover.get());
+	this->environment->addObject(this->segment.get());
 }
 
 void LinearInterpolation::update(double deltaTime)

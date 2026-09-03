@@ -49,8 +49,11 @@ void Object2D::updateVertices()
 {
     for (int i = 0; i < this->verticesAmount; i += 2)
     {
-        this->verticesToRender[i] = this->scale.getX() * (cosf(this->theta) * this->vertices[i] + sinf(this->theta) * this->vertices[i + 1]) + this->position.getX();
-        this->verticesToRender[i + 1] = this->scale.getY() * (cosf(this->theta) * this->vertices[i + 1] - sinf(this->theta) * this->vertices[i]) + this->position.getY();
+        float x = this->vertices[i] * this->scale.getX();
+        float y = this->vertices[i + 1] * this->scale.getY();
+
+        this->verticesToRender[i] = this->cosTheta * x + this->sinTheta * y + this->position.getX();
+        this->verticesToRender[i + 1] = this->cosTheta * y - this->sinTheta * x + this->position.getY();
 
         this->verticesToRender[i] /= this->windowWidth * this->windowAspectRatio;
         this->verticesToRender[i + 1] /= this->windowWidth;
@@ -74,6 +77,10 @@ double Object2D::getTheta()
 void Object2D::setTheta(double alpha)
 {
     this->theta = std::fmod(alpha, TAU);
+
+    this->cosTheta = cosf(theta);
+    this->sinTheta = sinf(theta);
+
     this->updateVertices();
 }
 

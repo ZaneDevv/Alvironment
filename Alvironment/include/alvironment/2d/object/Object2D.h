@@ -5,7 +5,7 @@
 
 /**
  * @brief Class for creating 2D objects
- * @version 3.0
+ * @version 4.2
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -13,6 +13,12 @@ class Object2D : public GenericObject
 {
 private:
 	double theta = 0;
+
+	float cosTheta = 0;
+	float sinTheta = 1;
+
+	float scaleX = 0;
+	float scaleY = 0;
 
 	Vector2D scale = Vector2D::one;
 	Vector2D position = Vector2D::zero;
@@ -72,7 +78,7 @@ public:
 
 	/**
 	 * @brief Updates the object's vertices according to the transformation evolved
-	 * @version 1.0
+	 * @version 2.6
 	 * @since 1.4
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
