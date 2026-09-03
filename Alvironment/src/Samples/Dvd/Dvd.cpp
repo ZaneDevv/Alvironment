@@ -18,7 +18,7 @@ void Dvd::initialize()
 	// Creating the shape to show moving
 
 	this->dvdCircle = std::make_unique<Circle2D>();
-	this->dvdCircle->setScale(Vector2D(80, 150));
+	this->dvdCircle->setScale(Vector2D(40, 75));
 	this->dvdCircle->setShaderProperty("color4", 0.0f, 0.0f, 0.5f, 1.0f);
 
 	// Computing the first direction to follow
@@ -43,10 +43,10 @@ void Dvd::update(double deltaTime)
 
 	Vector2D newPosition = this->dvdCircle->getPosition();
 
-	bool isOnTheLeft = newPosition.getX() - this->dvdCircle->getScale().getX() / 2.0f <= -this->SCREEN_WIDTH;
-	bool isOnTheRight = newPosition.getX() + this->dvdCircle->getScale().getX() / 2.0f >= this->SCREEN_WIDTH;
-	bool isOnTheBottom = newPosition.getY() - this->dvdCircle->getScale().getY() / 2.0f <= -this->SCREEN_HEIGHT;
-	bool isOnTheTop = newPosition.getY() + this->dvdCircle->getScale().getY() / 2.0f >= this->SCREEN_HEIGHT;
+	bool isOnTheLeft = newPosition.getX() - this->dvdCircle->getScale().getX() / 2.0f <= -this->SCREEN_WIDTH / 2.0f;
+	bool isOnTheRight = newPosition.getX() + this->dvdCircle->getScale().getX() / 2.0f >= this->SCREEN_WIDTH / 2.0f;
+	bool isOnTheBottom = newPosition.getY() - this->dvdCircle->getScale().getY() / 2.0f <= -this->SCREEN_HEIGHT / 2.0f;
+	bool isOnTheTop = newPosition.getY() + this->dvdCircle->getScale().getY() / 2.0f >= this->SCREEN_HEIGHT / 2.0f;
 
 	if (isOnTheLeft || isOnTheRight)
 	{

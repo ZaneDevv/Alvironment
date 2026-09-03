@@ -18,8 +18,8 @@ private:
 	static const char* const DEFAULT_FRAGMENT_SHADER;
 
 protected:
-	u32_t windowWidth = 1;
-	u32_t windowHeight = 1;
+	u32_t halfWindowWidth = 1;
+	u32_t halfWindowHeight = 1;
 	float windowAspectRatio = 1.0f;
 
 	float* verticesToRender;
@@ -135,6 +135,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, int);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -145,6 +146,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, int, int);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -155,6 +157,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, int, int, int);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -165,6 +168,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, int, int, int, int);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -175,6 +179,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u8_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -185,6 +190,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u8_t, u8_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -195,6 +201,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u8_t, u8_t, u8_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -205,6 +212,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u8_t, u8_t, u8_t, u8_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -215,6 +223,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u16_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -225,6 +234,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u16_t, u16_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -235,6 +245,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u16_t, u16_t, u16_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -245,6 +256,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u16_t, u16_t, u16_t, u16_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -255,6 +267,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u32_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -265,6 +278,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u32_t, u32_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -275,6 +289,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u32_t, u32_t, u32_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -285,6 +300,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u32_t, u32_t, u32_t, u32_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -295,6 +311,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u64_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -305,6 +322,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u64_t, u64_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -315,6 +333,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u64_t, u64_t, u64_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -325,6 +344,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, u64_t, u64_t, u64_t, u64_t);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -335,6 +355,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, float);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -345,6 +366,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, float, float);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -355,6 +377,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, float, float, float);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -365,6 +388,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, float, float, float, float);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -375,6 +399,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, double);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -385,6 +410,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, double, double);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -395,6 +421,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, double, double, double);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -405,6 +432,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, double, double, double, double);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -415,6 +443,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, bool);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -425,6 +454,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, bool, bool);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name
@@ -435,6 +465,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setShaderProperty(const char*, bool, bool, bool);
+
 	/**
 	 * @brief Sets a shader's property
 	 * @param The shader property's name

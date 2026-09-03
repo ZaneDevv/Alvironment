@@ -15,12 +15,12 @@ void LinearInterpolation::initialize()
 
 	this->start = std::make_unique<Circle2D>();
 	this->start->setScale(Vector2D::one * this->circleRadius);
-	this->start->setPosition(Vector2D(-350, -350));
+	this->start->setPosition(Vector2D(-150, -150));
 	this->start->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
 
 	this->goal = std::make_unique<Circle2D>();
 	this->goal->setScale(Vector2D::one * this->circleRadius);
-	this->goal->setPosition(Vector2D(350, 350));
+	this->goal->setPosition(Vector2D(150, 150));
 	this->goal->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
 
 	this->mover = std::make_unique<Circle2D>();
@@ -29,11 +29,7 @@ void LinearInterpolation::initialize()
 
 	// Creating a segment that joins the start and goal cricles
 
-	Vector2D difference = this->goal->getPosition() - this->start->getPosition();
-
 	this->segment = std::make_unique<Rectangle2D>();
-	this->segment->setTheta(atan2(difference.getY(), difference.getX()));
-	this->segment->setScale(Vector2D(difference.getMagnitude(), 10));
 	this->segment->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
 
 	// Adding all the objects created to the environment so that they can be rendered on screen
@@ -52,6 +48,25 @@ void LinearInterpolation::update(double deltaTime)
 
 	alpha += deltaTime;
 	alpha = fmod(alpha, 1);
+
+	// Setting the goal position to the cursor's position
+
+	double x = 0;
+	double y = 0;
+
+	this->environment->getMousePosition(x, y);
+	this->goal->setPosition(Vector2D(x, y));
+
+	PRINT("Mouse's position: " << x << ", " << y);
+	PRINT("Goal's position: " << this->goal->getPosition().getX() << ", " << this->goal->getPosition().getY());
+
+	// Updating the segment
+
+	Vector2D difference = this->goal->getPosition() - this->start->getPosition();
+
+	this->segment->setPosition((this->start->getPosition() + this->goal->getPosition()) / 2);
+	this->segment->setTheta(atan2(difference.getY(), difference.getX()));
+	this->segment->setScale(Vector2D(difference.getMagnitude(), 10));
 
 	// Computing the new circle's position and placing it there
 

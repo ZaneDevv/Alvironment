@@ -21,7 +21,7 @@ void SolarSystem::initialize()
 	// Creating the objects to show on screen
 
 	this->planet = std::make_unique<Circle2D>();
-	this->planet->setScale(Vector2D::one * 200);
+	this->planet->setScale(Vector2D::one * 115);
 	this->planet->setShaderProperty("color4", 0.3f, 0.3f, 0.7f, 1.0f);
 
 	this->sun = std::make_unique<Circle2D>();
@@ -58,6 +58,6 @@ void SolarSystem::update(double deltaTime)
 	// Computing the sun, planet and moon's positions and placing them
 
 	this->sun->setPosition(Vector2D(0, sin(phi) * 20));
-	this->planet->setPosition(sun->getPosition() + Vector2D(cos(theta), sin(theta)) * 500);
-	this->moon->setPosition(planet->getPosition() + Vector2D(cos(alpha), sin(alpha)) * 200);
+	this->planet->setPosition(sun->getPosition() + Vector2D(cos(theta), sin(theta)) * 300);
+	this->moon->setPosition(planet->getPosition() + Vector2D(cos(alpha), sin(alpha)) * 150);
 }

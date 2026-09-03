@@ -158,6 +158,7 @@
     <ClCompile Include="src\Samples\SolarSystem\SolarSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\alvironment\Key.h" />
     <ClInclude Include="src\Project\MyWorld.h" />
     <ClInclude Include="src\Samples\Dvd\Dvd.h" />
     <ClInclude Include="include\alvironment\Environment.h" />

@@ -43,8 +43,8 @@ GenericObject::~GenericObject()
 
 void GenericObject::updateWindowDimensions(u32_t width, u32_t height)
 {
-	this->windowWidth = width;
-	this->windowHeight = height;
+	this->halfWindowWidth = width / 2.0f;
+	this->halfWindowHeight = height / 2.0f;
 
 	this->windowAspectRatio = static_cast<float>(width) / static_cast<float>(height);
 

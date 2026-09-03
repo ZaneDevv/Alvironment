@@ -5,7 +5,7 @@
 * ~~Shader modification per object~~
 * ~~Program structure~~
 * ~~Update loop~~
-* Input recognition
+* ~~Input recognition~~
 
 * 2D:	
 	* ~~General environment~~

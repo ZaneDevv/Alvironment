@@ -4,6 +4,7 @@
 #include <functional>
 
 #include "./GenericObject.h"
+#include "./Key.h"
 
 #include "./window/Window.h"
 #include "./window/WindowProperties.h"
@@ -12,7 +13,7 @@ using updateMethod = std::function<void(double)>;
 
 /**
  * @brief Abstract class for the environments
- * @version 3.3
+ * @version 3.4
  * @date 2026-09-02
  * @author Álvaro Fernández Barrero
  */
@@ -108,4 +109,26 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void addObject(GenericObject*);
+
+	/**
+	 * @brief Checks if the given key is being pressed
+	 * @param Key to check
+	 * @return True if the key is being pressed, false otherwise
+	 * @version 1.0
+	 * @since 3.3
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	bool isKeyPressed(Key);
+
+	/**
+	 * @brief Gets the mouse's position relative to the screen
+	 * @param Mouse's position's x axis
+	 * @param Mouse's position's y 
+	 * @version 1.0
+	 * @since 3.3
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void getMousePosition(double&, double&);
 };

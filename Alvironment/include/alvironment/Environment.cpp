@@ -103,3 +103,18 @@ void Environment::addObject(GenericObject* object)
 
     this->objectsInEnvironment.push_back(object);
 }
+
+bool Environment::isKeyPressed(Key key)
+{
+    return this->window->isKeyPressed(key);
+}
+
+void Environment::getMousePosition(double& x, double& y)
+{
+    this->window->getMousePosition(x, y);
+
+    x -= this->lastWindowWidth / 2;
+    y -= this->lastWindowHeight / 2;
+
+    y *= -1;
+}

@@ -134,6 +134,9 @@
     <ClInclude Include="src\Project\MyWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\alvironment\Key.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\alvironment\shaders\common_shaders\Basic.vsha" />

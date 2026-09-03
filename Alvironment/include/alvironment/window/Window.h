@@ -2,15 +2,16 @@
 
 #include <vector>
 
+#include <GL/glew.h>
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
-#include <GL/glew.h>
 
 #include "data_types/numbers.h"
+#include "../Key.h"
 
 /**
  * @brief Class for creating a window easily using OpenGL
- * @version 2.2
+ * @version 2.3
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -105,4 +106,26 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void getDimensions(u32_t&, u32_t&);
+
+	/**
+	 * @brief Checks if the given key is being pressed
+	 * @param Key to check
+	 * @return True if the key is being pressed, false otherwise
+	 * @version 1.0
+	 * @since 2.2
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	bool isKeyPressed(Key);
+
+	/**
+	 * @brief Gets the mouse's position relative to the screen
+	 * @param Mouse's position's x axis
+	 * @param Mouse's position's y
+	 * @version 1.0
+	 * @since 3.3
+	 * @date 2026-09-03
+	 * @author Álvaro Fernández Barrero
+	 */
+	void getMousePosition(double&, double&);
 };

@@ -49,13 +49,18 @@ void getSimulationByIndex(std::unique_ptr<AbstractWorld>&, short);
 
 int main()
 {
+	std::cout << RESET_COLOR;
+
 	short simulationIndex = 0;
 	getSimulationIndex(simulationIndex);
 
 	std::unique_ptr<AbstractWorld> worldToRun;
 	getSimulationByIndex(worldToRun, simulationIndex);
 
-	setUp(*worldToRun.get());
+	if (worldToRun.get() != nullptr)
+	{
+		setUp(*worldToRun.get());
+	}
 
 	std::cin.get();
 	return 0;
@@ -63,38 +68,41 @@ int main()
 
 void getSimulationIndex(short& index)
 {
-	PRINT("Choose the simulation you want to run:");
+	PRINT(BACKGROUND_RED << "[Alvironment]:" << RESET_COLOR  << " Choose the simulation you want to run:");
+
 	PRINT("\t1. Linear interpolation");
 	PRINT("\t2. 2D solar system");
 	PRINT("\t3. DVD");
 
-	std::cout << "\nSend the number of the simulation you want to run:\n";
-	std::cin >> index;
+	do
+	{
+		std::cout << "\nSend the number of the simulation you want to run:\n" << YELLOW;
+		std::cin >> index;
+		std::cout << RESET_COLOR;
+	}
+	while (index < 1 || index > 3);
+
 	std::cout << "\n";
 }
 
 void getSimulationByIndex(std::unique_ptr<AbstractWorld>& world, short simulationIndex)
 {
-	do
+	switch (simulationIndex)
 	{
-		switch (simulationIndex)
-		{
-		case 1:
-			world = std::make_unique<LinearInterpolation>();
-			break;
+	case 1:
+		world = std::make_unique<LinearInterpolation>();
+		break;
 
-		case 2:
-			world = std::make_unique<SolarSystem>();
-			break;
+	case 2:
+		world = std::make_unique<SolarSystem>();
+		break;
 
-		case 3:
-			world = std::make_unique<Dvd>();
-			break;
+	case 3:
+		world = std::make_unique<Dvd>();
+		break;
 
-		default:
-			WARNING_PRINT("Unknown simulation!");
-			break;
-		}
+	default:
+		WARNING_PRINT("Unknown simulation!");
+		break;
 	}
-	while (world.get() == nullptr);
 }
