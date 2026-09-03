@@ -63,6 +63,9 @@
     <ClCompile Include="scr\LinearInterpolation\LinearInterpolation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scr\Dvd\Dvd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scr\Classes\Object.h">
@@ -120,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="scr\LinearInterpolation\LinearInterpolation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\Dvd\Dvd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

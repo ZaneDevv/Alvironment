@@ -82,6 +82,8 @@ void Object2D::setTheta(double alpha)
     this->sinTheta = sinf(theta);
 
     this->updateVertices();
+
+    DEBUG_PRINT("Theta changed to " << this->theta);
 }
 
 Vector2D Object2D::getScale()
@@ -93,12 +95,16 @@ void Object2D::setScale(Vector2D& scale)
 {
     this->scale = scale;
     this->updateVertices();
+
+    DEBUG_PRINT("Scale changed to (" << scale.getX() << ", " << scale.getY() << ")");
 }
 
 void Object2D::setScale(Vector2D scale)
 {
     this->scale = scale;
     this->updateVertices();
+
+    DEBUG_PRINT("Scale changed to (" << scale.getX() << ", " << scale.getY() << ")");
 }
 
 Vector2D Object2D::getPosition()
@@ -110,10 +116,14 @@ void Object2D::setPosition(Vector2D& position)
 {
     this->position = position;
     this->updateVertices();
+
+    DEBUG_PRINT("Position changed to (" << position.getX() << ", " << position.getY() << ")");
 }
 
 void Object2D::setPosition(Vector2D position)
 {
     this->position = position;
     this->updateVertices();
+
+    DEBUG_PRINT("Position changed to (" << position.getX() << ", " << position.getY() << ")");
 }

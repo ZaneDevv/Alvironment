@@ -2,8 +2,10 @@
 #include <memory>
 
 #include "alvironment/WorldSetUp.h"
+
 #include "./LinearInterpolation/LinearInterpolation.h"
 #include "./SolarSystem/SolarSystem.h"
+#include "./Dvd/Dvd.h"
 
 #include "debug_helper/print.h"
 
@@ -21,6 +23,7 @@ int main()
 	PRINT("Choose the simulation you want to run:");
 	PRINT("\t1. Linear interpolation");
 	PRINT("\t2. 2D solar system");
+	PRINT("\t3. DVD");
 
 	std::cout << "\nSend the number of the simulation you want to run:\n";
 	std::cin >> simulationIndex;
@@ -38,6 +41,10 @@ int main()
 
 		case 2:
 			worldToRun = std::make_unique<SolarSystem>();
+			break;
+
+		case 3:
+			worldToRun = std::make_unique<Dvd>();
 			break;
 
 		default:
