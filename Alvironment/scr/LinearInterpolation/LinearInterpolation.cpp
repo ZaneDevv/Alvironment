@@ -21,7 +21,7 @@ void LinearInterpolation::initialize()
 	Vector2D difference = this->goal->getPosition() - this->start->getPosition();
 
 	this->segment = std::make_unique<Rectangle2D>();
-	this->segment->setTheta(-atan2(difference.getY(), difference.getX()));
+	this->segment->setTheta(atan2(difference.getY(), difference.getX()));
 	this->segment->setScale(Vector2D(difference.getMagnitude(), 10));
 
 	this->environment->addObject(this->start.get());

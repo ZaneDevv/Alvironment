@@ -52,8 +52,8 @@ void Object2D::updateVertices()
         float x = this->vertices[i] * this->scale.getX();
         float y = this->vertices[i + 1] * this->scale.getY();
 
-        this->verticesToRender[i] = this->cosTheta * x + this->sinTheta * y + this->position.getX();
-        this->verticesToRender[i + 1] = this->cosTheta * y - this->sinTheta * x + this->position.getY();
+        this->verticesToRender[i] = this->cosTheta * x - this->sinTheta * y + this->position.getX();
+        this->verticesToRender[i + 1] = this->sinTheta * x + this->cosTheta * y + this->position.getY();
 
         this->verticesToRender[i] /= this->windowWidth * this->windowAspectRatio;
         this->verticesToRender[i + 1] /= this->windowWidth;
