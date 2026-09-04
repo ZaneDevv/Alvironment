@@ -13,26 +13,31 @@ void LinearInterpolation::initialize()
 	WindowProperties properties(500, 500, "Linear interpolator", true);
 	this->environment.emplace(&properties);
 
+	// Defining colors
+
+	Color4 white(0.9f);
+	Color4 red(0.9f, 0.2f, 0.1f);
+
 	// Creating the basic objects
 
 	this->start = std::make_unique<Circle2D>();
 	this->start->setScale(Vector2D::one * this->circleRadius);
 	this->start->setPosition(Vector2D(-150, -150));
-	this->start->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
+	this->start->setShaderProperty("color4", white);
 
 	this->goal = std::make_unique<Circle2D>();
 	this->goal->setScale(Vector2D::one * this->circleRadius);
 	this->goal->setPosition(Vector2D(150, 150));
-	this->goal->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
+	this->goal->setShaderProperty("color4", white);
 
 	this->mover = std::make_unique<Circle2D>();
 	this->mover->setScale(Vector2D::one * this->circleRadius);
-	this->mover->setShaderProperty("color4", 0.9f, 0.2f, 0.1f, 1.0f);
+	this->mover->setShaderProperty("color4", red);
 
 	// Creating a segment that joins the start and goal cricles
 
 	this->segment = std::make_unique<Rectangle2D>();
-	this->segment->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
+	this->segment->setShaderProperty("color4", white);
 
 	this->updateSegment();
 

@@ -72,6 +72,9 @@
     <ClCompile Include="src\Samples\Arkanoid\Arkanoid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\graphics\Color4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scr\Classes\Object.h">
@@ -141,6 +144,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Samples\Arkanoid\Arkanoid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\graphics\Color4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

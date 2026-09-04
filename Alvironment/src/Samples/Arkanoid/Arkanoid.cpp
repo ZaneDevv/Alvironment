@@ -14,18 +14,23 @@ void Arkanoid::initialize()
 	WindowProperties properties(1000, 600, "Arkanoid", false);
 	this->environment.emplace(&properties);
 
+	// Defining colors
+
+	Color4 white(0xD0D0D0FF);
+	Color4 enemyColor(0xE02525FF);
+
 	// Creating the player's box
 
 	this->player = std::make_unique<Rectangle2D>();
 	this->player->setScale(Vector2D(5, 100));
 	this->player->setPosition(Vector2D(0, this->PLAYER_Y_COORDINATE));
-	this->player->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
+	this->player->setShaderProperty("color4", white);
 
 	// Creating the ball
 
 	this->ball = std::make_unique<Circle2D>();
 	this->ball->setScale(Vector2D::one * 10);
-	this->ball->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
+	this->ball->setShaderProperty("color4", white);
 
 	// Creating enemies
 
@@ -36,7 +41,7 @@ void Arkanoid::initialize()
 			std::unique_ptr<Rectangle2D> enemy = std::make_unique<Rectangle2D>();
 			enemy->setPosition(Vector2D(i + 50, j));
 			enemy->setScale(Vector2D(15, 150));
-			enemy->setShaderProperty("color4", 0.8f, 0.1f, 0.1f, 1.0f);
+			enemy->setShaderProperty("color4", enemyColor);
 
 			this->enemies.push_back(std::move(enemy));
 		}

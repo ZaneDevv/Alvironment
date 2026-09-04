@@ -17,9 +17,11 @@ void Dvd::initialize()
 
 	// Creating the shape to show moving
 
+	Color4 blue(0.0f, 0.0f, 0.5f);
+
 	this->dvdCircle = std::make_unique<Circle2D>();
 	this->dvdCircle->setScale(Vector2D(40, 75));
-	this->dvdCircle->setShaderProperty("color4", 0.0f, 0.0f, 0.5f, 1.0f);
+	this->dvdCircle->setShaderProperty("color4", blue);
 
 	// Computing the first direction to follow
 

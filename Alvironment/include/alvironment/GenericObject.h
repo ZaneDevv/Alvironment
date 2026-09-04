@@ -1,13 +1,14 @@
 #pragma once
 
 #include "data_types/numbers.h"
+#include "graphics/Color4.h"
 #include "alvironment/shaders/Shader.h"
 
 class Environment;
 
 /**
  * @brief Class for generic objects
- * @version 2.0
+ * @version 2.1
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -124,6 +125,17 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void updateWindowDimensions(u32_t, u32_t);
+
+	/**
+	 * @brief Sets a shader's property
+	 * @param The shader property's name
+	 * @param Color to set
+	 * @version 1.0
+	 * @since 2.0
+	 * @date 2026-09-04
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setShaderProperty(const char*, Color4&);
 
 	/**
 	 * @brief Sets a shader's property
