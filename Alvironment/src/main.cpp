@@ -6,6 +6,7 @@
 #include "./Samples/LinearInterpolation/LinearInterpolation.h"
 #include "./Samples/SolarSystem/SolarSystem.h"
 #include "./Samples/Dvd/Dvd.h"
+#include "./Samples/Arkanoid/Arkanoid.h"
 
 #include "debug_helper/print.h"
 
@@ -73,6 +74,7 @@ void getSimulationIndex(short& index)
 	PRINT("\t1. Linear interpolation");
 	PRINT("\t2. 2D solar system");
 	PRINT("\t3. DVD");
+	PRINT("\t4. Arkanoid");
 
 	do
 	{
@@ -80,7 +82,7 @@ void getSimulationIndex(short& index)
 		std::cin >> index;
 		std::cout << RESET_COLOR;
 	}
-	while (index < 1 || index > 3);
+	while (index < 1 || index > 4);
 
 	std::cout << "\n";
 }
@@ -99,6 +101,10 @@ void getSimulationByIndex(std::unique_ptr<AbstractWorld>& world, short simulatio
 
 	case 3:
 		world = std::make_unique<Dvd>();
+		break;
+
+	case 4:
+		world = std::make_unique<Arkanoid>();
 		break;
 
 	default:

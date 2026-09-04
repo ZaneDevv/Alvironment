@@ -6,9 +6,9 @@
 * ~~Program structure~~
 * ~~Update loop~~
 * ~~Input recognition~~
+* ~~General environment~~
 
 * 2D:	
-	* ~~General environment~~
 	* ~~General 2D shape by vertices and indices~~
 	* ~~Basic 2D squares/rectangles~~
 	* ~~Basic 2D triangles~~
@@ -19,7 +19,6 @@
 	* System for uploading images
 
 * 3D:
-	* General environment
 	* General 3D shapes by vertices and indices
 	* Basic 3D cubes
 	* Basic 3D pyramids

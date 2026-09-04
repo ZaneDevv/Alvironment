@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Samples\Arkanoid\Arkanoid.cpp" />
     <ClCompile Include="src\Project\MyWorld.cpp" />
     <ClCompile Include="src\Samples\Dvd\Dvd.cpp" />
     <ClCompile Include="include\alvironment\AbstractWorld.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="src\Samples\SolarSystem\SolarSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Samples\Arkanoid\Arkanoid.h" />
     <ClInclude Include="include\alvironment\Key.h" />
     <ClInclude Include="src\Project\MyWorld.h" />
     <ClInclude Include="src\Samples\Dvd\Dvd.h" />
@@ -186,7 +188,7 @@
     <None Include="include\alvironment\shaders\common_shaders\Basic.vsha" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="todo.md" />
+    <Text Include="src\Samples\todo.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
