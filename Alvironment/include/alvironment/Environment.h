@@ -13,7 +13,7 @@ using updateMethod = std::function<void(double)>;
 
 /**
  * @brief Abstract class for the environments
- * @version 3.4
+ * @version 3.5
  * @date 2026-09-02
  * @author Álvaro Fernández Barrero
  */
@@ -101,7 +101,7 @@ public:
 	void initialize(updateMethod);
 
 	/**
-	 * @brief Adds a new objecto to the environment
+	 * @brief Adds a new object to the environment
 	 * @param Object to add
 	 * @version 1.0
 	 * @since 1.0
@@ -109,6 +109,16 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void addObject(GenericObject*);
+
+	/**
+	 * @brief Removes the given object from the environment
+	 * @param Object to remove
+	 * @version 1.0
+	 * @since 1.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	void removeObject(GenericObject*);
 
 	/**
 	 * @brief Checks if the given key is being pressed

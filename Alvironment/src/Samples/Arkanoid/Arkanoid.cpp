@@ -27,6 +27,21 @@ void Arkanoid::initialize()
 	this->ball->setScale(Vector2D::one * 10);
 	this->ball->setShaderProperty("color4", 0.9f, 0.9f, 0.9f, 1.0f);
 
+	// Creating enemies
+
+	for (int i = -460; i <= 460; i += 200)
+	{
+		for (int j = 120; j <= 250; j += 25)
+		{
+			std::unique_ptr<Rectangle2D> enemy = std::make_unique<Rectangle2D>();
+			enemy->setPosition(Vector2D(i + 50, j));
+			enemy->setScale(Vector2D(15, 150));
+			enemy->setShaderProperty("color4", 0.8f, 0.1f, 0.1f, 1.0f);
+
+			this->enemies.push_back(std::move(enemy));
+		}
+	}
+
 	// Computing random starting direction
 
 	srand(5);
@@ -37,6 +52,11 @@ void Arkanoid::initialize()
 
 	this->environment->addObject(this->player.get());
 	this->environment->addObject(this->ball.get());
+	
+	for (const std::unique_ptr<Rectangle2D>& enemy : this->enemies)
+	{
+		this->environment->addObject(enemy.get());
+	}
 }
 
 // Runs every frame after setting up the world
@@ -91,18 +111,40 @@ void Arkanoid::updateBallPosition(double deltaTime)
 		this->direction = Vector2D(this->direction.getX(), -this->direction.getY());
 	}
 
-	// Checks if the ball hitted the player
-
-	bool aabbAxisX = this->player->getPosition().getX() - this->player->getScale().getY() < this->ball->getPosition().getX() - this->ball->getScale().getY();
-	aabbAxisX &= this->player->getPosition().getX() + this->player->getScale().getY() > this->ball->getPosition().getX() + this->ball->getScale().getY();
-
-	bool aabbAxisY = this->player->getPosition().getY() - this->player->getScale().getX() > this->ball->getPosition().getY() - this->ball->getScale().getX();
-	aabbAxisY &= this->player->getPosition().getY() + this->player->getScale().getX() < this->ball->getPosition().getY() + this->ball->getScale().getX();
-
 	// If the player hitted the ball and the ball was going down, the ball bounces
 
-	if (aabbAxisX && aabbAxisY && this->direction.getY() < 0)
+	if (this->isBallHittingRectangle(*this->player) && this->direction.getY() < 0)
 	{
 		this->direction = Vector2D(this->direction.getX(), -this->direction.getY());
 	}
+
+	// If the ball hitted a enemy, the direction must change and the enemy should be removed
+
+	std::vector<std::unique_ptr<Rectangle2D>>::iterator iterator = this->enemies.begin();
+
+	while (iterator != this->enemies.end())
+	{
+		if (this->isBallHittingRectangle(**iterator))
+		{
+			this->direction = Vector2D(this->direction.getX(), -this->direction.getY());
+
+			this->environment->removeObject(iterator->get());
+			iterator = this->enemies.erase(iterator);
+		}
+		else
+		{
+			++iterator;
+		}
+	}
+}
+
+bool Arkanoid::isBallHittingRectangle(Rectangle2D& rectangle)
+{
+	bool aabbAxisX = rectangle.getPosition().getX() - rectangle.getScale().getY() < this->ball->getPosition().getX() - this->ball->getScale().getY();
+	aabbAxisX &= rectangle.getPosition().getX() + rectangle.getScale().getY() > this->ball->getPosition().getX() + this->ball->getScale().getY();
+
+	bool aabbAxisY = rectangle.getPosition().getY() - rectangle.getScale().getX() < this->ball->getPosition().getY() - this->ball->getScale().getX();
+	aabbAxisY &= rectangle.getPosition().getY() + rectangle.getScale().getX() > this->ball->getPosition().getY() + this->ball->getScale().getX();
+
+	return aabbAxisX && aabbAxisY;
 }

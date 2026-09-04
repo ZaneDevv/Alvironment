@@ -96,12 +96,33 @@ void Environment::updateProportionsOnWindowSize()
 
 void Environment::addObject(GenericObject* object)
 {
-    DEBUG_PRINT("A new object was added to the 2D enviroment!");
-
     object->setUpBuffers();
     object->updateVertices();
-
+    
     this->objectsInEnvironment.push_back(object);
+
+    DEBUG_PRINT("A new object was added to the 2D enviroment!");
+}
+
+void Environment::removeObject(GenericObject* object)
+{
+    bool couldRemoveTheObject = false;
+    std::vector<GenericObject*>::iterator iterator = this->objectsInEnvironment.begin();
+
+    while (!couldRemoveTheObject && iterator != this->objectsInEnvironment.end())
+    {
+        if (*iterator == object)
+        {
+            couldRemoveTheObject = true;
+            this->objectsInEnvironment.erase(iterator);
+        }
+        else
+        {
+            iterator++;
+        }
+    }
+
+    DEBUG_PRINT("An object was removed from the environment!");
 }
 
 bool Environment::isKeyPressed(Key key)

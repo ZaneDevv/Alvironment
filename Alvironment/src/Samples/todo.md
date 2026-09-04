@@ -7,6 +7,7 @@
 * ~~Update loop~~
 * ~~Input recognition~~
 * ~~General environment~~
+* Colors library
 
 * 2D:	
 	* ~~General 2D shape by vertices and indices~~

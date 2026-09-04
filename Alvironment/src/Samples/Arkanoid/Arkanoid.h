@@ -25,6 +25,8 @@ private:
 	std::unique_ptr<Rectangle2D> player;
 	std::unique_ptr<Circle2D> ball;
 
+	std::vector<std::unique_ptr<Rectangle2D>> enemies;
+
 	// ------------------------------------------------------
 	// METHODS
 	// ------------------------------------------------------
@@ -48,6 +50,17 @@ private:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void updateBallPosition(double);
+
+	/**
+	 * @brief Checks if the ball is hitting the given rectangle
+	 * @param Rectangle evolved in the possible collision
+	 * @return True if the ball is hitting the rectangle, false otherwise
+	 * @version 1.0
+	 * @since 1.0
+	 * @date 2026-09-04
+	 * @author Álvaro Fernández Barrero
+	 */
+	bool isBallHittingRectangle(Rectangle2D&);
 
 public:
 	// ------------------------------------------------------
