@@ -63,7 +63,7 @@ void Object2D::rotate(double alpha)
     this->setTheta(std::fmod(alpha + this->getTheta(), TAU));
 }
 
-double Object2D::getTheta()
+double Object2D::getTheta() const
 {
     return this->theta;
 }
@@ -78,35 +78,23 @@ void Object2D::setTheta(double alpha)
     this->updateVertices();
 }
 
-Vector2D Object2D::getScale()
+Vector2D Object2D::getScale() const
 {
     return this->scale;
 }
     
-void Object2D::setScale(Vector2D& scale)
+void Object2D::setScale(const Vector2D& scale)
 {
     this->scale = scale;
     this->updateVertices();
 }
 
-void Object2D::setScale(Vector2D scale)
-{
-    this->scale = scale;
-    this->updateVertices();
-}
-
-Vector2D Object2D::getPosition()
+Vector2D Object2D::getPosition() const
 {
     return this->position;
 }
 
-void Object2D::setPosition(Vector2D& position)
-{
-    this->position = position;
-    this->updateVertices();
-}
-
-void Object2D::setPosition(Vector2D position)
+void Object2D::setPosition(const Vector2D& position)
 {
     this->position = position;
     this->updateVertices();

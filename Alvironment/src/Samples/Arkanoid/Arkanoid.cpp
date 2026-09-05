@@ -17,7 +17,6 @@ void Arkanoid::initialize()
 	// Defining colors
 
 	Color4 white(0xD0D0D0FF);
-	Color4 enemyColor(0xE02525FF);
 
 	// Creating the player's box
 
@@ -41,7 +40,7 @@ void Arkanoid::initialize()
 			std::unique_ptr<Rectangle2D> enemy = std::make_unique<Rectangle2D>();
 			enemy->setPosition(Vector2D(i + 50, j));
 			enemy->setScale(Vector2D(15, 150));
-			enemy->setShaderProperty("color4", enemyColor);
+			enemy->setShaderProperty("color4", Color4(0xE02525FF));
 
 			this->enemies.push_back(std::move(enemy));
 		}

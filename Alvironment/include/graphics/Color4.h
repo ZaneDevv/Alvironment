@@ -111,7 +111,7 @@ public:
 	 * @date 2026-09-04
 	 * @author Álvaro Fernández Barrero
 	 */
-	float getRed();
+	float getRed() const;
 
 	/**
 	 * @brief Sets the red channel
@@ -131,7 +131,7 @@ public:
 	 * @date 2026-09-04
 	 * @author Álvaro Fernández Barrero
 	 */
-	float getGreen();
+	float getGreen() const;
 
 	/**
 	 * @brief Sets the green channel
@@ -151,7 +151,7 @@ public:
 	 * @date 2026-09-04
 	 * @author Álvaro Fernández Barrero
 	 */
-	float getBlue();
+	float getBlue() const;
 
 	/**
 	 * @brief Sets the blue channel
@@ -171,7 +171,7 @@ public:
 	 * @date 2026-09-04
 	 * @author Álvaro Fernández Barrero
 	 */
-	float getAlpha();
+	float getAlpha() const;
 
 	/**
 	 * @brief Sets the alpha channel

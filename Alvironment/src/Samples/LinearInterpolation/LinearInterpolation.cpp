@@ -16,7 +16,7 @@ void LinearInterpolation::initialize()
 	// Defining colors
 
 	Color4 white(0.9f);
-	Color4 red(0.9f, 0.2f, 0.1f);
+	Color4 red(0xE01616FF);
 
 	// Creating the basic objects
 
@@ -133,10 +133,7 @@ void LinearInterpolation::update(double deltaTime)
 
 	// Computing the new circle's position and placing it there
 
-	this->mover->setPosition(Vector2D(
-		this->start->getPosition().getX() + (this->goal->getPosition().getX() - this->start->getPosition().getX()) * alpha,
-		this->start->getPosition().getY() + (this->goal->getPosition().getY() - this->start->getPosition().getY()) * alpha
-	));
+	this->mover->setPosition(Vector2D::lerp(this->start->getPosition(), this->goal->getPosition(), alpha));
 }
 
 void LinearInterpolation::updateSegment()

@@ -57,7 +57,10 @@ void SolarSystem::update(double deltaTime)
 
 	// Computing the sun, planet and moon's positions and placing them
 
-	this->sun->setPosition(Vector2D(0, sin(phi) * 20));
-	this->planet->setPosition(sun->getPosition() + Vector2D(cos(theta), sin(theta)) * 300);
-	this->moon->setPosition(planet->getPosition() + Vector2D(cos(alpha), sin(alpha)) * 150);
+	Vector2D sunPosition(0, sin(phi) * 20);
+	Vector2D planetPosition = sun->getPosition() + Vector2D(cos(theta), sin(theta)) * 300;
+
+	this->sun->setPosition(sunPosition);
+	this->planet->setPosition(planetPosition);
+	this->moon->setPosition(planetPosition + Vector2D(cos(alpha), sin(alpha)) * 150);
 }

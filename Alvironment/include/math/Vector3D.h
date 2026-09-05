@@ -1,12 +1,12 @@
 #pragma once
 
 /**
- * @brief Class for 3D vectors
- * @version 1.1
+ * @brief Struct for 3D vectors
+ * @version 1.2
  * @date 2026-09-01
  * @author Álvaro Fernández Barrero
  */
-class Vector3D
+struct Vector3D
 {
 private:
 	double x = 0;
@@ -75,11 +75,34 @@ public:
 	 * @param The first vector v to compute the dot product
 	 * @param The second vector w to compute the dot product
 	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-09-01
+	 * @since 1.1
+	 * @date 2026-09-05
 	 * @author Álvaro Fernández Barrero
 	 */
-	static double dot(Vector3D&, Vector3D&);
+	static double dot(const Vector3D&, const Vector3D&);
+
+	/**
+	 * @brief Computes the cross product between the two given vectors
+	 * @param The first vector v to compute the cross product
+	 * @param The second vector w to compute the cross product
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-05
+	 * @author Álvaro Fernández Barrero
+	 */
+	static Vector3D cross(const Vector3D&, const Vector3D&);
+
+	/**
+	 * @brief Computes a linar interpolation between the two given vectors
+	 * @param The first vector v to compute the linear interpolation
+	 * @param The second vector w to compute the linear interpolation
+	 * @param Alpha parameter for the linear interpolation
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-05
+	 * @author Álvaro Fernández Barrero
+	 */
+	static Vector3D lerp(const Vector3D&, const Vector3D&, double);
 
 	/**
 	 * @brief Computes the norm of the vector
@@ -89,7 +112,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	double getMagnitude();
+	double getMagnitude() const;
 
 	/**
 	 * @brief Gets the X component of the vector
@@ -99,7 +122,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	double getX();
+	double getX() const;
 
 	/**
 	 * @brief Sets the X component of the vector
@@ -119,7 +142,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	double getY();
+	double getY() const;
 
 	/**
 	 * @brief Sets the Y component of the vector
@@ -139,7 +162,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	double getZ();
+	double getZ() const;
 
 	/**
 	 * @brief Sets the Z component of the vector

@@ -135,7 +135,7 @@ public:
 	 * @date 2026-09-04
 	 * @author Álvaro Fernández Barrero
 	 */
-	void setShaderProperty(const char*, Color4&);
+	void setShaderProperty(const char*, const Color4&);
 
 	/**
 	 * @brief Sets a shader's property

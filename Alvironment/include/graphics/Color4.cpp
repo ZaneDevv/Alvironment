@@ -37,7 +37,7 @@ void Color4::setRGBA(u8_t red, u8_t green, u8_t blue, u8_t alpha)
 	this->alpha = alpha / 100.0f;
 }
 
-float Color4::getRed()
+float Color4::getRed() const
 {
 	return this->red;
 }
@@ -47,7 +47,7 @@ void Color4::setRed(float red)
 	this->red = red;
 }
 
-float Color4::getGreen()
+float Color4::getGreen() const
 {
 	return this->green;
 }
@@ -57,7 +57,7 @@ void Color4::setGreen(float green)
 	this->green = green;
 }
 
-float Color4::getBlue()
+float Color4::getBlue() const
 {
 	return this->blue;
 }
@@ -67,7 +67,7 @@ void Color4::setBlue(float blue)
 	this->blue = blue;
 }
 
-float Color4::getAlpha()
+float Color4::getAlpha() const
 {
 	return this->alpha;
 }

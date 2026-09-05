@@ -1,12 +1,12 @@
 #pragma once
 
 /**
- * @brief Class for 2D vectors
- * @version 1.1
+ * @brief Struct for 2D vectors
+ * @version 1.2
  * @date 2026-09-01
  * @author Álvaro Fernández Barrero
  */
-class Vector2D
+struct Vector2D
 {
 private:
 	double x = 0;
@@ -72,11 +72,23 @@ public:
 	 * @param The first vector v to compute the dot product
 	 * @param The second vector w to compute the dot product
 	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-09-01
+	 * @since 1.1
+	 * @date 2026-09-05
 	 * @author Álvaro Fernández Barrero
 	 */
-	static double dot(Vector2D&, Vector2D&);
+	static double dot(const Vector2D&, const Vector2D&);
+
+	/**
+	 * @brief Computes a linar interpolation between the two given vectors
+	 * @param The first vector v to compute the linear interpolation
+	 * @param The second vector w to compute the linear interpolation
+	 * @param Alpha parameter for the linear interpolation
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-05
+	 * @author Álvaro Fernández Barrero
+	 */
+	static Vector2D lerp(const Vector2D&, const Vector2D&, double);
 
 	/**
 	 * @brief Computes the norm of the vector
@@ -86,7 +98,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	double getMagnitude();
+	double getMagnitude() const;
 
 	/**
 	 * @brief Gets the X component of the vector
@@ -96,7 +108,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	double getX();
+	double getX() const;
 
 	/**
 	 * @brief Sets the X component of the vector
@@ -116,7 +128,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	double getY();
+	double getY() const;
 
 	/**
 	 * @brief Sets the Y component of the vector

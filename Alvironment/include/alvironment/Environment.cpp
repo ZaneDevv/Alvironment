@@ -35,7 +35,7 @@ Environment::Environment(WindowProperties* windowProperties)
 // METHODS
 // ------------------------------------------------------
 
-inline bool Environment::shouldGoToNextRenerIteration()
+inline bool Environment::shouldGoToNextRenerIteration() const
 {
     return !this->window->shouldWindowClose();
 }
@@ -63,13 +63,13 @@ void Environment::initialize(updateMethod update)
     }
 }
 
-void Environment::computeDeltaTime(double& lastTime, double& deltaTime)
+void Environment::computeDeltaTime(double& lastTime, double& deltaTime) const
 {
     deltaTime = glfwGetTime() - lastTime;
     lastTime = glfwGetTime();
 }
 
-void Environment::renderObjects()
+void Environment::renderObjects() const
 {
     for (GenericObject* object : this->objectsInEnvironment)
     {
@@ -125,12 +125,12 @@ void Environment::removeObject(GenericObject* object)
     DEBUG_PRINT("An object was removed from the environment!");
 }
 
-bool Environment::isKeyPressed(Key key)
+bool Environment::isKeyPressed(Key key) const
 {
     return this->window->isKeyPressed(key);
 }
 
-void Environment::getMousePosition(double& x, double& y)
+void Environment::getMousePosition(double& x, double& y) const
 {
     this->window->getMousePosition(x, y);
 

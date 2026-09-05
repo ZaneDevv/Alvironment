@@ -60,12 +60,20 @@ bool Vector2D::operator == (const Vector2D& v) const
 // METHODS
 // ------------------------------------------------------
 
-double Vector2D::dot(Vector2D& v, Vector2D& w)
+double Vector2D::dot(const Vector2D& v, const Vector2D& w)
 {
 	return v.getX() * w.getX() + v.getY() * w.getY();
 }
 
-double Vector2D::getMagnitude()
+Vector2D Vector2D::lerp(const Vector2D& v, const Vector2D& w, double alpha)
+{
+	return Vector2D(
+		v.getX() * (1 - alpha) + w.getX() * alpha,
+		v.getY() * (1 - alpha) + w.getY() * alpha
+	);
+}
+
+double Vector2D::getMagnitude() const
 {
 	double result = 0;
 
@@ -77,7 +85,7 @@ double Vector2D::getMagnitude()
 	return result;
 }
 
-double Vector2D::getX()
+double Vector2D::getX() const
 {
 	return this->x;
 }
@@ -87,7 +95,7 @@ void Vector2D::setX(double x)
 	this->x = x;
 }
 
-double Vector2D::getY()
+double Vector2D::getY() const
 {
 	return this->y;
 }

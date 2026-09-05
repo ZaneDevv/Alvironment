@@ -90,12 +90,12 @@ u32_t Circle2D::computeIndicesAmount(double smoothness)
 	return (u32_t)(TAU / smoothness) * 3;
 }
 
-u32_t Circle2D::getVerticesAmount()
+u32_t Circle2D::getVerticesAmount() const
 {
 	return this->verticesAmount;
 }
 
-u32_t Circle2D::getIndicesAmount()
+u32_t Circle2D::getIndicesAmount() const
 {
 	return this->indicesAmount;
 }

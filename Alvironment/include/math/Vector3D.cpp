@@ -62,12 +62,30 @@ bool Vector3D::operator == (const Vector3D& v) const
 // METHODS
 // ------------------------------------------------------
 
-double Vector3D::dot(Vector3D& v, Vector3D& w)
+double Vector3D::dot(const Vector3D& v, const Vector3D& w)
 {
 	return v.getX() * w.getX() + v.getY() * w.getY() + v.getZ() * w.getZ();;
 }
 
-double Vector3D::getMagnitude()
+Vector3D Vector3D::cross(const Vector3D& v, const Vector3D& w)
+{
+	return Vector3D(
+		v.getY() * w.getZ() - w.getY() * v.getZ(),
+		w.getZ() * v.getX() - v.getZ() * w.getX(),
+		v.getX() * w.getY() - v.getY() * w.getX()
+	);
+}
+
+Vector3D Vector3D::lerp(const Vector3D& v, const Vector3D& w, double alpha)
+{
+	return Vector3D(
+		v.getX() * (1 - alpha) + w.getX() * alpha,
+		v.getY() * (1 - alpha) + w.getY() * alpha,
+		v.getZ() * (1 - alpha) + w.getZ() * alpha
+	);
+}
+
+double Vector3D::getMagnitude() const
 {
 	double result = 0;
 
@@ -79,7 +97,7 @@ double Vector3D::getMagnitude()
 	return result;
 }
 
-double Vector3D::getX()
+double Vector3D::getX() const
 {
 	return this->x;
 }
@@ -89,7 +107,7 @@ void Vector3D::setX(double x)
 	this->x = x;
 }
 
-double Vector3D::getY()
+double Vector3D::getY() const
 {
 	return this->y;
 }
@@ -99,7 +117,7 @@ void Vector3D::setY(double y)
 	this->y = y;
 }
 
-double Vector3D::getZ()
+double Vector3D::getZ() const
 {
 	return this->z;
 }

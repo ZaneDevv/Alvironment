@@ -51,7 +51,7 @@ void GenericObject::updateWindowDimensions(u32_t width, u32_t height)
 	this->updateVertices();
 }
 
-void GenericObject::setShaderProperty(const char* shaderProperty, Color4& color)
+void GenericObject::setShaderProperty(const char* shaderProperty, const Color4& color)
 {
 	glUseProgram(this->shader->getShaderId());
 	glUniform4f(glGetUniformLocation(this->shader->getShaderId(), shaderProperty), color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());

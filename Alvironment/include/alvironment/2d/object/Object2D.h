@@ -103,7 +103,7 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	double getTheta();
+	double getTheta() const;
 
 	/**
 	 * @brief Sets the rotation angle of the object
@@ -123,7 +123,7 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	Vector2D getScale();
+	Vector2D getScale() const;
 
 	/**
 	 * @brief Sets the scale of the object
@@ -133,17 +133,7 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	void setScale(Vector2D&);
-
-	/**
-	 * @brief Sets the scale of the object
-	 * @param The new object's scale
-	 * @version 1.0
-	 * @since 3.0
-	 * @date 2026-08-31
-	 * @author Álvaro Fernández Barrero
-	 */
-	void setScale(Vector2D);
+	void setScale(const Vector2D&);
 
 	/**
 	 * @brief Gets the position of the object
@@ -153,7 +143,7 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	Vector2D getPosition();
+	Vector2D getPosition() const;
 
 	/**
 	 * @brief Sets the position of the object
@@ -163,15 +153,5 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	void setPosition(Vector2D&);
-
-	/**
-	 * @brief Sets the position of the object
-	 * @param The new object's position
-	 * @version 1.0
-	 * @since 3.0
-	 * @date 2026-08-31
-	 * @author Álvaro Fernández Barrero
-	 */
-	void setPosition(Vector2D);
+	void setPosition(const Vector2D&);
 };

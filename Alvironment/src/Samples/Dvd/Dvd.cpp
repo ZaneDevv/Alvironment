@@ -39,11 +39,10 @@ void Dvd::update(double deltaTime)
 {
 	// Computing the new object's position and placing it there
 
-	this->dvdCircle->setPosition(this->dvdCircle->getPosition() + this->direction * (deltaTime * this->SPEED));
+	Vector2D newPosition = this->dvdCircle->getPosition() + this->direction * (deltaTime * this->SPEED);
+	this->dvdCircle->setPosition(newPosition);
 
 	// Checking if the direction should change to keep the object on screen
-
-	Vector2D newPosition = this->dvdCircle->getPosition();
 
 	bool isOnTheLeft = newPosition.getX() - this->dvdCircle->getScale().getX() / 2.0f <= -this->SCREEN_WIDTH / 2.0f;
 	bool isOnTheRight = newPosition.getX() + this->dvdCircle->getScale().getX() / 2.0f >= this->SCREEN_WIDTH / 2.0f;

@@ -40,7 +40,7 @@ protected:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	inline bool shouldGoToNextRenerIteration();
+	inline bool shouldGoToNextRenerIteration() const;
 
 	/**
 	 * @brief Computes the delta time for any frame
@@ -51,7 +51,7 @@ protected:
 	 * @date 2026-09-02
 	 * @author Álvaro Fernández Barrero
 	 */
-	void computeDeltaTime(double&, double&);
+	void computeDeltaTime(double&, double&) const;
 
 	/**
 	 * @brief Renders all the listed objects
@@ -60,7 +60,7 @@ protected:
 	 * @date 2026-09-02
 	 * @author Álvaro Fernández Barrero
 	 */
-	void renderObjects();
+	void renderObjects() const;
 
 	/**
 	 * @brief Updates the window's scale
@@ -129,7 +129,7 @@ public:
 	 * @date 2026-09-03
 	 * @author Álvaro Fernández Barrero
 	 */
-	bool isKeyPressed(Key);
+	bool isKeyPressed(Key) const;
 
 	/**
 	 * @brief Gets the mouse's position relative to the screen
@@ -140,5 +140,5 @@ public:
 	 * @date 2026-09-03
 	 * @author Álvaro Fernández Barrero
 	 */
-	void getMousePosition(double&, double&);
+	void getMousePosition(double&, double&) const;
 };

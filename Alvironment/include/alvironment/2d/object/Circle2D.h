@@ -88,7 +88,7 @@ private:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	u32_t getVerticesAmount();
+	u32_t getVerticesAmount() const;
 
 	/**
 	 * @brief Gets the amount of indices this circle has
@@ -98,7 +98,7 @@ private:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	u32_t getIndicesAmount();
+	u32_t getIndicesAmount() const;
 
 public:
 
