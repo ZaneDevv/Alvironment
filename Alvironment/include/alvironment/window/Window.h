@@ -15,7 +15,7 @@
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
-class Window
+struct Window
 {
 private:
 	GLFWwindow* window;
@@ -76,7 +76,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	bool shouldWindowClose();
+	bool shouldWindowClose() const;
 
 	/**
 	 * @brief Prepares the window to start rendering
@@ -85,7 +85,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	void prepareWindowForRendering();
+	void prepareWindowForRendering() const;
 
 	/**
 	 * @brief Finishes the rendering tasks in screen
@@ -94,7 +94,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	void finishRendering();
+	void finishRendering() const;
 
 	/**
 	 * @brief Gets the window's dimensions
@@ -105,7 +105,7 @@ public:
 	 * @date 2026-09-02
 	 * @author Álvaro Fernández Barrero
 	 */
-	void getDimensions(u32_t&, u32_t&);
+	void getDimensions(u32_t&, u32_t&) const;
 
 	/**
 	 * @brief Checks if the given key is being pressed
@@ -116,7 +116,7 @@ public:
 	 * @date 2026-09-03
 	 * @author Álvaro Fernández Barrero
 	 */
-	bool isKeyPressed(Key);
+	bool isKeyPressed(Key) const;
 
 	/**
 	 * @brief Gets the mouse's position relative to the screen
@@ -127,5 +127,5 @@ public:
 	 * @date 2026-09-03
 	 * @author Álvaro Fernández Barrero
 	 */
-	void getMousePosition(double&, double&);
+	void getMousePosition(double&, double&) const;
 };

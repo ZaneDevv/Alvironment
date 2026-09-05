@@ -56,34 +56,34 @@ Window::~Window()
 // METHODS
 // ------------------------------------------------------
 
-bool Window::shouldWindowClose()
+bool Window::shouldWindowClose() const
 {
 	return glfwWindowShouldClose(this->window);
 }
 
-void Window::prepareWindowForRendering()
+void Window::prepareWindowForRendering() const
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Window::finishRendering()
+void Window::finishRendering() const
 {
 	glfwSwapBuffers(this->window);
 	glfwPollEvents();
 }
 
-void Window::getDimensions(u32_t& width, u32_t& height)
+void Window::getDimensions(u32_t& width, u32_t& height) const
 {
 	width = this->width;
 	height = this->height;
 }
 
-bool Window::isKeyPressed(Key key)
+bool Window::isKeyPressed(Key key) const
 {
 	return glfwGetKey(this->window, static_cast<int>(key)) == GLFW_PRESS;
 }
 
-void Window::getMousePosition(double& x, double& y)
+void Window::getMousePosition(double& x, double& y) const
 {
 	glfwGetCursorPos(this->window, &x, &y);
 }

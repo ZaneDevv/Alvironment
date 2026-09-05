@@ -10,7 +10,7 @@
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
-class Shader
+struct Shader
 {
 private:
 	u32_t program;
@@ -29,7 +29,7 @@ private:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	u32_t compileShader(u32_t, const char*);
+	u32_t compileShader(u32_t, const char*) const;
 
 	/**
 	 * @brief Gets the shader code inside the given file
@@ -40,7 +40,7 @@ private:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	std::string getShaderCodeFromFile(const char*);
+	std::string getShaderCodeFromFile(const char*) const;
 
 public:
 
@@ -84,5 +84,5 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	u32_t getShaderId();
+	u32_t getShaderId() const;
 };

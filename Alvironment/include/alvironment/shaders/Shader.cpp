@@ -41,7 +41,7 @@ Shader::~Shader()
 // METHODS
 // ------------------------------------------------------
 
-std::string Shader::getShaderCodeFromFile(const char* codePath)
+std::string Shader::getShaderCodeFromFile(const char* codePath) const
 {
 	std::fstream stream(codePath);
 	
@@ -57,7 +57,7 @@ std::string Shader::getShaderCodeFromFile(const char* codePath)
 	return buffer.str();
 }
 
-u32_t Shader::compileShader(u32_t type, const char* source)
+u32_t Shader::compileShader(u32_t type, const char* source) const
 {
 	u32_t id = glCreateShader(type);
 	int result = 0;
@@ -81,7 +81,7 @@ u32_t Shader::compileShader(u32_t type, const char* source)
 	return id;
 }
 
-u32_t Shader::getShaderId()
+u32_t Shader::getShaderId() const
 {
 	return this->program;
 }
