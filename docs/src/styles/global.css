@@ -1,0 +1,112 @@
+/* --------------------------------
+    NORMALIZATION
+-------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+/* --------------------------------
+    GENERAL
+-------------------------------- */
+
+html, body {
+    background-color: var(--dark);
+    color: var(--light);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "header header header header"
+        "main main main main"
+        "footer footer footer footer";
+}
+
+/* --------------------------------
+    TITLE
+-------------------------------- */
+
+header {
+    grid-area: header;
+    border-bottom: 1px solid var(--light);
+
+    padding: 1rem
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* --------------------------------
+    MAIN
+-------------------------------- */
+
+main {
+    grid-area: main;
+}
+
+h3 {
+    height: 500px;
+    text-align: center;
+    align-content: center;
+}
+
+/* --------------------------------
+    ASIDE
+-------------------------------- */
+
+aside {
+    grid-area: aside;
+    color: red;
+}
+
+
+/* --------------------------------
+    FOOTER
+-------------------------------- */
+
+footer {
+    grid-area: footer;
+    border-top: 1px solid var(--light);
+
+    padding: 1rem;
+}
+
+#social-networks-container {
+    height: 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#social-networks-container * {
+    height: 100%;
+    animation: social-network-unhover 0.1s;
+
+    margin: 5px;
+}
+
+#social-networks-container * > img:hover {
+    animation: social-network-hover 0.1s;
+    transform: scale(1.1);
+    cursor: pointer
+}
