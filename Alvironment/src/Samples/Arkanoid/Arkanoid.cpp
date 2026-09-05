@@ -120,6 +120,7 @@ void Arkanoid::updateBallPosition(double deltaTime)
 	if (this->ball->getPosition().getY() < -300)
 	{
 		this->hasLost = true;
+		std::cout << RED << "YOU HAVE LOST THE GAME!" << std::endl;
 	}
 
 	// If the player hitted the ball and the ball was going down, the ball bounces
