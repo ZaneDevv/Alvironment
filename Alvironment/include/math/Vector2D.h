@@ -2,7 +2,7 @@
 
 /**
  * @brief Struct for 2D vectors
- * @version 1.2
+ * @version 1.3
  * @date 2026-09-01
  * @author Álvaro Fernández Barrero
  */
@@ -61,6 +61,7 @@ public:
 	Vector2D operator - (const Vector2D&) const;
 	Vector2D operator * (const double&) const;
 	Vector2D operator / (const double&) const;
+	Vector2D operator - () const;
 	bool operator == (const Vector2D&) const;
 
 	// ------------------------------------------------------
@@ -77,6 +78,17 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	static double dot(const Vector2D&, const Vector2D&);
+
+	/**
+	 * @brief Computes the haramard product between the two given vectors
+	 * @param The first vector v to compute the haramard product
+	 * @param The second vector w to compute the haramard product
+	 * @version 1.0
+	 * @since 1.2
+	 * @date 2026-09-05
+	 * @author Álvaro Fernández Barrero
+	 */
+	static Vector2D hadamard(const Vector2D&, const Vector2D&);
 
 	/**
 	 * @brief Computes a linar interpolation between the two given vectors

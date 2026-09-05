@@ -51,6 +51,11 @@ Vector2D Vector2D::operator / (const double& scalar) const
 	return Vector2D(this->x / scalar, this->y / scalar);
 }
 
+Vector2D Vector2D::operator - () const
+{
+	return Vector2D(-this->x, -this->y);
+}
+
 bool Vector2D::operator == (const Vector2D& v) const
 {
 	return this->x == v.x && this->y == v.y;
@@ -63,6 +68,11 @@ bool Vector2D::operator == (const Vector2D& v) const
 double Vector2D::dot(const Vector2D& v, const Vector2D& w)
 {
 	return v.getX() * w.getX() + v.getY() * w.getY();
+}
+
+Vector2D Vector2D::hadamard(const Vector2D& v, const Vector2D& w)
+{
+	return Vector2D(v.getX() * w.getX(), v.getY() * w.getY());
 }
 
 Vector2D Vector2D::lerp(const Vector2D& v, const Vector2D& w, double alpha)

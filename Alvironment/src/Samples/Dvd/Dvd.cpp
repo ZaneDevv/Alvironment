@@ -20,11 +20,12 @@ void Dvd::initialize()
 	Color4 blue(0.0f, 0.0f, 0.5f);
 
 	this->dvdCircle = std::make_unique<Circle2D>();
-	this->dvdCircle->setScale(Vector2D(40, 75));
+	this->dvdCircle->setScale(Vector2D(75, 40));
 	this->dvdCircle->setShaderProperty("color4", blue);
 
 	// Computing the first direction to follow
 
+	srand(time(nullptr));
 	float theta = rand();
 	this->direction = Vector2D(cosf(theta), sinf(theta));
 

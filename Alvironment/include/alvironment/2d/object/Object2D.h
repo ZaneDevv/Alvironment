@@ -14,8 +14,8 @@ class Object2D : public GenericObject
 private:
 	double theta = 0;
 
-	float cosTheta = 0;
-	float sinTheta = 1;
+	float cosTheta = 1;
+	float sinTheta = 0;
 
 	float scaleX = 0;
 	float scaleY = 0;

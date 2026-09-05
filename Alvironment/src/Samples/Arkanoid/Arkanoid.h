@@ -16,6 +16,8 @@ private:
 	const double PLAYER_X_SPEED = 10;
 	const double BALL_SPEED = 350;
 
+	bool hasLost = false;
+
 	// Math
 
 	Vector2D direction = Vector2D::j;

@@ -21,7 +21,7 @@ void Arkanoid::initialize()
 	// Creating the player's box
 
 	this->player = std::make_unique<Rectangle2D>();
-	this->player->setScale(Vector2D(5, 100));
+	this->player->setScale(Vector2D(100, 5));
 	this->player->setPosition(Vector2D(0, this->PLAYER_Y_COORDINATE));
 	this->player->setShaderProperty("color4", white);
 
@@ -39,7 +39,7 @@ void Arkanoid::initialize()
 		{
 			std::unique_ptr<Rectangle2D> enemy = std::make_unique<Rectangle2D>();
 			enemy->setPosition(Vector2D(i + 50, j));
-			enemy->setScale(Vector2D(15, 150));
+			enemy->setScale(Vector2D(150, 15));
 			enemy->setShaderProperty("color4", Color4(0xE02525FF));
 
 			this->enemies.push_back(std::move(enemy));
@@ -48,8 +48,8 @@ void Arkanoid::initialize()
 
 	// Computing random starting direction
 
-	srand(5);
-	float theta = fmod(rand(), static_cast<double>(TAU));
+	srand(time(nullptr));
+	float theta = -fmod(rand(), static_cast<double>(PI));
 	this->direction = Vector2D(cosf(theta), sinf(theta));
 
 	// Adding all the objects created to the environment so that they can be rendered on screen
@@ -67,8 +67,11 @@ void Arkanoid::initialize()
 
 void Arkanoid::update(double deltaTime)
 {
-	this->updatePlayerPosition(deltaTime);
-	this->updateBallPosition(deltaTime);
+	if (!this->hasLost)
+	{
+		this->updatePlayerPosition(deltaTime);
+		this->updateBallPosition(deltaTime);
+	}
 }
 
 void Arkanoid::updatePlayerPosition(double deltaTime)
@@ -103,23 +106,27 @@ void Arkanoid::updateBallPosition(double deltaTime)
 	// Checks if the ball hitted limit
 
 	bool hasHittedVerticalLimit = this->ball->getPosition().getX() < -500 || this->ball->getPosition().getX() > 500;
-	bool hasHittedHorizontalLimit = this->ball->getPosition().getY() < -300 || this->ball->getPosition().getY() > 300;
 
 	if (hasHittedVerticalLimit)
 	{
-		this->direction = Vector2D(-this->direction.getX(), this->direction.getY());
+		this->direction = Vector2D::hadamard(this->direction, Vector2D(-1, 1));
 	}
 
-	if (hasHittedHorizontalLimit)
+	if (this->ball->getPosition().getY() > 300)
 	{
-		this->direction = Vector2D(this->direction.getX(), -this->direction.getY());
+		this->direction = Vector2D::hadamard(this->direction, Vector2D(1, -1));
+	}
+
+	if (this->ball->getPosition().getY() < -300)
+	{
+		this->hasLost = true;
 	}
 
 	// If the player hitted the ball and the ball was going down, the ball bounces
 
 	if (this->isBallHittingRectangle(*this->player) && this->direction.getY() < 0)
 	{
-		this->direction = Vector2D(this->direction.getX(), -this->direction.getY());
+		this->direction = Vector2D::hadamard(this->direction, Vector2D(1, -1));
 	}
 
 	// If the ball hitted a enemy, the direction must change and the enemy should be removed
@@ -130,7 +137,7 @@ void Arkanoid::updateBallPosition(double deltaTime)
 	{
 		if (this->isBallHittingRectangle(**iterator))
 		{
-			this->direction = Vector2D(this->direction.getX(), -this->direction.getY());
+			this->direction = Vector2D::hadamard(this->direction, Vector2D(1, -1));
 
 			this->environment->removeObject(iterator->get());
 			iterator = this->enemies.erase(iterator);
@@ -144,11 +151,11 @@ void Arkanoid::updateBallPosition(double deltaTime)
 
 bool Arkanoid::isBallHittingRectangle(Rectangle2D& rectangle)
 {
-	bool aabbAxisX = rectangle.getPosition().getX() - rectangle.getScale().getY() < this->ball->getPosition().getX() - this->ball->getScale().getY();
-	aabbAxisX &= rectangle.getPosition().getX() + rectangle.getScale().getY() > this->ball->getPosition().getX() + this->ball->getScale().getY();
+	bool overlapX = rectangle.getPosition().getX() - rectangle.getScale().getX() / 2.0f < ball->getPosition().getX() + ball->getScale().getX() / 2.0f;
+	overlapX &= rectangle.getPosition().getX() + rectangle.getScale().getX() / 2.0f > ball->getPosition().getX() - ball->getScale().getX() / 2.0f;
 
-	bool aabbAxisY = rectangle.getPosition().getY() - rectangle.getScale().getX() < this->ball->getPosition().getY() - this->ball->getScale().getX();
-	aabbAxisY &= rectangle.getPosition().getY() + rectangle.getScale().getX() > this->ball->getPosition().getY() + this->ball->getScale().getX();
+	bool overlapY = rectangle.getPosition().getY() - rectangle.getScale().getY() / 2.0f < ball->getPosition().getY() + ball->getScale().getY() / 2.0f;
+	overlapY &= rectangle.getPosition().getY() + rectangle.getScale().getY() / 2.0f > ball->getPosition().getY() - ball->getScale().getY() / 2.0f;
 
-	return aabbAxisX && aabbAxisY;
+	return overlapX && overlapY;
 }

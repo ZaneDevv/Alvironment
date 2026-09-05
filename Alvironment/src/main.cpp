@@ -11,14 +11,14 @@
 #include "debug_helper/print.h"
 
 /**
- * This is a main method sample for setting up your own simulations. In this case, you will encounter a few simple simulations in order to illustrate
- * what this engine is capable of. Though, by and large this will not be what it is needed to do to set up a world.
+ * This is a main method sample for setting up your own simulations. In this case, you will encounter a few simple simulations in order to illustrate what this engine is
+ * capable of. Though, by and large this will not be what it is needed to do to set up a world.
  * 
- * To set up your own environments, you will just have to create an instance of the class of your world and put it as a parameter in the method setUp
- * you can see at the end of the main method, which is imported with #include "alvironment/WorldSetUp.h".
+ * To set up your own environments, you will just have to create an instance of the class of your world and put it as a parameter in the method setUp you can see at the
+ * end of the main method, which is imported with #include "alvironment/WorldSetUp.h".
  * 
- * To know more about this, visit the project's repository in https://github.com/ZaneDevv/Alvironment/, where there are a lot of useful information in
- * case you wanted to use this code engine.
+ * To know more about this, visit the project's repository in https://github.com/ZaneDevv/Alvironment/ and in the official API in https://zanedevv.github.io/Alvironment/,
+ * where there are a lot of useful information in case you wanted to use this code engine.
  * 
  * @file main.cpp
  * @version 4.5

@@ -53,6 +53,11 @@ Vector3D Vector3D::operator / (const double& scalar) const
 	return Vector3D(this->x / scalar, this->y / scalar, this->z / scalar);
 }
 
+Vector3D Vector3D::operator - () const
+{
+	return Vector3D(-this->x, -this->y, -this->z);
+}
+
 bool Vector3D::operator == (const Vector3D& v) const
 {
 	return this->x == v.x && this->y == y && this->z == v.z;
@@ -74,6 +79,11 @@ Vector3D Vector3D::cross(const Vector3D& v, const Vector3D& w)
 		w.getZ() * v.getX() - v.getZ() * w.getX(),
 		v.getX() * w.getY() - v.getY() * w.getX()
 	);
+}
+
+Vector3D Vector3D::hadamard(const Vector3D& v, const Vector3D& w)
+{
+	return Vector3D(v.getX() * w.getX(), v.getY() * w.getY(), v.getZ() * w.getZ());
 }
 
 Vector3D Vector3D::lerp(const Vector3D& v, const Vector3D& w, double alpha)
