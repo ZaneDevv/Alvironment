@@ -1,0 +1,42 @@
+.feature {
+    width: 100%;
+    background-color: var(--darker);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.feature > * {
+    padding: 1rem;
+}
+
+.feature > p {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    width: 100%;
+}
+
+.feature > summary {
+    width: 100%;
+}
+
+.feature > summary:hover {
+    cursor: pointer
+}
+
+.feature > summary code,
+.feature > ul code {
+    background-color: transparent;
+    font-size: 1.2rem;
+}
+
+.parameter-name {
+    font-weight: 600;
+}

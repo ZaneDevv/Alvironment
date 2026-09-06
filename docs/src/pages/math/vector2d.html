@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A lightweight, open-source environment for code to make simple 2D and 3D desings">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
+
+        <link rel="stylesheet" href="../../styles/variables.css">
+        <link rel="stylesheet" href="../../styles/animations.css">
+        <link rel="stylesheet" href="../../styles/global.css">
+        <link rel="stylesheet" href="../../styles/features.css">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+        <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        <title>Alvironment - Vector2D</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Alvironment</h1>
+            <h2>A lightweight, open-source environment for code to make simple 2D and 3D desings</h2>
+        </header>
+
+        <aside>
+            <ol>
+                <li><a title="Getting started" href="../../../index.html">Getting started</a></li>
+                <li><a title="Window properties" href="../windowProperties.html">Window properties</a></li>
+                <li><a title="Abstract world" href="../abstractWorld.html">Abstract world</a></li>
+                <li class="sublist">2D
+                    <ol>
+                        <li><a title="Object2D" href="../2d/object2d.html">Object2D</a></li>
+                        <li><a title="Rectangle2D" href="../2d/rectangle2d.html">Rectangle2D</a></li>
+                        <li><a title="Triangle2D" href="../2d/triangle2d.html">Triangle2D</a></li>
+                        <li><a title="Circle2D" href="../2d/circle2d.html">Circle2D</a></li>
+                    </ol>
+                </li>
+                <li class="sublist">3D
+                    <ol>
+                        <li><a>[Working on it]</a></li>
+                    </ol>
+                </li>
+                <li class="sublist">Math
+                    <ol>
+                        <li><a title="Constants" href="./constants.html">constants.h</a></li>
+                        <li><a title="Vector2D" href="./vector2d.html">Vector2D</a></li>
+                        <li><a title="Vector3D" href="./vector3d.html">Vector3D</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </aside>
+
+        <main>
+            <section>
+                <h3 class="cpp-struct">Vector2D</h3>
+                <p>Class for calculations between bidimensional vectors.</p>
+            </section>
+
+            <section>
+                <h3>Constants</h3>
+    
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector2D::zero</code></summary>
+                    <p>This constant is the null vector \(\vec{0}\), which is the vector \(\begin{pmatrix} 0 \\ 0 \end{pmatrix}\).</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector2D::one</code></summary>
+                    <p>This constant is a vector whose all components are 1: \(\begin{pmatrix} 1 \\ 1 \end{pmatrix}\).</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector2D::i</code></summary>
+                    <p>This constant the is vector \(\hat{i}\), which is the unit vector \(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\).</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector2D::j</code></summary>
+                    <p>This constant the is vector \(\hat{j}\), which is the unit vector \(\begin{pmatrix} 0 \\ 1 \end{pmatrix}\).</p>
+                </details>
+            </section>
+
+            <section>
+                <h3>Constructors</h3>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector2D()</code></summary>
+                    <p>Creates a null vector, equivalent <em>Vector2D::zero</em>.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector2D(double, double)</code></summary>
+                    <p>Creates a vector with the vector \(\begin{pmatrix} x \\ y \end{pmatrix}\) given:</p>
+
+                    <ul>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">x</span>: Vector's x component</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">y</span>: Vector's y component</li>
+                    </ul>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector2D(Vector2D&)</code></summary>
+                    <p>Copies the given vector and creates a brand new instance with its same arguments.</p>
+                </details>
+            </section>
+
+            <section>
+                <h3>Methods</h3>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static double dot(const Vector2D&, const Vector2D&)</code></summary>
+
+                    <p>Computes the dot product \(\vec{v} \cdot \vec{w}\) between the given two vectors. That is:</p>
+                    <p>\(\vec{v} \cdot \vec{w} = \vec{v}_x \vec{w}_x + \vec{v}_y \vec{w}_y = |\vec{v}||\vec{w}|\cos(\theta)\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static Vector2D hadamard(const Vector2D&, const Vector2D&)</code></summary>
+                    
+                    <p>Computes the hadamard product \(\vec{v} \circ \vec{w}\) between the given two vectors. That is:</p>
+                    <p>\(\vec{v} \circ \vec{w} = \begin{pmatrix} \vec{v}_x \vec{w}_x \\ \vec{v}_y \vec{w}_y \end{pmatrix}\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static Vector2D lerp(const Vector2D&, const Vector2D&, double)</code></summary>
+                    
+                    <p>Computes a linear interpolation \(lerp(\vec{v}, \vec{w}, t)\) between the given two vectors and the alpha parameter. That is:</p>
+                    <p>\(lerp(\vec{v}, \vec{w}, t) = \begin{pmatrix} \vec{v}_x (1 - t) + \vec{w}_x t \\ \vec{v}_y (1 - t) + \vec{w}_y t \end{pmatrix}, t \in [0, 1]\)</p>
+
+                    <ul>
+                        <li><code class="language-cpp">const Vector2D&</code> <span class="parameter-name">v</span>: First vector, where the linear interpolation begins.</li>
+                        <li><code class="language-cpp">const Vector2D&</code> <span class="parameter-name">w</span>: Second vector, where the linear interpolation ends.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">t</span>: Alpha parameter which represents how much the interpolation has progressed.</li>
+                    </ul>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">double getMagnitude() const</code></summary>
+                    
+                    <p>Computes the magnitude/norm \(|\vec{v}|\) of the vector. That is:</p>
+                    <p>\(\|\vec{v}| = \sqrt{\vec{v}_x^2 + \vec{v}_y^2} = \sqrt{\vec{v} \cdot \vec{v}}\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">double getX() const</code></summary>
+                    <p>Gets the x component of the vector.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">void setX(double)</code></summary>
+                    <p>Sets the x component of the vector.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">double getY() const</code></summary>
+                    <p>Gets the y component of the vector.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">void setY(double)</code></summary>
+                    <p>Sets the y component of the vector.</p>
+                </details>
+            </section>
+        </main>
+
+        <footer>
+            <p>Alvironment was developed by &copy; <em>&Aacute;lvaro Fern&aacute;ndez Barrero</em>, a computer science student who is aiming to studying physics as a major.</p>
+
+            <div id="social-networks-container">
+                <a title="GitHub" href="https://github.com/ZaneDevv" target="_blank">
+                    <img src="../../img/social_networks/github.svg" alt="GitHub">
+                </a>
+
+                <a title="LinkedIn" href="https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1ndez-barrero/" target="_blank">
+                    <img src="../../img/social_networks/linkedin.svg" alt="GitHub">
+                </a>
+
+                <a title="YouTube" href="https://www.youtube.com/@nerdy-pi" target="_blank">
+                    <img src="../../img/social_networks/youtube.svg" alt="GitHub">
+                </a>
+
+                <a title="X" href="https://x.com/ZaneDev__" target="_blank">
+                    <img src="../../img/social_networks/x.svg" alt="X">
+                </a>
+            </div>
+        </footer>
+    </body>
+</html>

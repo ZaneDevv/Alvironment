@@ -16,7 +16,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
 
-        <title>Alvironment</title>
+        <title>Alvironment - Getting started</title>
     </head>
 
     <body>
@@ -28,12 +28,14 @@
         <aside>
             <ol>
                 <li><a title="Getting started" href="index.html">Getting started</a></li>
+                <li><a title="Window properties" href="./src/pages/windowProperties.html">Window properties</a></li>
+                <li><a title="Abstract world" href="./src/pages/abstractWorld.html">Abstract world</a></li>
                 <li class="sublist">2D
                     <ol>
-                        <li><a>Object2D</a></li>
-                        <li><a>Rectangle2D</a></li>
-                        <li><a>Triangle2D</a></li>
-                        <li><a>Circle2D</a></li>
+                        <li><a title="Object2D" href="./src/pages/2d/object2d.html">Object2D</a></li>
+                        <li><a title="Rectangle2D" href="./src/pages/2d/rectangle2d.html">Rectangle2D</a></li>
+                        <li><a title="Triangle2D" href="./src/pages/2d/triangle2d.html">Triangle2D</a></li>
+                        <li><a title="Circle2D" href="./src/pages/2d/circle2d.html">Circle2D</a></li>
                     </ol>
                 </li>
                 <li class="sublist">3D
@@ -43,25 +45,35 @@
                 </li>
                 <li class="sublist">Math
                     <ol>
-                        <li><a>constants.h</a></li>
-                        <li><a>Vector2D</a></li>
-                        <li><a>Vector3D</a></li>
+                        <li><a title="Constants" href="./src/pages/math/constants.html">constants.h</a></li>
+                        <li><a title="Vector2D" href="./src/pages/math/vector2d.html">Vector2D</a></li>
+                        <li><a title="Vector3D" href="./src/pages/math/vector3d.html">Vector3D</a></li>
                     </ol>
                 </li>
             </ol>
         </aside>
 
         <main>
-            <h3>Getting started</h3>
-            <p>The first step before using this environment would be installing it. Therefore, since the environment is on GitHub, we need to have <a title="Git" href="https://git-scm.com/" target="_blank">git</a> and use the following command:</p>
+            <section>
+                <h3>Getting started</h3>
+                <p>Alvironment is a simple code-base engine that allows to create simple 2D and 3D scenarios in C++.</p>
+            </section>
 
-            <pre class="programming"><code class="language-bash">git clone --recursive https://github.com/ZaneDevv/Alvironment</code></pre>
+            <section>
+                <h3>Instalation</h3>
+                <p>The first step before using this environment would be installing it. Therefore, since the environment is on GitHub, we need to use <a title="Git" href="https://git-scm.com/" target="_blank">git</a> and run the following command:</p>
+                
+                <pre class="programming"><code class="language-bash">git clone --recursive https://github.com/ZaneDevv/Alvironment</code></pre>
 
-            <p>After a couple of seconds of waiting, we will see how a new directory was created after the name <em>"Alvironment"</em> in the place we were located after running the command. This directory will contain all the files we need to use this engine. In order to open the project, we need to look for the file <em>Alvironment.sln</em> and open it.</p>
-            <p>If we look into the different files, we will see a file named <em>"main.cpp"</em> which is on charge on running the different simulations we will be creating. Although this file has a lot a content to execute different samples of simulations created to test and showcase the possibilities, the natural and simple structure to follow in this file is just the following:</p>
-
-            <pre class="programming"><code class="language-cpp">#include &lt;iostream&gt;
-
+                <p>After a couple of seconds of waiting, we will see how a new directory was created after the name <em>"Alvironment"</em> in the place we were located after running the command. This directory will contain all the files we need to use this engine. In order to open the project, we need to look for the file <em>Alvironment.sln</em> and open it.</p>
+            </section>
+            
+            <section>
+                <h3>Basic main.cpp</h3>
+                <p>If we look into the different files, we will see a file named <em>"main.cpp"</em> which is on charge on running the different simulations we will be creating. Although this file has a lot a content to execute different samples of simulations created to test and showcase the possibilities, the natural and simple structure to follow in this file is just the following:</p>
+    
+                <pre class="programming"><code class="language-cpp">#include &lt;iostream&gt;
+    
 #include "alvironment/WorldSetUp.h" // Importing the setUp method
 #include "./world/World.h" // Importing the world created
 
@@ -73,10 +85,13 @@ int main()
     std::cin.get();
     return 0;
 }</code></pre>
+    
+                <p>Just by running the imported method <em>setUp(world)</em> and setting an instance of the world you have created as parameter, the world will automatically run.</p>
+            </section>
         </main>
 
         <footer>
-            <p>Alvironment was developed by &copy; &Aacute;lvaro Fern&aacute;ndez Barrero, a computer science student who is aiming to studying physics as a major.</p>
+            <p>Alvironment was developed by &copy; <em>&Aacute;lvaro Fern&aacute;ndez Barrero</em>, a computer science student who is aiming to studying physics as a major.</p>
 
             <div id="social-networks-container">
                 <a title="GitHub" href="https://github.com/ZaneDevv" target="_blank">

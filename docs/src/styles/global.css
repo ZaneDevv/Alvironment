@@ -32,6 +32,13 @@ a:visited {
     color: var(--unvisited-link);
 }
 
+section {
+    width: 100%;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* --------------------------------
     CODE
 -------------------------------- */
@@ -46,7 +53,7 @@ a:visited {
 
     overflow-x: auto;
 
-    width: 80%;
+    width: 90%;
     max-width: 700px;
 }
 
@@ -92,6 +99,37 @@ a:visited {
 }
 
 /* --------------------------------
+    TAGS
+-------------------------------- */
+
+.cpp-class::after,
+.cpp-struct::after,
+.cpp-header::after {
+    font-weight: normal;
+    font-size: 1rem;
+
+    margin: 10px;
+    padding: 0.5rem;
+
+    display: inline;
+
+    background-color: var(--darker);
+    border-radius: 10px;
+}
+
+.cpp-class::after {
+    content: 'class';
+}
+
+.cpp-struct::after {
+    content: 'struct';
+}
+
+.cpp-header::after {
+    content: 'header';
+}
+
+/* --------------------------------
     TITLE
 -------------------------------- */
 
@@ -121,13 +159,16 @@ h2 {
     MAIN
 -------------------------------- */
 
-main {
-    grid-area: main;
-
+main, main > section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+main {
+    grid-area: main;
+
 
     max-width: 1200px;
     padding: 1rem;
@@ -171,19 +212,19 @@ aside .sublist > ol {
 }
 
 aside .sublist::before {
-    content: "➤ ";
+    content: '➤ ';
     font-size: 0.75rem;
 }
 
 aside li:hover,
-aside li:hover a:visited,
-aside li:hover a:link {
+aside li:hover > a:visited,
+aside li:hover > a:link {
     color: var(--selected-color);
     cursor: pointer;
 }
 
 aside .sublist:hover::before {
-    content: "⮟ ";
+    content: '⮟ ';
     font-size: 0.9rem;
 
     color: var(--selected-color);
@@ -245,8 +286,8 @@ footer {
     body {
         display: grid;
         grid-template-areas:
-            "header header header header"
-            "aside main main main"
-            "footer footer footer footer";
+            'header header header header'
+            'aside main main main'
+            'footer footer footer footer';
     }
 }
