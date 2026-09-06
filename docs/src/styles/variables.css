@@ -1,4 +1,19 @@
 :root {
+    --darker: #0E0E15;
     --dark: #101018;
     --light: #E0E0E5;
+
+    --selected-color: #6161C9;
+    --unvisited-link: #6161C9;
+    --visited-link: #6161C9;
+
+    --code-comment: #77778A;
+    --code-keyword: #9B8CFF;
+    --code-string: #A6E3A1;
+    --code-function: #7DCFFF;
+    --code-number: #F2C97D;
+    --code-type: #C6A0F6;
+    --code-operator: #89B4FA;
+    --code-punctuation: #B8B8C5;
+    --code-preprocessor: #F38BA8;
 }

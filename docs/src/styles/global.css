@@ -21,11 +21,74 @@ html, body {
 }
 
 body {
-    display: grid;
-    grid-template-areas:
-        "header header header header"
-        "main main main main"
-        "footer footer footer footer";
+    min-height: 100dvh;
+}
+
+a:link {
+    color: var(--unvisited-link);
+}
+
+a:visited {
+    color: var(--unvisited-link);
+}
+
+/* --------------------------------
+    CODE
+-------------------------------- */
+
+.programming {
+    background-color: var(--darker);
+    color: var(--light);
+
+    padding: 1.25rem;
+    border: 1px solid #20202C;
+    border-radius: 0.6rem;
+
+    overflow-x: auto;
+
+    width: 80%;
+    max-width: 700px;
+}
+
+.programming code {
+    color: var(--light);
+    font-family: monospace;
+}
+
+.token.comment, .token.prolog, .token.doctype {
+    color: var(--code-comment);
+}
+
+.token.keyword {
+    color: var(--code-keyword);
+}
+
+.token.string, .token.char {
+    color: var(--code-string);
+}
+
+.token.function {
+    color: var(--code-function);
+}
+
+.token.number, .token.boolean {
+    color: var(--code-number);
+}
+
+.token.class-name, .token.builtin {
+    color: var(--code-type);
+}
+
+.token.operator {
+    color: var(--code-operator);
+}
+
+.token.punctuation {
+    color: var(--code-punctuation);
+}
+
+.token.macro, .token.directive, .token.property {
+    color: var(--code-preprocessor);
 }
 
 /* --------------------------------
@@ -36,7 +99,9 @@ header {
     grid-area: header;
     border-bottom: 1px solid var(--light);
 
-    padding: 1rem
+    background-color: var(--darker);
+
+    padding: 1rem;
 }
 
 h1, h2 {
@@ -58,23 +123,78 @@ h2 {
 
 main {
     grid-area: main;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 1200px;
+    padding: 1rem;
 }
 
-h3 {
-    height: 500px;
-    text-align: center;
-    align-content: center;
+main h3, main p {
+    width: 100%;
+}
+
+main p {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /* --------------------------------
-    ASIDE
+    CONTENT LIST
 -------------------------------- */
 
 aside {
+    display: none;
     grid-area: aside;
-    color: red;
+
+    padding: 1rem;
+
+    max-width: 250px;
+
+    background-color: var(--darker);
 }
 
+aside a:visited, aside a:link {
+    color: var(--light);
+    text-decoration: none;
+}
+
+aside ol {
+    list-style: none;
+}
+
+aside .sublist > ol {
+    display: none;
+}
+
+aside .sublist::before {
+    content: "➤ ";
+    font-size: 0.75rem;
+}
+
+aside li:hover,
+aside li:hover a:visited,
+aside li:hover a:link {
+    color: var(--selected-color);
+    cursor: pointer;
+}
+
+aside .sublist:hover::before {
+    content: "⮟ ";
+    font-size: 0.9rem;
+
+    color: var(--selected-color);
+}
+
+aside .sublist:hover ol {
+    display: block;
+    margin-left: 10%;
+
+    color: var(--light)
+}
 
 /* --------------------------------
     FOOTER
@@ -83,6 +203,8 @@ aside {
 footer {
     grid-area: footer;
     border-top: 1px solid var(--light);
+
+    background-color: var(--darker);
 
     padding: 1rem;
 }
@@ -109,4 +231,22 @@ footer {
     animation: social-network-hover 0.1s;
     transform: scale(1.1);
     cursor: pointer
+}
+
+/* --------------------------------
+    RESPONSIVE
+-------------------------------- */
+
+@media (min-width: 1000px) {
+    aside {
+        display: block;
+    }
+
+    body {
+        display: grid;
+        grid-template-areas:
+            "header header header header"
+            "aside main main main"
+            "footer footer footer footer";
+    }
 }

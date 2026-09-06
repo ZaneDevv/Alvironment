@@ -6,6 +6,16 @@ It has no graphics environment like other engines such as [Unity](https://unity.
 
 ---
 
+### Installing environment
+
+To install this environment the first thing we need to do is cloning this repository using git.
+
+```sh
+git clone --recursive https://github.com/ZaneDevv/Alvironment
+```
+
+---
+
 ### Learning to use *Alvironment*
 
 In case you are interested in testing this environment or even commencing to use it, you can check [API here](https://zanedevv.github.io/Alvironment/).

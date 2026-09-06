@@ -4,29 +4,96 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A lightweight, open-source environment for code to make simple 2D and 3D desings">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
 
         <link rel="stylesheet" href="./src/styles/variables.css">
         <link rel="stylesheet" href="./src/styles/animations.css">
         <link rel="stylesheet" href="./src/styles/global.css">
-    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
         <title>Alvironment</title>
     </head>
+
     <body>
         <header>
             <h1>Alvironment</h1>
             <h2>A lightweight, open-source environment for code to make simple 2D and 3D desings</h2>
         </header>
 
+        <aside>
+            <ol>
+                <li><a title="Getting started" href="index.html">Getting started</a></li>
+                <li class="sublist">2D
+                    <ol>
+                        <li><a>Object2D</a></li>
+                        <li><a>Rectangle2D</a></li>
+                        <li><a>Triangle2D</a></li>
+                        <li><a>Circle2D</a></li>
+                    </ol>
+                </li>
+                <li class="sublist">3D
+                    <ol>
+                        <li><a>[Working on it]</a></li>
+                    </ol>
+                </li>
+                <li class="sublist">Math
+                    <ol>
+                        <li><a>constants.h</a></li>
+                        <li><a>Vector2D</a></li>
+                        <li><a>Vector3D</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </aside>
+
         <main>
-            <h3>PAGE IN PROGRESS, NO FULLY DEVELOPED YET</h3>
+            <h3>Getting started</h3>
+            <p>The first step before using this environment would be installing it. Therefore, since the environment is on GitHub, we need to have <a title="Git" href="https://git-scm.com/" target="_blank">git</a> and use the following command:</p>
+
+            <pre class="programming"><code class="language-bash">git clone --recursive https://github.com/ZaneDevv/Alvironment</code></pre>
+
+            <p>After a couple of seconds of waiting, we will see how a new directory was created after the name <em>"Alvironment"</em> in the place we were located after running the command. This directory will contain all the files we need to use this engine. In order to open the project, we need to look for the file <em>Alvironment.sln</em> and open it.</p>
+            <p>If we look into the different files, we will see a file named <em>"main.cpp"</em> which is on charge on running the different simulations we will be creating. Although this file has a lot a content to execute different samples of simulations created to test and showcase the possibilities, the natural and simple structure to follow in this file is just the following:</p>
+
+            <pre class="programming"><code class="language-cpp">#include &lt;iostream&gt;
+
+#include "alvironment/WorldSetUp.h" // Importing the setUp method
+#include "./world/World.h" // Importing the world created
+
+int main()
+{
+    World myWorld; // Creating a new world instance
+    setUp(myWorld); // Setting up the world (executes it automatically)
+
+    std::cin.get();
+    return 0;
+}</code></pre>
         </main>
 
         <footer>
             <p>Alvironment was developed by &copy; &Aacute;lvaro Fern&aacute;ndez Barrero, a computer science student who is aiming to studying physics as a major.</p>
 
             <div id="social-networks-container">
-                <a title="GitHub" href="https://github.com/ZaneDevv" target="_blank"><img src="./src/img/social_networks/github.svg" alt="GitHub"></a>
-                <a title="LinkedIn" href="https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1ndez-barrero/" target="_blank"><img src="./src/img/social_networks/linkedin.svg" alt="GitHub"></a>
+                <a title="GitHub" href="https://github.com/ZaneDevv" target="_blank">
+                    <img src="./src/img/social_networks/github.svg" alt="GitHub">
+                </a>
+
+                <a title="LinkedIn" href="https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1ndez-barrero/" target="_blank">
+                    <img src="./src/img/social_networks/linkedin.svg" alt="GitHub">
+                </a>
+
+                <a title="YouTube" href="https://www.youtube.com/@nerdy-pi" target="_blank">
+                    <img src="./src/img/social_networks/youtube.svg" alt="GitHub">
+                </a>
+
+                <a title="X" href="https://x.com/ZaneDev__" target="_blank">
+                    <img src="./src/img/social_networks/x.svg" alt="X">
+                </a>
             </div>
         </footer>
     </body>
