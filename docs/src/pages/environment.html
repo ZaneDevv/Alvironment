@@ -57,53 +57,40 @@
 
         <main>
             <section>
-                <h3 class="cpp-class">Abstract World</h3>
-                <p>To create a new world able to run your simulation, you require some features given by the class <em>Abstract World</em> which can be included from alvironment/AbstractWorld.h.</p>
-                
-                <pre class="programming"><code class="language-cpp">#pragma once
+                <h3 class="cpp-class">Environment</h3>
+                <p>This class is on charge of running a world by being the mediator among the window, renderer, input and the worlds. It is able to tell when the user is pressing the key, window's dimensions and objects on scene and use that information to allow the whole world to run properly.</p>
+            </section>
 
-#include "alvironment/AbstractWorld.h"
-
-class MyWorld : public AbstractWorld
-{
-public:
-    void initialize() override;
-    void update(double) override;
-}</code></pre>
+            <section>
+                <h3>Constructors</h3>
+    
+                <details class="feature">
+                    <summary><code class="language-cpp">Environment(WindowProperties*)</code></summary>
+                    <p>Takes <a title="WindowProperties struct" href="./windowProperties.html">windows properties</a> and uses it to create a window to render the scenario.</p>
+                </details>
             </section>
 
             <section>
                 <h3>Methods</h3>
     
                 <details class="feature">
-                    <summary><code class="language-cpp">void initialize()</code></summary>
-    
-                    <p>Initializes the world and commences the simulation. This method is fired automatically with the <em>setUp()</em> method</p>
-                    <p>You should use this mehtod to set up the world's scenario, create the environment and decide the window's parameters. A simple example of code would be the following:</p>
-    
-                    <pre class="programming"><code class="language-cpp">#include "MyWorld.h"
-
-void MyWorld::initialize()
-{
-    WindowProperties properties(500, 500, "My World", true);
-    this->environment.emplace(&properties);
-}</code></pre>
+                    <summary><code class="language-cpp">void addObject(GenericObject*)</code></summary>
+                    <p>Adds a new object to the scenario. That means this object will be rendered on screen every frame.</p>
                 </details>
-    
-                <details class="feature">
-                    <summary><code class="language-cpp">void update(double)</code></summary>
-    
-                    <p>Main world's loop. This method is automatically fired every frame by the <em>Environment</em> class. Furthermore, it offers a &Delta;t as double parameter which corresponds to how much time has passed from the last frame to the current one.</p>
-                </details>
-            </section>
 
-            <section>
-                <h3>Variables</h3>
-    
                 <details class="feature">
-                    <summary><code class="language-cpp">std::optional&lt;Environment&gt; environment</code></summary>
-    
-                    <p>This is the environment to create in the <em>initialize()</em> method</p>
+                    <summary><code class="language-cpp">void removeObject(GenericObject*)</code></summary>
+                    <p>Removes an object from the scenario. That means this object will no longer be rendered on screen.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">bool isKeyPressed(Key) const</code></summary>
+                    <p>Checks if the given key is being pressed. If the key is being pressed, the method willl return true, otherwise the method will return false.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">void getMousePosition(double&, double&) const</code></summary>
+                    <p>Checks mouse's position and gives the x and y position relative to the screen being the position &lt;0, 0&gt; the center of the screen.</p>
                 </details>
             </section>
         </main>

@@ -33,6 +33,7 @@
                 <li><a title="Getting started" href="../../../index.html">Getting started</a></li>
                 <li><a title="Window properties" href="../windowProperties.html">Window properties</a></li>
                 <li><a title="Abstract world" href="../abstractWorld.html">Abstract world</a></li>
+                <li><a title="Environment" href="../environment.html">Environment</a></li>
                 <li class="sublist">2D
                     <ol>
                         <li><a title="Object2D" href="../2d/object2d.html">Object2D</a></li>
@@ -123,14 +124,14 @@
                     <summary><code class="language-cpp">static double dot(const Vector3D&, const Vector3D&)</code></summary>
 
                     <p>Computes the dot product \(\vec{v} \cdot \vec{w}\) between the given two vectors. That is:</p>
-                    <p>\(\vec{v} \cdot \vec{w} = \vec{v}_x \vec{w}_x + \vec{v}_y \vec{w}_y + \vec{v}_z \vec{w}_z = |\vec{v}||\vec{w}|\cos(\theta)\)</p>
+                    <p>\(\vec{v} \cdot \vec{w} = \vec{v}_x \vec{w}_x + \vec{v}_y \vec{w}_y + \vec{v}_z \vec{w}_z = \|\vec{v}\|\|\vec{w}\|\cos(\theta)\)</p>
                 </details>
 
                 <details class="feature">
                     <summary><code class="language-cpp">static Vector3D cross(const Vector3D&, const Vector3D&)</code></summary>
                     
                     <p>Computes the cross product \(\vec{v} \times \vec{w}\) between the given two vectors. That is:</p>
-                    <p>\(\vec{v} \times \vec{w} = \det\begin{pmatrix} \hat{i} & \hat{j} & \hat{k} \\ \vec{v}_x & \vec{v}_y & \vec{v}_z \\ \vec{w}_xx & \vec{w}_y & \vec{w}_z \end{pmatrix} = \begin{pmatrix} \vec{v}_y \vec{w}_z - \vec{v}_z \vec{w}_u \\ \vec{v}_z \vec{w}_x - \vec{v}_x \vec{w}_z \\ \vec{v}_x \vec{w}_y - \vec{v}_y \vec{w}_x\end{pmatrix}\)</p>
+                    <p>\(\vec{v} \times \vec{w} = \det\begin{pmatrix} \hat{i} & \hat{j} & \hat{k} \\ \vec{v}_x & \vec{v}_y & \vec{v}_z \\ \vec{w}_x & \vec{w}_y & \vec{w}_z \end{pmatrix} = \begin{pmatrix} \vec{v}_y \vec{w}_z - \vec{v}_z \vec{w}_u \\ \vec{v}_z \vec{w}_x - \vec{v}_x \vec{w}_z \\ \vec{v}_x \vec{w}_y - \vec{v}_y \vec{w}_x\end{pmatrix}\)</p>
                 </details>
 
                 <details class="feature">
@@ -156,8 +157,8 @@
                 <details class="feature">
                     <summary><code class="language-cpp">double getMagnitude() const</code></summary>
                     
-                    <p>Computes the magnitude/norm \(|\vec{v}|\) of the vector. That is:</p>
-                    <p>\(\|\vec{v}| = \sqrt{\vec{v}_x^2 + \vec{v}_y^2 + \vec{v}_z^2} = \sqrt{\vec{v} \cdot \vec{v}}\)</p>
+                    <p>Computes the magnitude/norm \(\|\vec{v}\|\) of the vector. That is:</p>
+                    <p>\(\|\vec{v}\| = \sqrt{\vec{v}_x^2 + \vec{v}_y^2 + \vec{v}_z^2} = \sqrt{\vec{v} \cdot \vec{v}}\)</p>
                 </details>
 
                 <details class="feature">

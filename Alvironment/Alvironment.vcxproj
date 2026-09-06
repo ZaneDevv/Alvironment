@@ -190,7 +190,7 @@
     <None Include="include\alvironment\shaders\common_shaders\Basic.vsha" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="src\Samples\todo.md" />
+    <Text Include="src\todo.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A lightweight, open-source environment for code to make simple 2D and 3D desings">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
+
+        <link rel="stylesheet" href="../../styles/variables.css">
+        <link rel="stylesheet" href="../../styles/animations.css">
+        <link rel="stylesheet" href="../../styles/global.css">
+        <link rel="stylesheet" href="../../styles/features.css">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+        <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        <title>Alvironment - Triangle2D</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Alvironment</h1>
+            <h2>A lightweight, open-source environment for code to make simple 2D and 3D desings</h2>
+        </header>
+
+        <aside>
+            <ol>
+                <li><a title="Getting started" href="../../../index.html">Getting started</a></li>
+                <li><a title="Window properties" href="../windowProperties.html">Window properties</a></li>
+                <li><a title="Abstract world" href="../abstractWorld.html">Abstract world</a></li>
+                <li><a title="Environment" href="../environment.html">Environment</a></li>
+                <li class="sublist">2D
+                    <ol>
+                        <li><a title="Object2D" href="./object2d.html">Object2D</a></li>
+                        <li><a title="Rectangle2D" href="./rectangle2d.html">Rectangle2D</a></li>
+                        <li><a title="Triangle2D" href="./triangle2d.html">Triangle2D</a></li>
+                        <li><a title="Circle2D" href="./circle2d.html">Circle2D</a></li>
+                    </ol>
+                </li>
+                <li class="sublist">3D
+                    <ol>
+                        <li><a>[Working on it]</a></li>
+                    </ol>
+                </li>
+                <li class="sublist">Math
+                    <ol>
+                        <li><a title="Constants" href="../math/constants.html">constants.h</a></li>
+                        <li><a title="Vector2D" href="../math/vector2d.html">Vector2D</a></li>
+                        <li><a title="Vector3D" href="../math/vector3d.html">Vector3D</a></li>
+                    </ol>
+                </li>
+            </ol>
+        </aside>
+
+        <main>
+            <section>
+                <h3 class="cpp-class">Triangle2D</h3>
+                <p>Triangles can be created automatically by creating an instance of this class and do not have necessarily to care about the vertices or indices.</p>
+            </section>
+
+            <section>
+                <h3>Constructors</h3>
+    
+                <details class="feature">
+                    <summary><code class="language-cpp">Triangle2D(const char*, const char*)</code></summary>
+                    <p>Creates a new 2D triangle object with the given shaders.</p>
+
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">vertexShader</span>: Path where the vertex shader is located.</li>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">fragmentShader</span>: Path where the fragment shader is located.</li>
+                    </ul>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Triangle2D()</code></summary>
+                    <p>Creates a new 2D triangle object.</p>
+                </details>
+            </section>
+        </main>
+
+        <footer>
+            <p>Alvironment was developed by &copy; <em>&Aacute;lvaro Fern&aacute;ndez Barrero</em>, a computer science student who is aiming to studying physics as a major.</p>
+
+            <div id="social-networks-container">
+                <a title="GitHub" href="https://github.com/ZaneDevv" target="_blank">
+                    <img src="../../img/social_networks/github.svg" alt="GitHub">
+                </a>
+
+                <a title="LinkedIn" href="https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1ndez-barrero/" target="_blank">
+                    <img src="../../img/social_networks/linkedin.svg" alt="GitHub">
+                </a>
+
+                <a title="YouTube" href="https://www.youtube.com/@nerdy-pi" target="_blank">
+                    <img src="../../img/social_networks/youtube.svg" alt="GitHub">
+                </a>
+
+                <a title="X" href="https://x.com/ZaneDev__" target="_blank">
+                    <img src="../../img/social_networks/x.svg" alt="X">
+                </a>
+            </div>
+        </footer>
+    </body>
+</html>

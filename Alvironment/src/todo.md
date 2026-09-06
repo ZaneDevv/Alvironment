@@ -32,3 +32,5 @@
 * Math:
 	* ~~Numerical constants~~
 	* ~~Vector2D & Vector3D class~~
+
+* API

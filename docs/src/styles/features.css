@@ -3,11 +3,6 @@
     background-color: var(--darker);
     border-radius: 10px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -16,11 +11,20 @@
     padding: 1rem;
 }
 
-.feature > p {
+.feature p {
     padding-top: 0;
     padding-bottom: 0;
 
     width: 100%;
+}
+
+.feature > ul:before {
+    content: 'Arguments:';
+    font-weight: bold;
+}
+
+.feature > ul {
+    margin-left: 20px;
 }
 
 .feature > summary {
@@ -29,6 +33,11 @@
 
 .feature > summary:hover {
     cursor: pointer
+}
+
+.feature > .programming {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .feature > summary code,

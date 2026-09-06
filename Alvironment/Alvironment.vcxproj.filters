@@ -155,6 +155,6 @@
     <None Include="include\alvironment\shaders\common_shaders\Basic.fsha" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="src\Samples\todo.md" />
+    <Text Include="src\todo.md" />
   </ItemGroup>
 </Project>
