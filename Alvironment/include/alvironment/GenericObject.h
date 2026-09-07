@@ -8,7 +8,7 @@ class Environment;
 
 /**
  * @brief Class for generic objects
- * @version 2.1
+ * @version 2.2
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -30,11 +30,26 @@ protected:
 	u32_t verticesAmount = 0;
 	u32_t indicesAmount = 0;
 
-	u32_t vao;
-	u32_t vbo;
-	u32_t ebo;
+	u8_t dimensions = 2;
+
+	u32_t vao = 0;
+	u32_t vbo = 0;
+	u32_t ebo = 0;
 
 	Shader* shader;
+
+	// ------------------------------------------------------
+	// METHODS
+	// ------------------------------------------------------
+
+	/**
+	 * @brief Updates the object's vbos
+	 * @version 1.0
+	 * @since 2.2
+	 * @date 2026-09-07
+	 * @author Álvaro Fernández Barrero
+	 */
+	void updateVbo();
 
 public:
 
@@ -91,24 +106,6 @@ public:
 	// ------------------------------------------------------
 
 	/**
-	 * @brief Renders the object
-	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-08-31
-	 * @author Álvaro Fernández Barrero
-	 */
-	virtual void render() = 0;
-
-	/**
-	 * @brief Sets up the buffers of this object for the GPU
-	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-08-31
-	 * @author Álvaro Fernández Barrero
-	 */
-	virtual void setUpBuffers() = 0;
-
-	/**
 	 * @brief Updates the object's vertices according to the transformation evolved
 	 * @version 1.0
 	 * @since 1.4
@@ -116,6 +113,24 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	virtual void updateVertices() = 0;
+
+	/**
+	 * @brief Renders the object
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	void render();
+
+	/**
+	 * @brief Sets up the buffers of this object for the GPU
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setUpBuffers();
 
 	/**
 	 * @brief Updates the window's dimensions

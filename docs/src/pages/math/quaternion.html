@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A lightweight, open-source environment for code to make simple 2D and 3D desings">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
+
+        <link rel="stylesheet" href="../../styles/variables.css">
+        <link rel="stylesheet" href="../../styles/animations.css">
+        <link rel="stylesheet" href="../../styles/global.css">
+        <link rel="stylesheet" href="../../styles/features.css">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+        <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        <title>Alvironment - Vector2D</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Alvironment</h1>
+            <h2>A lightweight, open-source environment for code to make simple 2D and 3D desings</h2>
+        </header>
+
+        <aside>
+            <ol>
+                <li><a title="Getting started" href="../../../index.html">Getting started</a></li>
+                <li><a title="Window properties" href="../windowProperties.html">Window properties</a></li>
+                <li>
+                    <details>
+                        <summary>2D</summary>
+                        <ol>
+                            <li><a title="Environment2D" href="../2d/environment2d.html">Environment2D</a></li>
+                            <li><a title="World2D" href="../2d/world2d.html">World2D</a></li>
+                            <li><a title="Object2D" href="../2d/object2d.html">Object2D</a></li>
+                            <li><a title="Rectangle2D" href="../2d/rectangle2d.html">Rectangle2D</a></li>
+                            <li><a title="Triangle2D" href="../2d/triangle2d.html">Triangle2D</a></li>
+                            <li><a title="Circle2D" href="../2d/circle2d.html">Circle2D</a></li>
+                        </ol>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>3D</summary>
+                        <ol>
+                            <li><a>[Working on it]</a></li>
+                        </ol>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>Math</summary>
+                        <ol>
+                            <li><a title="Constants" href="./constants.html">constants.h</a></li>
+                            <li><a title="Vector2D" href="./vector2d.html">Vector2D</a></li>
+                            <li><a title="Vector3D" href="./vector3d.html">Vector3D</a></li>
+                            <li><a title="Quaternion" href="./quaternion.html">Quaternion</a></li>
+                        </ol>
+                    </details>
+                </li>
+            </ol>
+        </aside>
+
+        <main>
+            <section>
+                <h3 class="cpp-struct">Quaternion</h3>
+                <p>Struct for calculations among quaternions.</p>
+            </section>
+
+            <section>
+                <h3>Constants</h3>
+    
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion::identity</code></summary>
+                    <p>This constant is the identity quaternion, which is the quaternion 1.</p>
+                </details>
+            </section>
+
+            <section>
+                <h3>Constructors</h3>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion()</code></summary>
+                    <p>Creates a null quaternion, which is just 0.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion(double, double, double, double)</code></summary>
+                    <p>Creates a quaternion like \(w + xi + yj + zk\) given:</p>
+
+                    <ul>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">w</span>: Quaternion's real component</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">x</span>: Quaternion's first imaginary component \(i\)</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">y</span>: Quaternion's second imaginary component \(j\)</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">z</span>: Quaternion's third imaginary component \(k\)</li>
+                    </ul>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion(Quaternion&)</code></summary>
+                    <p>Copies the given quaternion and creates a brand new instance with its same arguments.</p>
+                </details>
+            </section>
+
+            <section>
+                <h3>Operators</h3>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion + Quaternion</code></summary>
+                    <p>Adds the two given quaternion. This is that, for the quaternions \(q_0 = w_0 + x_0i + y_0j + z_0k, q_1 = w_1 + x_1i + y_1j + z_1k\):</p>
+                    <p>\(q_0 + q_1 = w_0 + w_1 + i(x_0 + x_1) + j(y_0 + y_1) + k(z_0 + z_1)\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion - Quaternion</code></summary>
+                    <p>Subtracts the two given quaternion. This is that, for the quaternions \(q_0 = w_0 + x_0i + y_0j + z_0k, q_1 = w_1 + x_1i + y_1j + z_1k\):</p>
+                    <p>\(q_0 - q_1 = w_0 - w_1 + i(x_0 - x_1) + j(y_0 - y_1) + k(z_0 - z_1)\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion * Quaternion</code></summary>
+                    <p>Multiplies the two given quaternion. This is that, for the quaternions \(q_0 = w_0 + x_0i + y_0j + z_0k, q_1 = w_1 + x_1i + y_1j + z_1k\):</p>
+                    <p>\[
+                            \begin{aligned}
+                            q_0 q_1 ={}& w_0 w_1 - x_0 x_1 - y_0 y_1 - z_0 z_1 \\
+                            &+ i(w_0 x_1 + x_0 w_1 + y_0 z_1 - z_0 y_1) \\
+                            &+ j(w_0 y_1 - x_0 z_1 + y_0 w_1 + z_0 x_1) \\
+                            &+ k(w_0 z_1 + x_0 y_1 - y_0 x_1 + w_1 z_0)
+                            \end{aligned}
+                        \]</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion * number</code></summary>
+                    <p>Multiplies a quaternion by a scalar. This is that, for the quaternions \(q = w + xi + yj + zk\) and the scalar &alpha;:</p>
+                    <p>\(\alpha q = \alpha w + \alpha x i + \alpha y j + \alpha z k\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion / number</code></summary>
+                    <p>Divides a quaternion by a scalar. This is that, for the quaternions \(q = w + xi + yj + zk\) and the scalar &alpha;:</p>
+                    <p>\(\frac{1}{\alpha} q = \frac{w}{\alpha} + \frac{x}{\alpha} i + \frac{y}{\alpha} j + \frac{z}{\alpha} k\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">-Quaternion</code></summary>
+                    <p>Invers the sign of all the quaternion's numbers:</p>
+                    <p>\(-q = -1q = -w - xi - yj - zk\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Quaternion == Quaternion</code></summary>
+                    <p>Checks if the given two quaternions are the same. Two quaternions are the same if all its components are the same.</p>
+                    <p>\(q_0 = q_1 \iff w_0 = w_1 \wedge x_0 = x_1 \wedge y_0 = y_1 \wedge z_0 = z_1\)</p>
+                </details>
+            </section>
+
+            <section>
+                <h3>Methods</h3>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static Quaternion normalize(const Quaternion&)</code></summary>
+                    <p>Normalizes the given quaternion making its magnitude to be one. This is:</p>
+                    <p>\(q' = \frac{q}{|q|}q \iff |q| \ne 0\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static Quaternion conjugate(const Quaternion&)</code></summary>
+                    <p>Gets the conjugate of the given quaternion. This is \(q^* = w - xi - yj - zk\).</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static Quaternion inverse(const Quaternion&)</code></summary>
+                    <p>Gets the inverse of the given quaternion. The inverse of a quaternion is a quaternion \(q^{-1}\) such that \(qq^{-1} = 1\).</p>
+                    <p>\(q^{-1} = \frac{q^*}{|q|^2}\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static Quaternion power(const Quaternion&, double)</code></summary>
+                    <p>Powers the given quaternion to the given scalar. This is, representing a the quaternion in polar coordinates:</p>
+                    <p>\(q^n = \left(|q|[\cos(\theta) + u \sin(\theta)]\right)^n = |q|^n\left(\cos(n\theta) + u \sin(n\theta)\right) \)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static Quaternion slerp(const Quaternion&, const Quaternion&, double)</code></summary>
+                    <p>Interpolates spherically the given two quaternions according to alpha. This is the quaternion's version of linear interpolation, since quaternions are spherical and lienar interpolations go in a stright line, we need to use a spherical path:</p>
+                    <p>\(q = \left(q_1 q_0^{-1}\right)^\alpha q_0\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">float getMagnitude()</code></summary>
+                    <p>Gets the magnitude of the quaternion. This is that, for a quaternion \(q = w + xi + yj + zk\):</p>
+                    <p>\(|q| = \sqrt{w^2 + x^2 + y^2 + z^2} = \sqrt{qq^*}\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">float getAngle()</code></summary>
+                    <p>Gets the angle of the quaternion. This is that, for a quaternion \(q = w + xi + yj + zk\), the angle is:</p>
+                    <p>\(\theta = 2\arccos\left(\frac{w}{|q|}\right)\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector3D getAxis()</code></summary>
+                    <p>Gets the axis of the quaternion. This is that, for a quaternion \(q = w + xi + yj + zk\), the axis is the vector \(\begin{pmatrix} x \\ y \\ z \end{pmatrix}\).</p>
+                </details>
+            </section>
+        </main>
+
+        <footer>
+            <p>Alvironment was developed by &copy; <em>&Aacute;lvaro Fern&aacute;ndez Barrero</em>, a computer science student who is aiming to studying physics as a major.</p>
+
+            <div id="social-networks-container">
+                <a title="GitHub" href="https://github.com/ZaneDevv" target="_blank">
+                    <img src="../../img/social_networks/github.svg" alt="GitHub">
+                </a>
+
+                <a title="LinkedIn" href="https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1ndez-barrero/" target="_blank">
+                    <img src="../../img/social_networks/linkedin.svg" alt="GitHub">
+                </a>
+
+                <a title="YouTube" href="https://www.youtube.com/@nerdy-pi" target="_blank">
+                    <img src="../../img/social_networks/youtube.svg" alt="GitHub">
+                </a>
+
+                <a title="X" href="https://x.com/ZaneDev__" target="_blank">
+                    <img src="../../img/social_networks/x.svg" alt="X">
+                </a>
+            </div>
+        </footer>
+    </body>
+</html>

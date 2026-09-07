@@ -81,6 +81,27 @@
     <ClCompile Include="include\alvironment\2d\World2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\alvironment\3d\World3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\alvironment\3d\Environment3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\alvironment\3d\object\Object3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Samples\SpinningCube\SpinningCube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\alvironment\3d\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\alvironment\3d\object\Cube3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\math\Quaternion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scr\Classes\Object.h">
@@ -159,6 +180,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\alvironment\2d\World2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\alvironment\3d\World3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\alvironment\3d\Environment3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\alvironment\3d\object\Object3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Samples\SpinningCube\SpinningCube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\alvironment\3d\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\alvironment\3d\object\Cube3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\math\Quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

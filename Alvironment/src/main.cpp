@@ -7,6 +7,7 @@
 #include "./Samples/SolarSystem/SolarSystem.h"
 #include "./Samples/Dvd/Dvd.h"
 #include "./Samples/Arkanoid/Arkanoid.h"
+#include "./Samples/SpinningCube/SpinningCube.h"
 
 #include "debug_helper/print.h"
 
@@ -48,8 +49,17 @@ void getSimulationIndex(short&);
  */
 void getSimulationByIndex(std::unique_ptr<AbstractWorld>&, short);
 
+/**
+ * @brief Main method. This is automatically run when compile and execute the project
+ * @version 3.0
+ * @since 1.0
+ * @version 1.0
+ * @author Álvaro Fernández Barrero
+ */
 int main()
 {
+	// Selecting world
+
 	std::cout << RESET_COLOR;
 
 	short simulationIndex = 0;
@@ -58,11 +68,22 @@ int main()
 	std::unique_ptr<AbstractWorld> worldToRun;
 	getSimulationByIndex(worldToRun, simulationIndex);
 
+	// Running selected world
+
 	if (worldToRun.get() != nullptr)
 	{
+		// If the world is of type World2D, run the 2D world
+
 		if (auto* world2D = dynamic_cast<World2D*>(worldToRun.get()))
 		{
 			setUp(*world2D);
+		}
+
+		// If the world is of type World3D, run the 3D world
+
+		if (auto* world3D = dynamic_cast<World3D*>(worldToRun.get()))
+		{
+			setUp(*world3D);
 		}
 	}
 
@@ -78,6 +99,7 @@ void getSimulationIndex(short& index)
 	PRINT("\t2. 2D solar system");
 	PRINT("\t3. DVD");
 	PRINT("\t4. Arkanoid");
+	PRINT("\t5. Spinning cube");
 
 	do
 	{
@@ -85,7 +107,7 @@ void getSimulationIndex(short& index)
 		std::cin >> index;
 		std::cout << RESET_COLOR;
 	}
-	while (index < 1 || index > 4);
+	while (index < 1 || index > 5);
 
 	std::cout << "\n";
 }
@@ -108,6 +130,10 @@ void getSimulationByIndex(std::unique_ptr<AbstractWorld>& world, short simulatio
 
 	case 4:
 		world = std::make_unique<Arkanoid>();
+		break;
+
+	case 5:
+		world = std::make_unique<SpinningCube>();
 		break;
 
 	default:

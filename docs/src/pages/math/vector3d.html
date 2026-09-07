@@ -60,6 +60,7 @@
                             <li><a title="Constants" href="./constants.html">constants.h</a></li>
                             <li><a title="Vector2D" href="./vector2d.html">Vector2D</a></li>
                             <li><a title="Vector3D" href="./vector3d.html">Vector3D</a></li>
+                            <li><a title="Quaternion" href="./quaternion.html">Quaternion</a></li>
                         </ol>
                     </details>
                 </li>
@@ -69,7 +70,7 @@
         <main>
             <section>
                 <h3 class="cpp-struct">Vector3D</h3>
-                <p>Class for calculations between tridimensional vectors.</p>
+                <p>Struct for calculations among tridimensional vectors.</p>
             </section>
 
             <section>
@@ -127,6 +128,45 @@
             </section>
 
             <section>
+                <h3>Operators</h3>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector3D + Vector3D</code></summary>
+                    <p>Adds the two given vectors. This is, for vectors \(\vec{v}\) and \(\vec{w}\):</p>
+                    <p>\(\begin{pmatrix}v_x \\ v_y \\ v_z\end{pmatrix} + \begin{pmatrix}w_x \\ w_y \\ w_z\end{pmatrix} = \begin{pmatrix}v_x + w_x\\ v_y + w_y \\ v_z + w_z\end{pmatrix}\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector3D - Vector3D</code></summary>
+                    <p>Subtracts the two given vectors. This is, for vectors \(\vec{v}\) and \(\vec{w}\):</p>
+                    <p>\(\begin{pmatrix}v_x \\ v_y \\ v_z\end{pmatrix} - \begin{pmatrix}w_x \\ w_y \\ w_z\end{pmatrix} = \begin{pmatrix}v_x - w_x\\ v_y - w_y \\ v_z - w_z\end{pmatrix}\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector3D * number</code></summary>
+                    <p>Multiplies a vector by a scalar. This is that, for the vector \(\vec{v}\) and the scalar &alpha;:</p>
+                    <p>\(\alpha \vec{v} = \begin{pmatrix} \alpha v_x \\ \alpha v_y \\ \alpha v_z\end{pmatrix}\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector3D / number</code></summary>
+                    <p>Divides a vector by a scalar. This is that, for the vector \(\vec{v}\) and the scalar &alpha;:</p>
+                    <p>\(\frac{1}{\alpha} \vec{v} = \begin{pmatrix} \frac{v_x}{\alpha} \\ \frac{v_y}{\alpha} \\ \frac{v_z}{\alpha} \end{pmatrix}\)</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">-Vector3D</code></summary>
+                    <p>Multiplies the vector by -1. That is: \(-\vec{v} = -1\vec{v} = \begin{pmatrix} -v_x \\ -v_y \\ -v_z\end{pmatrix}\).</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">Vector3D == Vector3D</code></summary>
+                    <p>Checks if two vectors are the same. That is:</p>
+                    <p>\(\vec{v} = \vec{w} \iff v_x = w_x \wedge v_y = w_y \wedge v_z = w_z\)</p>
+                </details>
+            </section>
+
+            <section>
                 <h3>Methods</h3>
 
                 <details class="feature">
@@ -162,6 +202,14 @@
                         <li><code class="language-cpp">double</code> <span class="parameter-name">t</span>: Alpha parameter which represents how much the interpolation has progressed.</li>
                     </ul>
                 </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">static Vector3D normalize(const Vector3D&)</code></summary>
+                    
+                    <p>Normalizes the vector to have magnitude of 1. That is:</p>
+                    <p>\(\hat{v} = \frac{1}{\|\vec{v}\|} \vec{v} \iff \|\vec{v}\| \ne 0\)</p>
+                </details>
+
 
                 <details class="feature">
                     <summary><code class="language-cpp">double getMagnitude() const</code></summary>

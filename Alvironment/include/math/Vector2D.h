@@ -2,7 +2,7 @@
 
 /**
  * @brief Struct for 2D vectors
- * @version 1.3
+ * @version 1.4
  * @date 2026-09-01
  * @author Álvaro Fernández Barrero
  */
@@ -32,7 +32,7 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	Vector2D(double, double);
+	Vector2D(double x, double y) : x(x), y(y) {};
 
 	/**
 	 * @brief Creates a new 2D vector (0, 0)
@@ -72,6 +72,7 @@ public:
 	 * @brief Computes the dot product between the two given vectors
 	 * @param The first vector v to compute the dot product
 	 * @param The second vector w to compute the dot product
+	 * @return The dot product between the given two vectors
 	 * @version 1.0
 	 * @since 1.1
 	 * @date 2026-09-05
@@ -83,6 +84,7 @@ public:
 	 * @brief Computes the haramard product between the two given vectors
 	 * @param The first vector v to compute the haramard product
 	 * @param The second vector w to compute the haramard product
+	 * @return The hadamard product between the given two vectors
 	 * @version 1.0
 	 * @since 1.2
 	 * @date 2026-09-05
@@ -95,12 +97,24 @@ public:
 	 * @param The first vector v to compute the linear interpolation
 	 * @param The second vector w to compute the linear interpolation
 	 * @param Alpha parameter for the linear interpolation
+	 * @return The result of the linear interpolation between these two vectors given the parameter alpha
 	 * @version 1.1
 	 * @since 1.0
 	 * @date 2026-09-05
 	 * @author Álvaro Fernández Barrero
 	 */
 	static Vector2D lerp(const Vector2D&, const Vector2D&, double);
+
+	/**
+	 * @brief Normalizes the given vector
+	 * @param Vector to normalize
+	 * @return Normalized vector
+	 * @version 1.0
+	 * @since 1.3
+	 * @date 2026-09-07
+	 * @author Álvaro Fernández Barrero
+	 */
+	static Vector2D normalize(const Vector2D&);
 
 	/**
 	 * @brief Computes the norm of the vector

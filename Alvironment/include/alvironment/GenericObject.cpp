@@ -2,6 +2,8 @@
 
 #include "./Environment.h"
 
+#include "debug_helper/print.h"
+
 // ------------------------------------------------------
 // STATIC FIELDS
 // ------------------------------------------------------
@@ -33,6 +35,8 @@ GenericObject::GenericObject(float* vertices, u32_t verticesAmount, u32_t* indic
 
 GenericObject::~GenericObject()
 {
+	WARNING_PRINT("Object removed from memory");
+
 	delete[] this->verticesToRender;
 	delete this->shader;
 }
@@ -40,6 +44,38 @@ GenericObject::~GenericObject()
 // ------------------------------------------------------
 // METHODS
 // ------------------------------------------------------
+
+void GenericObject::setUpBuffers()
+{
+	glGenVertexArrays(1, &this->vao);
+	glBindVertexArray(this->vao);
+
+	glGenBuffers(1, &this->vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
+	glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
+
+	glGenBuffers(1, &this->ebo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indicesAmount * sizeof(u32_t), this->indices, GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, this->dimensions, GL_FLOAT, GL_FALSE, this->dimensions * sizeof(float), nullptr);
+	glBindVertexArray(0);
+}
+
+void GenericObject::updateVbo()
+{
+	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
+	glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+void GenericObject::render()
+{
+	glUseProgram(this->shader->getShaderId());
+	glBindVertexArray(this->vao);
+	glDrawElements(GL_TRIANGLES, this->indicesAmount, GL_UNSIGNED_INT, nullptr);
+}
 
 void GenericObject::updateWindowDimensions(u32_t width, u32_t height)
 {

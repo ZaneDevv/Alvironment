@@ -1,6 +1,7 @@
 #include "Vector2D.h"
 
 #include <cmath>
+#include "math/constants.h"
 
 // ------------------------------------------------------
 // STATIC FIELDS
@@ -15,12 +16,6 @@ const Vector2D Vector2D::j(0, 1);
 // ------------------------------------------------------
 // CONSTRUCTORS
 // ------------------------------------------------------
-
-Vector2D::Vector2D(double x, double y)
-{
-	this->x = x;
-	this->y = y;
-}
 
 Vector2D::Vector2D()
 {
@@ -58,7 +53,7 @@ Vector2D Vector2D::operator - () const
 
 bool Vector2D::operator == (const Vector2D& v) const
 {
-	return this->x == v.x && this->y == v.y;
+	return abs(this->x - v.x) < EPSILON && abs(this->y - v.y) < EPSILON;
 }
 
 // ------------------------------------------------------
@@ -81,6 +76,13 @@ Vector2D Vector2D::lerp(const Vector2D& v, const Vector2D& w, double alpha)
 		v.getX() * (1 - alpha) + w.getX() * alpha,
 		v.getY() * (1 - alpha) + w.getY() * alpha
 	);
+}
+
+Vector2D Vector2D::normalize(const Vector2D& v)
+{
+	float magnitude = v.getMagnitude();
+
+	return magnitude > 0 ? v / magnitude : v;
 }
 
 double Vector2D::getMagnitude() const

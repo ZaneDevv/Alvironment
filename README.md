@@ -14,6 +14,10 @@ To install this environment the first thing we need to do is cloning this reposi
 git clone --recursive https://github.com/ZaneDevv/Alvironment
 ```
 
+After running this command, a new folder with the project is going to appear in the directory where the command was ran. Inside of it there is a file  `Alvironment.sln`, which is the file to open to begin programming a new world.
+
+Once Visual Studio open, I would recommand that you click on the "Show All Files" button to avoid the messy default structure Visual Studio offers with all the `.cpp ` files together in the same folder and same for `.h` files.
+
 ---
 
 ### Learning to use *Alvironment*
@@ -37,7 +41,7 @@ public:
 };
  ```
 
- The method  `initialize` will be automatically fired once the world is created, which means we have to set up its configutations as the windows properties (width, height, title and whether the window is resizeable) with the WindowProperties and set it to the environment like the example below.
+The method  `initialize` will be automatically fired once the world is created, which means we have to set up its configutations as the windows properties (width, height, title and whether the window is resizeable) with the WindowProperties and set it to the environment like the example below.
 
  ```cpp
 #include "World.h"

@@ -60,6 +60,7 @@
                             <li><a title="Constants" href="../math/constants.html">constants.h</a></li>
                             <li><a title="Vector2D" href="../math/vector2d.html">Vector2D</a></li>
                             <li><a title="Vector3D" href="../math/vector3d.html">Vector3D</a></li>
+                            <li><a title="Quaternion" href="../math/quaternion.html">Quaternion</a></li>
                         </ol>
                     </details>
                 </li>
@@ -99,6 +100,27 @@
                         <li><code class="language-cpp">u32_t*</code> <span class="parameter-name">indices</span>: List of indices for the new object.</li>
                         <li><code class="language-cpp">u32_t</code> <span class="parameter-name">indicesAmount</span>: Indices amount for the new object.</li>
                     </ul>
+
+                    <pre class="programming"><code class="language-cpp">void MyWorld::initialize()
+{
+    WindowProperties properties(600, 600, "My world", false);
+    this->environment.emplace(&properties);
+    
+    float* vertices = new float[8] {
+        -0.5f, -0.5f, // Vertex 0
+        0.5f, -0.5f,  // Vertex 1
+        0.5f,  0.5f,  // Vertex 2
+        -0.5f,  0.5f  // Vertex 3
+    };
+    
+    unsigned int* indices = new unsigned int[6] {
+        0, 1, 2, // Connect vertex 0, 1 and 2
+        2, 3, 0  // Connect vertex 2, 3 and 0
+    };
+    
+    this->object = std::make_unique&lt;Object2D&gt;(vertices, 8, indices, 6);
+    this->environment->addObject(object.get());
+}</code></pre>
                 </details>
             </section>
 

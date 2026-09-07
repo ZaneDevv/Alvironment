@@ -1,43 +1,11 @@
 #include "Object2D.h"
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 #include <cmath>
-
 #include "math/constants.h"
-#include "debug_helper/print.h"
-#include "data_types/numbers.h"
-
-#include "alvironment/shaders/Shader.h"
 
 // ------------------------------------------------------
 // METHODS
 // ------------------------------------------------------
-
-void Object2D::setUpBuffers()
-{
-    glGenVertexArrays(1, &this->vao);
-    glBindVertexArray(this->vao);
-
-    glGenBuffers(1, &this->vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
-
-    glGenBuffers(1, &this->ebo);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indicesAmount * sizeof(u32_t), this->indices, GL_STATIC_DRAW);
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), nullptr);
-    glBindVertexArray(0);
-}
-
-void Object2D::render()
-{
-	glUseProgram(this->shader->getShaderId());
-    glBindVertexArray(this->vao);
-	glDrawElements(GL_TRIANGLES, this->indicesAmount, GL_UNSIGNED_INT, nullptr);
-}
 
 void Object2D::updateVertices()
 {
@@ -53,9 +21,7 @@ void Object2D::updateVertices()
         this->verticesToRender[i + 1] /= this->halfWindowHeight;
     }
 
-    glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-    glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    this->updateVbo();
 }
 
 void Object2D::rotate(double alpha)
