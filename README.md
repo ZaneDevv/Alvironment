@@ -22,14 +22,14 @@ In case you are interested in testing this environment or even commencing to use
 
 #### Getting started
 
-To start a project in this environment, the first thing we need to create is a class which inherits from the class  `AbstractWorld`, which will offer a protected variable Environment you will need to set and forces the new class to contain the methods `initialize` and  `update`.
+To start a project in this environment, the first thing we need to create is a class which inherits from the class  `World2D` or  `World3D `, which will offer a protected variable Environment you will need to set and forces the new class to contain the methods `initialize` and  `update`.
 
 ```cpp
 #pragma once
 
-#include "alvironment/AbstractWorld.h"
+#include "alvironment/2d/World2D.h"
 
-class World : public AbstractWorld
+class World : public World2D
 {
 public:
 	void initialize() override;
