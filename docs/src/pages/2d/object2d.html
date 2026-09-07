@@ -149,6 +149,384 @@
                     <summary><code class="language-cpp">void setPosition(const Vector2D&)</code></summary>
                     <p>Sets the position of the object.</p>
                 </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, const Color4&amp;)</code></summary>
+                    <p>Sets a color shader property for the object.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">const Color4&amp;</code> <span class="parameter-name">color</span>: Color value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, int)</code></summary>
+                    <p>Sets a single signed integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value</span>: Value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, int, int)</code></summary>
+                    <p>Sets a two-component signed integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, int, int, int)</code></summary>
+                    <p>Sets a three-component signed integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, int, int, int, int)</code></summary>
+                    <p>Sets a four-component signed integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                        <li><code class="language-cpp">int</code> <span class="parameter-name">value4</span>: Fourth component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned char)</code></summary>
+                    <p>Sets a single unsigned 8-bit integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value</span>: Value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned char, unsigned char)</code></summary>
+                    <p>Sets a two-component unsigned 8-bit integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned char, unsigned char, unsigned char)</code></summary>
+                    <p>Sets a three-component unsigned 8-bit integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned char, unsigned char, unsigned char, unsigned char)</code></summary>
+                    <p>Sets a four-component unsigned 8-bit integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned char</code> <span class="parameter-name">value4</span>: Fourth component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned short)</code></summary>
+                    <p>Sets a single unsigned 16-bit integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value</span>: Value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned short, unsigned short)</code></summary>
+                    <p>Sets a two-component unsigned 16-bit integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned short, unsigned short, unsigned short)</code></summary>
+                    <p>Sets a three-component unsigned 16-bit integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned short, unsigned short, unsigned short, unsigned short)</code></summary>
+                    <p>Sets a four-component unsigned 16-bit integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned short</code> <span class="parameter-name">value4</span>: Fourth component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned int)</code></summary>
+                    <p>Sets a single unsigned integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value</span>: Value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned int, unsigned int)</code></summary>
+                    <p>Sets a two-component unsigned integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned int, unsigned int, unsigned int)</code></summary>
+                    <p>Sets a three-component unsigned integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned int, unsigned int, unsigned int, unsigned int)</code></summary>
+                    <p>Sets a four-component unsigned integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned int</code> <span class="parameter-name">value4</span>: Fourth component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned long)</code></summary>
+                    <p>Sets a single unsigned long integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value</span>: Value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned long, unsigned long)</code></summary>
+                    <p>Sets a two-component unsigned long integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned long, unsigned long, unsigned long)</code></summary>
+                    <p>Sets a three-component unsigned long integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, unsigned long, unsigned long, unsigned long, unsigned long)</code></summary>
+                    <p>Sets a four-component unsigned long integer shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                        <li><code class="language-cpp">unsigned long</code> <span class="parameter-name">value4</span>: Fourth component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, float)</code></summary>
+                    <p>Sets a single floating-point shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value</span>: Value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, float, float)</code></summary>
+                    <p>Sets a two-component floating-point shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, float, float, float)</code></summary>
+                    <p>Sets a three-component floating-point shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, float, float, float, float)</code></summary>
+                    <p>Sets a four-component floating-point shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                        <li><code class="language-cpp">float</code> <span class="parameter-name">value4</span>: Fourth component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, double)</code></summary>
+                    <p>Sets a single double-precision floating-point shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value</span>: Value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, double, double)</code></summary>
+                    <p>Sets a two-component double-precision floating-point shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, double, double, double)</code></summary>
+                    <p>Sets a three-component double-precision floating-point shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, double, double, double, double)</code></summary>
+                    <p>Sets a four-component double-precision floating-point shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                        <li><code class="language-cpp">double</code> <span class="parameter-name">value4</span>: Fourth component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, bool)</code></summary>
+                    <p>Sets a single boolean shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value</span>: Boolean value assigned to the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, bool, bool)</code></summary>
+                    <p>Sets a two-component boolean shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, bool, bool, bool)</code></summary>
+                    <p>Sets a three-component boolean shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                    </ul>
+                </details>
+                
+                <details class="feature">
+                    <summary><code class="language-cpp">setShaderProperty(const char*, bool, bool, bool, bool)</code></summary>
+                    <p>Sets a four-component boolean shader property.</p>
+                
+                    <ul>
+                        <li><code class="language-cpp">const char*</code> <span class="parameter-name">shaderProperty</span>: Name of the shader property to modify.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value1</span>: First component of the shader property.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value2</span>: Second component of the shader property.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value3</span>: Third component of the shader property.</li>
+                        <li><code class="language-cpp">bool</code> <span class="parameter-name">value4</span>: Fourth component of the shader property.</li>
+                    </ul>
+                </details>
             </section>
         </main>
 
