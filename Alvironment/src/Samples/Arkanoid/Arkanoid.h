@@ -1,11 +1,10 @@
 #pragma once
 
-#include "alvironment/AbstractWorld.h"
-
+#include "alvironment/2d/World2D.h"
 #include "alvironment/2d/object/Rectangle2D.h"
 #include "alvironment/2d/object/Circle2D.h"
 
-class Arkanoid : public AbstractWorld
+class Arkanoid : public World2D
 {
 private:
 	// Simulation's parameters

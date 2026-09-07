@@ -1,12 +1,12 @@
 #pragma once
 
-#include "alvironment/AbstractWorld.h"
+#include "alvironment/2d/World2D.h"
 #include "alvironment/2d/object/Circle2D.h"
 #include "alvironment/2d/object/Rectangle2D.h"
 
 #include "math/Vector2D.h"
 
-class LinearInterpolation : public AbstractWorld
+class LinearInterpolation : public World2D
 {
 private:
 	// Objects variables

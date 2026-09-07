@@ -207,15 +207,6 @@ aside ol {
     list-style: none;
 }
 
-aside .sublist > ol {
-    display: none;
-}
-
-aside .sublist::before {
-    content: '➤ ';
-    font-size: 0.75rem;
-}
-
 aside li:hover,
 aside li:hover > a:visited,
 aside li:hover > a:link {
@@ -223,20 +214,9 @@ aside li:hover > a:link {
     cursor: pointer;
 }
 
-aside .sublist:hover::before {
-    content: '⮟ ';
-    font-size: 0.9rem;
-
-    color: var(--selected-color);
+aside li ol {
+    margin-left: 25px;
 }
-
-aside .sublist:hover ol {
-    display: block;
-    margin-left: 10%;
-
-    color: var(--light)
-}
-
 /* --------------------------------
     FOOTER
 -------------------------------- */

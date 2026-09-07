@@ -1,14 +1,13 @@
 #pragma once
 
-#include "alvironment/AbstractWorld.h"
-
+#include "alvironment/2d/World2D.h"
 #include "alvironment/2d/object/Object2D.h"
 #include "alvironment/2d/object/Rectangle2D.h"
 #include "alvironment/2d/object/Triangle2D.h"
 #include "alvironment/2d/object/Circle2D.h"
 
 
-class SolarSystem : public AbstractWorld
+class SolarSystem : public World2D
 {
 private:
 	// Objects variables

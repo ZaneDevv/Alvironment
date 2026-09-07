@@ -32,27 +32,36 @@
             <ol>
                 <li><a title="Getting started" href="../../../index.html">Getting started</a></li>
                 <li><a title="Window properties" href="../windowProperties.html">Window properties</a></li>
-                <li><a title="Abstract world" href="../abstractWorld.html">Abstract world</a></li>
-                <li><a title="Environment" href="../environment.html">Environment</a></li>
-                <li class="sublist">2D
-                    <ol>
-                        <li><a title="Object2D" href="./object2d.html">Object2D</a></li>
-                        <li><a title="Rectangle2D" href="./rectangle2d.html">Rectangle2D</a></li>
-                        <li><a title="Triangle2D" href="./triangle2d.html">Triangle2D</a></li>
-                        <li><a title="Circle2D" href="./circle2d.html">Circle2D</a></li>
-                    </ol>
+                <li>
+                    <details>
+                        <summary>2D</summary>
+                        <ol>
+                            <li><a title="Environment2D" href="./environment2d.html">Environment2D</a></li>
+                            <li><a title="World2D" href="./world2d.html">World2D</a></li>
+                            <li><a title="Object2D" href="./object2d.html">Object2D</a></li>
+                            <li><a title="Rectangle2D" href="./rectangle2d.html">Rectangle2D</a></li>
+                            <li><a title="Triangle2D" href="./triangle2d.html">Triangle2D</a></li>
+                            <li><a title="Circle2D" href="./circle2d.html">Circle2D</a></li>
+                        </ol>
+                    </details>
                 </li>
-                <li class="sublist">3D
-                    <ol>
-                        <li><a>[Working on it]</a></li>
-                    </ol>
+                <li>
+                    <details>
+                        <summary>3D</summary>
+                        <ol>
+                            <li><a>[Working on it]</a></li>
+                        </ol>
+                    </details>
                 </li>
-                <li class="sublist">Math
-                    <ol>
-                        <li><a title="Constants" href="../math/constants.html">constants.h</a></li>
-                        <li><a title="Vector2D" href="../math/vector2d.html">Vector2D</a></li>
-                        <li><a title="Vector3D" href="../math/vector3d.html">Vector3D</a></li>
-                    </ol>
+                <li>
+                    <details>
+                        <summary>Math</summary>
+                        <ol>
+                            <li><a title="Constants" href="../math/constants.html">constants.h</a></li>
+                            <li><a title="Vector2D" href="../math/vector2d.html">Vector2D</a></li>
+                            <li><a title="Vector3D" href="../math/vector3d.html">Vector3D</a></li>
+                        </ol>
+                    </details>
                 </li>
             </ol>
         </aside>
@@ -98,17 +107,17 @@
 
                 <details class="feature">
                     <summary><code class="language-cpp">void render()</code></summary>
-                    <p>Renders the object on screen. This method should only be used by the class <a href="../environment.html" title="Environment class">Environment</a>.</p>
+                    <p>Renders the object on screen. This method should only be used by the class <a href="./environment2d.html" title="Environment class">Environment2D</a>.</p>
                 </details>
 
                 <details class="feature">
                     <summary><code class="language-cpp">void setUpBuffers()</code></summary>
-                    <p>Sets up all the information the GPU requires to render the object. This method should only be used by the class <a href="../environment.html" title="Environment class">Environment</a> when the object is added.</p>
+                    <p>Sets up all the information the GPU requires to render the object. This method should only be used by the class <a href="./environment2d.html" title="Environment class">Environment2D</a> when the object is added.</p>
                 </details>
 
                 <details class="feature">
                     <summary><code class="language-cpp">void updateVertices()</code></summary>
-                    <p>Computes the actual vertices after applying all the required transformations. This method should only be used by the class <a href="../environment.html" title="Environment class">Environment</a> when the object is added and by this class itself when the transformation matrix changed.</p>
+                    <p>Computes the actual vertices after applying all the required transformations. This method should only be used by the class <a href="./environment2d.html" title="Environment class">Environment2D</a> when the object is added and by this class itself when the transformation matrix changed.</p>
                 </details>
 
                 <details class="feature">

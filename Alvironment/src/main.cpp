@@ -60,7 +60,10 @@ int main()
 
 	if (worldToRun.get() != nullptr)
 	{
-		setUp(*worldToRun.get());
+		if (auto* world2D = dynamic_cast<World2D*>(worldToRun.get()))
+		{
+			setUp(*world2D);
+		}
 	}
 
 	std::cin.get();

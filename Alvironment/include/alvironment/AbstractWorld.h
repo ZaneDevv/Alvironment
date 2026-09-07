@@ -13,11 +13,6 @@
  */
 class AbstractWorld
 {
-	friend void setUp(AbstractWorld& world);
-
-protected:
-	std::optional<Environment> environment;
-
 public:
 
 	// ------------------------------------------------------

@@ -8,11 +8,11 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
 
-        <link rel="stylesheet" href="../styles/variables.css">
-        <link rel="stylesheet" href="../styles/animations.css">
-        <link rel="stylesheet" href="../styles/global.css">
-        <link rel="stylesheet" href="../styles/features.css">
-        
+        <link rel="stylesheet" href="../../styles/variables.css">
+        <link rel="stylesheet" href="../../styles/animations.css">
+        <link rel="stylesheet" href="../../styles/global.css">
+        <link rel="stylesheet" href="../../styles/features.css">
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
@@ -28,43 +28,52 @@
 
         <aside>
             <ol>
-                <li><a title="Getting started" href="../../index.html">Getting started</a></li>
-                <li><a title="Window properties" href="./windowProperties.html">Window properties</a></li>
-                <li><a title="Abstract world" href="./abstractWorld.html">Abstract world</a></li>
-                <li><a title="Environment" href="./environment.html">Environment</a></li>
-                <li class="sublist">2D
-                    <ol>
-                        <li><a title="Object2D" href="./2d/object2d.html">Object2D</a></li>
-                        <li><a title="Rectangle2D" href="./2d/rectangle2d.html">Rectangle2D</a></li>
-                        <li><a title="Triangle2D" href="./2d/triangle2d.html">Triangle2D</a></li>
-                        <li><a title="Circle2D" href="./2d/circle2d.html">Circle2D</a></li>
-                    </ol>
+                <li><a title="Getting started" href="../../../index.html">Getting started</a></li>
+                <li><a title="Window properties" href="../windowProperties.html">Window properties</a></li>
+                <li>
+                    <details>
+                        <summary>2D</summary>
+                        <ol>
+                            <li><a title="Environment2D" href="./environment2d.html">Environment2D</a></li>
+                            <li><a title="World2D" href="./world2d.html">World2D</a></li>
+                            <li><a title="Object2D" href="./object2d.html">Object2D</a></li>
+                            <li><a title="Rectangle2D" href="./rectangle2d.html">Rectangle2D</a></li>
+                            <li><a title="Triangle2D" href="./triangle2d.html">Triangle2D</a></li>
+                            <li><a title="Circle2D" href="./circle2d.html">Circle2D</a></li>
+                        </ol>
+                    </details>
                 </li>
-                <li class="sublist">3D
-                    <ol>
-                        <li><a>[Working on it]</a></li>
-                    </ol>
+                <li>
+                    <details>
+                        <summary>3D</summary>
+                        <ol>
+                            <li><a>[Working on it]</a></li>
+                        </ol>
+                    </details>
                 </li>
-                <li class="sublist">Math
-                    <ol>
-                        <li><a title="Constants" href="./math/constants.html">constants.h</a></li>
-                        <li><a title="Vector2D" href="./math/vector2d.html">Vector2D</a></li>
-                        <li><a title="Vector3D" href="./math/vector3d.html">Vector3D</a></li>
-                    </ol>
+                <li>
+                    <details>
+                        <summary>Math</summary>
+                        <ol>
+                            <li><a title="Constants" href="../math/constants.html">constants.h</a></li>
+                            <li><a title="Vector2D" href="../math/vector2d.html">Vector2D</a></li>
+                            <li><a title="Vector3D" href="../math/vector3d.html">Vector3D</a></li>
+                        </ol>
+                    </details>
                 </li>
             </ol>
         </aside>
 
         <main>
             <section>
-                <h3 class="cpp-class">Abstract World</h3>
-                <p>To create a new world able to run your simulation, you require some features given by the class <em>Abstract World</em> which can be included from alvironment/AbstractWorld.h.</p>
+                <h3 class="cpp-class">World2D</h3>
+                <p>To create a new 2D world able to run your simulation, you require some features given by the class <em>Abstract World</em> which can be included from alvironment/2d/World2D.h.</p>
                 
                 <pre class="programming"><code class="language-cpp">#pragma once
 
-#include "alvironment/AbstractWorld.h"
+#include "alvironment/2d/World2D.h"
 
-class MyWorld : public AbstractWorld
+class MyWorld : public World2D
 {
 public:
     void initialize() override;
@@ -101,7 +110,7 @@ void MyWorld::initialize()
                 <h3>Variables</h3>
     
                 <details class="feature">
-                    <summary><code class="language-cpp">std::optional&lt;Environment&gt; environment</code></summary>
+                    <summary><code class="language-cpp">std::optional&lt;Environment2D&gt; environment</code></summary>
     
                     <p>This is the environment to create in the <em>initialize()</em> method</p>
                 </details>
@@ -113,19 +122,19 @@ void MyWorld::initialize()
 
             <div id="social-networks-container">
                 <a title="GitHub" href="https://github.com/ZaneDevv" target="_blank">
-                    <img src="../img/social_networks/github.svg" alt="GitHub">
+                    <img src="../../img/social_networks/github.svg" alt="GitHub">
                 </a>
 
                 <a title="LinkedIn" href="https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1ndez-barrero/" target="_blank">
-                    <img src="../img/social_networks/linkedin.svg" alt="GitHub">
+                    <img src="../../img/social_networks/linkedin.svg" alt="GitHub">
                 </a>
 
                 <a title="YouTube" href="https://www.youtube.com/@nerdy-pi" target="_blank">
-                    <img src="../img/social_networks/youtube.svg" alt="GitHub">
+                    <img src="../../img/social_networks/youtube.svg" alt="GitHub">
                 </a>
 
                 <a title="X" href="https://x.com/ZaneDev__" target="_blank">
-                    <img src="../img/social_networks/x.svg" alt="X">
+                    <img src="../../img/social_networks/x.svg" alt="X">
                 </a>
             </div>
         </footer>

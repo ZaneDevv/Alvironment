@@ -1,9 +1,9 @@
 #include "./WorldSetUp.h"
-#include "./AbstractWorld.h"
+#include "./2d/World2D.h"
 
 #include "debug_helper/print.h"
 
-void setUp(AbstractWorld& world)
+void setUp(World2D& world)
 {
     DEBUG_PRINT("Initializing the world");
 

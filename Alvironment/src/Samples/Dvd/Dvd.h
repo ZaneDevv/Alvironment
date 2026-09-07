@@ -1,11 +1,11 @@
 #pragma once
 
-#include "alvironment/AbstractWorld.h"
+#include "alvironment/2d/World2D.h"
 #include "alvironment/2d/object/Circle2D.h"
 
 #include "math/Vector2D.h"
 
-class Dvd : public AbstractWorld
+class Dvd : public World2D
 {
 private:
 	// Simulation's parameters

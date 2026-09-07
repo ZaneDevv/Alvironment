@@ -1,8 +1,8 @@
 #pragma once
 
-#include "alvironment/AbstractWorld.h"
+#include "alvironment/2d/World2D.h"
 
-class MyWorld : public AbstractWorld
+class MyWorld : public World2D
 {
 public:
 	/**

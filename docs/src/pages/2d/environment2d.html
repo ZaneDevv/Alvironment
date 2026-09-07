@@ -8,16 +8,18 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"/>
 
-        <link rel="stylesheet" href="../styles/variables.css">
-        <link rel="stylesheet" href="../styles/animations.css">
-        <link rel="stylesheet" href="../styles/global.css">
-        <link rel="stylesheet" href="../styles/features.css">
+        <link rel="stylesheet" href="../../styles/variables.css">
+        <link rel="stylesheet" href="../../styles/animations.css">
+        <link rel="stylesheet" href="../../styles/global.css">
+        <link rel="stylesheet" href="../../styles/features.css">
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
 
-        <title>Alvironment - Abstract World</title>
+        <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        <title>Alvironment - Triangle2D</title>
     </head>
 
     <body>
@@ -28,44 +30,53 @@
 
         <aside>
             <ol>
-                <li><a title="Getting started" href="../../index.html">Getting started</a></li>
-                <li><a title="Window properties" href="./windowProperties.html">Window properties</a></li>
-                <li><a title="Abstract world" href="./abstractWorld.html">Abstract world</a></li>
-                <li><a title="Environment" href="./environment.html">Environment</a></li>
-                <li class="sublist">2D
-                    <ol>
-                        <li><a title="Object2D" href="./2d/object2d.html">Object2D</a></li>
-                        <li><a title="Rectangle2D" href="./2d/rectangle2d.html">Rectangle2D</a></li>
-                        <li><a title="Triangle2D" href="./2d/triangle2d.html">Triangle2D</a></li>
-                        <li><a title="Circle2D" href="./2d/circle2d.html">Circle2D</a></li>
-                    </ol>
+                <li><a title="Getting started" href="../../../index.html">Getting started</a></li>
+                <li><a title="Window properties" href="../windowProperties.html">Window properties</a></li>
+                <li>
+                    <details>
+                        <summary>2D</summary>
+                        <ol>
+                            <li><a title="Environment2D" href="./environment2d.html">Environment2D</a></li>
+                            <li><a title="World2D" href="./world2d.html">World2D</a></li>
+                            <li><a title="Object2D" href="./object2d.html">Object2D</a></li>
+                            <li><a title="Rectangle2D" href="./rectangle2d.html">Rectangle2D</a></li>
+                            <li><a title="Triangle2D" href="./triangle2d.html">Triangle2D</a></li>
+                            <li><a title="Circle2D" href="./circle2d.html">Circle2D</a></li>
+                        </ol>
+                    </details>
                 </li>
-                <li class="sublist">3D
-                    <ol>
-                        <li><a>[Working on it]</a></li>
-                    </ol>
+                <li>
+                    <details>
+                        <summary>3D</summary>
+                        <ol>
+                            <li><a>[Working on it]</a></li>
+                        </ol>
+                    </details>
                 </li>
-                <li class="sublist">Math
-                    <ol>
-                        <li><a title="Constants" href="./math/constants.html">constants.h</a></li>
-                        <li><a title="Vector2D" href="./math/vector2d.html">Vector2D</a></li>
-                        <li><a title="Vector3D" href="./math/vector3d.html">Vector3D</a></li>
-                    </ol>
+                <li>
+                    <details>
+                        <summary>Math</summary>
+                        <ol>
+                            <li><a title="Constants" href="../math/constants.html">constants.h</a></li>
+                            <li><a title="Vector2D" href="../math/vector2d.html">Vector2D</a></li>
+                            <li><a title="Vector3D" href="../math/vector3d.html">Vector3D</a></li>
+                        </ol>
+                    </details>
                 </li>
             </ol>
         </aside>
 
         <main>
             <section>
-                <h3 class="cpp-class">Environment</h3>
-                <p>This class is on charge of running a world by being the mediator among the window, renderer, input and the worlds. It is able to tell when the user is pressing the key, window's dimensions and objects on scene and use that information to allow the whole world to run properly.</p>
+                <h3 class="cpp-class">Environment2D</h3>
+                <p>This class inherits <a title="Environment class" href="../environment.html">Environment</a>, inheriting as well its resposability to run a world but it is designed for 2D worlds.</p>
             </section>
 
             <section>
                 <h3>Constructors</h3>
     
                 <details class="feature">
-                    <summary><code class="language-cpp">Environment(WindowProperties*)</code></summary>
+                    <summary><code class="language-cpp">Environment2D(WindowProperties*)</code></summary>
                     <p>Takes <a title="WindowProperties struct" href="./windowProperties.html">windows properties</a> and uses it to create a window to render the scenario.</p>
                 </details>
             </section>
@@ -74,12 +85,12 @@
                 <h3>Methods</h3>
     
                 <details class="feature">
-                    <summary><code class="language-cpp">void addObject(GenericObject*)</code></summary>
+                    <summary><code class="language-cpp">void addObject(Object2D*)</code></summary>
                     <p>Adds a new object to the scenario. That means this object will be rendered on screen every frame.</p>
                 </details>
 
                 <details class="feature">
-                    <summary><code class="language-cpp">void removeObject(GenericObject*)</code></summary>
+                    <summary><code class="language-cpp">void removeObject(Object2D*)</code></summary>
                     <p>Removes an object from the scenario. That means this object will no longer be rendered on screen.</p>
                 </details>
 
@@ -100,19 +111,19 @@
 
             <div id="social-networks-container">
                 <a title="GitHub" href="https://github.com/ZaneDevv" target="_blank">
-                    <img src="../img/social_networks/github.svg" alt="GitHub">
+                    <img src="../../img/social_networks/github.svg" alt="GitHub">
                 </a>
 
                 <a title="LinkedIn" href="https://www.linkedin.com/in/%C3%A1lvaro-fern%C3%A1ndez-barrero/" target="_blank">
-                    <img src="../img/social_networks/linkedin.svg" alt="GitHub">
+                    <img src="../../img/social_networks/linkedin.svg" alt="GitHub">
                 </a>
 
                 <a title="YouTube" href="https://www.youtube.com/@nerdy-pi" target="_blank">
-                    <img src="../img/social_networks/youtube.svg" alt="GitHub">
+                    <img src="../../img/social_networks/youtube.svg" alt="GitHub">
                 </a>
 
                 <a title="X" href="https://x.com/ZaneDev__" target="_blank">
-                    <img src="../img/social_networks/x.svg" alt="X">
+                    <img src="../../img/social_networks/x.svg" alt="X">
                 </a>
             </div>
         </footer>

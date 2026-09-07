@@ -75,6 +75,12 @@
     <ClCompile Include="include\graphics\Color4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\alvironment\2d\Environment2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\alvironment\2d\World2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scr\Classes\Object.h">
@@ -147,6 +153,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\graphics\Color4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\alvironment\2d\Environment2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\alvironment\2d\World2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

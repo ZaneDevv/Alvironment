@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\alvironment\2d\Environment2D.cpp" />
     <ClCompile Include="include\graphics\Color4.cpp" />
     <ClCompile Include="src\Samples\Arkanoid\Arkanoid.cpp" />
     <ClCompile Include="src\Project\MyWorld.cpp" />
@@ -158,8 +159,10 @@
     <ClCompile Include="include\math\Vector2D.cpp" />
     <ClCompile Include="include\math\Vector3D.cpp" />
     <ClCompile Include="src\Samples\SolarSystem\SolarSystem.cpp" />
+    <ClCompile Include="include\alvironment\2d\World2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\alvironment\2d\Environment2D.h" />
     <ClInclude Include="include\graphics\Color4.h" />
     <ClInclude Include="src\Samples\Arkanoid\Arkanoid.h" />
     <ClInclude Include="include\alvironment\Key.h" />
@@ -184,6 +187,7 @@
     <ClInclude Include="include\math\Vector2D.h" />
     <ClInclude Include="include\math\Vector3D.h" />
     <ClInclude Include="src\Samples\SolarSystem\SolarSystem.h" />
+    <ClInclude Include="include\alvironment\2d\World2D.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\alvironment\shaders\common_shaders\Basic.fsha" />
