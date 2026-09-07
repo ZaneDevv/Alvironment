@@ -21,7 +21,8 @@ Environment::Environment(WindowProperties* windowProperties)
         windowProperties->width,
         windowProperties->height,
         windowProperties->title,
-        windowProperties->resizeable
+        windowProperties->resizeable,
+        this->dimensions == 3
     );
 
     if (glewInit() != GLEW_OK)

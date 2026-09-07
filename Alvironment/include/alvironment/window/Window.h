@@ -11,7 +11,7 @@
 
 /**
  * @brief Class for creating a window easily using OpenGL
- * @version 2.3
+ * @version 3.0
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -19,6 +19,8 @@ struct Window
 {
 private:
 	GLFWwindow* window;
+
+	u32_t clearBuffers = GL_COLOR_BUFFER_BIT;
 
 	bool isRenderLoopPaused = false;
 
@@ -41,14 +43,15 @@ public:
 	 * @param Window's height
 	 * @param Window's title
 	 * @param True if the window can be resized, false otherwise
+	 * @param True if depth is needed, false otherwise
 	 * @pre GLFW should have been initialized successfully already
 	 * @exception The window could not be created
-	 * @version 1.0
+	 * @version 1.1
 	 * @since 1.0
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	Window(u16_t, u16_t, const char*, bool);
+	Window(u16_t, u16_t, const char*, bool, bool);
 
 	// ------------------------------------------------------
 	// DESTRUCTORS
@@ -80,7 +83,7 @@ public:
 
 	/**
 	 * @brief Prepares the window to start rendering
-	 * @version 1.0
+	 * @version 1.1
 	 * @since 2.0
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero

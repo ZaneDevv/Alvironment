@@ -1,9 +1,20 @@
 #pragma once
 
 #include "alvironment/3d/World3D.h"
+#include "alvironment/3d/object/Cube3D.h"
 
 class SpinningCube : public World3D
 {
+private:
+
+	// Objects
+
+	std::unique_ptr<Cube3D> cube;
+
+	// Mathematical
+
+	Vector3D rotationAxis = Vector3D::normalize(Vector3D(1, 1, 0));
+
 public:
 
 	// ------------------------------------------------------

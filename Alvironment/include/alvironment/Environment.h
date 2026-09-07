@@ -27,6 +27,8 @@ protected:
 	u32_t lastWindowWidth;
 	u32_t lastWindowHeight;
 
+	u8_t dimensions = 0;
+
 	// ------------------------------------------------------
 	// METHODS
 	// ------------------------------------------------------

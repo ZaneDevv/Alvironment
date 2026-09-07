@@ -59,6 +59,7 @@ public:
 
 	/**
 	 * @brief Creates a brand new abstract object with the given vertices, indices and shaders
+	 * @param Object's dimensions
 	 * @param Vertices' positions list
 	 * @param Vertices amount
 	 * @param Indices' list
@@ -70,10 +71,11 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	GenericObject(float*, u32_t, u32_t*, u32_t, const char*, const char*);
+	GenericObject(u8_t, float*, u32_t, u32_t*, u32_t, const char*, const char*);
 
 	/**
 	 * @brief Creates a brand new abstract object with the given vertices and indices
+	 * @param Object's dimensions
 	 * @param Vertices' positions list
 	 * @param Vertices amount
 	 * @param Indices' list
@@ -85,8 +87,8 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	GenericObject(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount)
-		: GenericObject(vertices, verticesAmount, indices, indicesAmount, GenericObject::DEFAULT_VERTEX_SHADER, GenericObject::DEFAULT_FRAGMENT_SHADER) {};
+	GenericObject(u8_t dimensions, float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount)
+		: GenericObject(dimensions, vertices, verticesAmount, indices, indicesAmount, GenericObject::DEFAULT_VERTEX_SHADER, GenericObject::DEFAULT_FRAGMENT_SHADER) {};
 
 	// ------------------------------------------------------
 	// DESTRUCTORS

@@ -5,7 +5,7 @@
 // CONSTRUCTORS
 // ------------------------------------------------------
 
-Window::Window(u16_t width, u16_t height, const char* title, bool allowResizing)
+Window::Window(u16_t width, u16_t height, const char* title, bool allowResizing, bool enableDepth)
 {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -26,6 +26,12 @@ Window::Window(u16_t width, u16_t height, const char* title, bool allowResizing)
 
 	glfwMakeContextCurrent(this->window);
 	glViewport(0, 0, width, height);
+
+	if (enableDepth)
+	{
+		glEnable(GL_DEPTH_TEST);
+		this->clearBuffers |= GL_DEPTH_BUFFER_BIT;
+	}
 
 	glfwSetWindowUserPointer(this->window, this);
 	glfwSetFramebufferSizeCallback(this->window, [](GLFWwindow* glfwWindow, int width, int height)
@@ -63,7 +69,7 @@ bool Window::shouldWindowClose() const
 
 void Window::prepareWindowForRendering() const
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(this->clearBuffers);
 }
 
 void Window::finishRendering() const

@@ -15,8 +15,10 @@ const char* const GenericObject::DEFAULT_FRAGMENT_SHADER = "include/alvironment/
 // CONSTRUCTORS
 // ------------------------------------------------------
 
-GenericObject::GenericObject(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
+GenericObject::GenericObject(u8_t dimensions, float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
 {
+	this->dimensions = dimensions;
+
 	this->vertices = vertices;
 	this->indices = indices;
 

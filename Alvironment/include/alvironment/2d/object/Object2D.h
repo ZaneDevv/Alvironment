@@ -41,9 +41,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	Object2D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
-		: GenericObject(vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader) {
-		this->dimensions = 2;
-	};
+		: GenericObject(2, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader) {};
 
 	/**
 	 * @brief Creates a brand new 2D object with the given vertices, indices and shaders
@@ -54,7 +52,7 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	Object2D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount) : GenericObject(vertices, verticesAmount, indices, indicesAmount) {
+	Object2D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount) : GenericObject(2, vertices, verticesAmount, indices, indicesAmount) {
 		this->dimensions = 2;
 	};
 

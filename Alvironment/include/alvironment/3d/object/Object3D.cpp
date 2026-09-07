@@ -53,4 +53,5 @@ Quaternion Object3D::getRotation() const
 void Object3D::setRotation(const Quaternion& rotation)
 {
     this->rotation = rotation;
+    this->updateVertices();
 }

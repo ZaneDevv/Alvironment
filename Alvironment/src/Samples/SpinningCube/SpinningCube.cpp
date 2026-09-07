@@ -8,11 +8,21 @@ void SpinningCube::initialize()
 
 	WindowProperties properties(500, 500, "Spinning cube", true);
 	this->environment.emplace(&properties);
+
+	// Creating the cube
+
+	this->cube = std::make_unique<Cube3D>();
+
+	// Adding the objects to the environment
+
+	this->environment->addObject(this->cube.get());
 }
 
 // Runs every frame after setting up the world
 
 void SpinningCube::update(double deltaTime)
 {
+	// Adding rotation to the cube
 
+	this->cube->setRotation(this->cube->getRotation() * Quaternion(deltaTime, this->rotationAxis));
 }

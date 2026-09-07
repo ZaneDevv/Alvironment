@@ -36,9 +36,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
-		: GenericObject(vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader) {
-		this->dimensions = 3;
-	};
+		: GenericObject(3, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader) {};
 
 	/**
 	 * @brief Creates a brand new 3D object with the given vertices, indices and shaders
@@ -49,7 +47,7 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount) : GenericObject(vertices, verticesAmount, indices, indicesAmount) {
+	Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount) : GenericObject(3, vertices, verticesAmount, indices, indicesAmount) {
 		this->dimensions = 3;
 	};
 

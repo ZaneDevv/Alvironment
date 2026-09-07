@@ -24,7 +24,9 @@ public:
 	 * @date 2026-09-07
 	 * @author Álvaro Fernández Barrero
 	 */
-	Environment2D(WindowProperties* properties) : Environment(properties) {};
+	Environment2D(WindowProperties* properties) : Environment(properties) {
+		this->dimensions = 2;
+	};
 
 	// ------------------------------------------------------
 	// METHODS

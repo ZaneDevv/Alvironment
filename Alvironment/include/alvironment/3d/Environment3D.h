@@ -28,7 +28,9 @@ public:
 	 * @date 2026-09-07
 	 * @author Álvaro Fernández Barrero
 	 */
-	class Environment3D(WindowProperties* properties) : Environment(properties) {};
+	class Environment3D(WindowProperties* properties) : Environment(properties) {
+		this->dimensions = 3;
+	};
 
 	// ------------------------------------------------------
 	// METHODS
