@@ -20,7 +20,7 @@ void Object3D::updateVertices()
             newVertex = newVertex - this->camera->getPosition();
             newVertex = (Quaternion::inverse(this->camera->getRotation()) * Quaternion::createByWAndAxis(0, newVertex) * this->camera->getRotation()).getAxis();
 
-            if (newVertex.getZ() <= this->camera->getNear())
+            if (newVertex.getZ() <= this->camera->getNear() || newVertex.getZ() >= this->camera->getFar())
             {
                 continue;
             }
