@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "alvironment/GenericObject.h"
 
 #include "math/Vector3D.h"
@@ -9,7 +11,7 @@
 
 /**
  * @brief Class for creating 3D objects
- * @version 1.2
+ * @version 1.3
  * @date 2026-09-07
  * @author Álvaro Fernández Barrero
  */
@@ -21,6 +23,36 @@ private:
 	Quaternion rotation = Quaternion::identity;
 
 	Camera* camera = nullptr;
+
+	u32_t* actualIndices;
+	u32_t actualIndicesAmount = 0;
+
+	std::vector<u32_t> indicesToRenderVector;
+	std::vector<float> depthVertices;
+
+	// ------------------------------------------------------
+	// METHODS
+	// ------------------------------------------------------
+
+	/**
+	 * @brief Updates the object's indices according to the transformed vertices
+	 * @version 1.0
+	 * @since 1.3
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	void updateIndices();
+
+	/**
+	 * @brief Checks if the given z coordinate from a vertex is within the frustrum's limits
+	 * @param Vertex's z axis
+	 * @return True if the z axis is within the camera's frustrum, false otherwise
+	 * @version 1.0
+	 * @since 1.3
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	bool isVertexZWithinFrustrum(float);
 
 public:
 
@@ -40,7 +72,12 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
-		: GenericObject(3, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader) {};
+		: GenericObject(3, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader) {
+		this->actualIndices = indices;
+		this->actualIndicesAmount = indicesAmount;
+
+		std::copy(indices, indices + indicesAmount, this->actualIndices);
+	};
 
 	/**
 	 * @brief Creates a brand new 3D object with the given vertices, indices and shaders
@@ -52,7 +89,10 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount) : GenericObject(3, vertices, verticesAmount, indices, indicesAmount) {
-		this->dimensions = 3;
+		this->actualIndices = indices;
+		this->actualIndicesAmount = indicesAmount;
+
+		std::copy(indices, indices + indicesAmount, this->actualIndices);
 	};
 
 	// ------------------------------------------------------

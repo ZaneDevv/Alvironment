@@ -59,6 +59,7 @@ void Environment::initialize(updateMethod update)
         this->renderObjects();
 
         update(deltaTime);
+        this->runInternalUpdateCallback(deltaTime);
 
         this->window->finishRendering();
     }

@@ -21,9 +21,6 @@
     <ClCompile Include="include\alvironment\window\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\alvironment\window\WindowProperties.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="include\alvironment\shaders\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

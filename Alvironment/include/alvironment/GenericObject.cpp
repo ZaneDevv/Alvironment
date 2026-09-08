@@ -75,6 +75,15 @@ void GenericObject::updateVbo()
 	}
 }
 
+void GenericObject::updateEbo()
+{
+	if (this->ebo >= 0)
+	{
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indicesAmount * sizeof(u32_t), this->indices, GL_STATIC_DRAW);
+	}
+}
+
 void GenericObject::render()
 {
 	glUseProgram(this->shader->getShaderId());

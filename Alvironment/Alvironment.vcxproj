@@ -153,7 +153,6 @@
     <ClCompile Include="include\alvironment\Environment.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Circle2D.cpp" />
     <ClCompile Include="include\alvironment\GenericObject.cpp" />
-    <ClCompile Include="include\alvironment\window\WindowProperties.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Object2D.cpp" />
     <ClCompile Include="include\alvironment\2d\object\Rectangle2D.cpp" />
     <ClCompile Include="include\alvironment\WorldSetUp.cpp" />

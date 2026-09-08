@@ -51,6 +51,16 @@ protected:
 	 */
 	void updateVbo();
 
+
+	/**
+	 * @brief Updates the object's ebos
+	 * @version 1.1
+	 * @since 2.2
+	 * @date 2026-09-07
+	 * @author Álvaro Fernández Barrero
+	 */
+	void updateEbo();
+
 public:
 
 	// ------------------------------------------------------

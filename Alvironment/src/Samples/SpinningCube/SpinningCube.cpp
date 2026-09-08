@@ -7,12 +7,16 @@ void SpinningCube::initialize()
 	// Creating the environment with the given window's parameters
 
 	WindowProperties properties(500, 500, "Spinning cube", true);
+
 	this->environment.emplace(&properties);
+	this->environment->enableFreeCamera(true);
 
 	// Creating the cube
 
 	this->cube = std::make_unique<Cube3D>();
 	this->cube->setPosition(Vector3D::k * 6);
+	this->cube->setScale(Vector3D(3, 1, 3));
+	this->cube->setShaderProperty("color4", Color4(0xB6B6B6FF));
 
 	// Adding the objects to the environment
 

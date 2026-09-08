@@ -32,5 +32,5 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	WindowProperties(u16_t, u16_t, const char*, bool);
+	WindowProperties(u16_t width, u16_t height, const char* title, bool resizeable) : width(width), height(height), title(title), resizeable(resizeable) {};
 };

@@ -13,7 +13,7 @@ using updateMethod = std::function<void(double)>;
 
 /**
  * @brief Abstract class for the environments
- * @version 3.5
+ * @version 3.6
  * @date 2026-09-02
  * @author Álvaro Fernández Barrero
  */
@@ -72,6 +72,16 @@ protected:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void updateProportionsOnWindowSize();
+
+	/**
+	 * @brief Runs the internal update callback
+	 * @param Delta time
+	 * @version 1.0
+	 * @since 3.6
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	virtual void runInternalUpdateCallback(double) {};
 public:
 
 	// ------------------------------------------------------

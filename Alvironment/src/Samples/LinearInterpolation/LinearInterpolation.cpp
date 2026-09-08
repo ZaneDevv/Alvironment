@@ -60,7 +60,7 @@ void LinearInterpolation::update(double deltaTime)
 
 	// Checking if cursor is selecting anything
 
-	if (this->environment->isKeyPressed(Key::Space))
+	if (this->environment->isKeyPressed(Key::SPACE))
 	{
 		// Getting mouse's position
 
