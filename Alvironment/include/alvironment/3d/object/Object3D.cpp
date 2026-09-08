@@ -8,6 +8,10 @@ void Object3D::updateVertices()
 {
     if (camera != nullptr)
     {
+        double cameraFarAndNear = this->camera->getFar() + this->camera->getNear();
+        double differenceCamearaFarNear = this->camera->getFar() - this->camera->getNear();
+        double cameraDoubleFarNear = 2 * this->camera->getFar() * this->camera->getNear();
+
         for (int i = 0; i < this->verticesAmount; i += 3)
         {
             float x = this->vertices[i] * this->scale.getX();
@@ -25,11 +29,7 @@ void Object3D::updateVertices()
                 continue;
             }
 
-            double cameraFarAndNear = this->camera->getFar() + this->camera->getNear();
-            double differenceCamearaFarNear = this->camera->getFar() - this->camera->getNear();
-            double cameraDoubleFarNear = 2 * this->camera->getFar() * this->camera->getNear();
-
-            this->verticesToRender[i] = newVertex.getX() * this->camera->getProjectionScale() / newVertex.getZ();
+            this->verticesToRender[i] = newVertex.getX() * this->camera->getProjectionScale() / (newVertex.getZ() * this->windowAspectRatio);
             this->verticesToRender[i + 1] = newVertex.getY() * this->camera->getProjectionScale() / newVertex.getZ();
             this->verticesToRender[i + 2] = (newVertex.getZ() * cameraFarAndNear / differenceCamearaFarNear - cameraDoubleFarNear / differenceCamearaFarNear) / newVertex.getZ();
         }
