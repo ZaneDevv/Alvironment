@@ -67,9 +67,12 @@ void GenericObject::setUpBuffers()
 
 void GenericObject::updateVbo()
 {
-	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-	glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	if (this->vbo >= 0)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
+		glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+	}
 }
 
 void GenericObject::render()

@@ -80,6 +80,11 @@ bool Quaternion::operator == (const Quaternion& q) const
 // METHODS
 // ------------------------------------------------------
 
+Quaternion Quaternion::createByWAndAxis(double w, const Vector3D& v)
+{
+	return Quaternion(w, v.getX(), v.getY(), v.getZ());
+}
+
 Quaternion Quaternion::normalize(const Quaternion& q)
 {
 	float magnitude = q.getMagnitude();
@@ -160,7 +165,6 @@ float Quaternion::getAngle() const
 		}
 
 		alpha = 2 * acos(realComponent);
-
 	}
 
 	return alpha;
@@ -169,4 +173,44 @@ float Quaternion::getAngle() const
 Vector3D Quaternion::getAxis() const
 {
 	return Vector3D(this->x, this->y, this->z);
+}
+
+double Quaternion::getW() const
+{
+	return this->w;
+}
+
+void Quaternion::setW(double w)
+{
+	this->w = w;
+}
+
+double Quaternion::getX() const
+{
+	return this->x;
+}
+
+void Quaternion::setX(double x)
+{
+	this->x = x;
+}
+
+double Quaternion::getY() const
+{
+	return this->y;
+}
+
+void Quaternion::setY(double y)
+{
+	this->y = y;
+}
+
+double Quaternion::getZ() const
+{
+	return this->z;
+}
+
+void Quaternion::setZ(double z)
+{
+	this->z = z;
 }

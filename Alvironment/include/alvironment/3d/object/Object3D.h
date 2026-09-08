@@ -5,9 +5,11 @@
 #include "math/Vector3D.h"
 #include "math/Quaternion.h"
 
+#include "../Camera.h"
+
 /**
  * @brief Class for creating 3D objects
- * @version 1.0
+ * @version 1.2
  * @date 2026-09-07
  * @author Álvaro Fernández Barrero
  */
@@ -17,6 +19,8 @@ private:
 	Vector3D scale = Vector3D::one;
 	Vector3D position = Vector3D::zero;
 	Quaternion rotation = Quaternion::identity;
+
+	Camera* camera = nullptr;
 
 public:
 
@@ -123,4 +127,14 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	void setRotation(const Quaternion&);
+
+	/**
+	 * @brief Sets the camera that is going to view the object
+	 * @param Camera that is going to view the object
+	 * @version 1.0
+	 * @since 1.1
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setCamera(Camera*);
 };

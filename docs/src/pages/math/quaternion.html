@@ -165,6 +165,11 @@
                 <h3>Methods</h3>
 
                 <details class="feature">
+                    <summary><code class="language-cpp">static Quaternion createByWAndAxis(double, const Vector3D&)</code></summary>
+                    <p>Creates a new quaternion taking the given scalar as w axis and the vector's axes as imaginary components.</p>
+                </details>
+
+                <details class="feature">
                     <summary><code class="language-cpp">static Quaternion normalize(const Quaternion&)</code></summary>
                     <p>Normalizes the given quaternion making its magnitude to be one. This is:</p>
                     <p>\(q' = \frac{q}{|q|} \iff |q| \ne 0\)</p>
@@ -208,6 +213,46 @@
                 <details class="feature">
                     <summary><code class="language-cpp">Vector3D getAxis()</code></summary>
                     <p>Gets the axis of the quaternion. This is that, for a quaternion \(q = w + xi + yj + zk\), the axis is the vector \(\begin{pmatrix} x \\ y \\ z \end{pmatrix}\).</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">double getW() const</code></summary>
+                    <p>Gets the quaternion's w axis.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">void setW(double)</code></summary>
+                    <p>Sets the quaternion's w axis.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">double getX() const</code></summary>
+                    <p>Gets the quaternion's x axis.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">void setX(double)</code></summary>
+                    <p>Sets the quaternion's x axis.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">double getY() const</code></summary>
+                    <p>Gets the quaternion's y axis.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">void setY(double)</code></summary>
+                    <p>Sets the quaternion's y axis.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">double getZ() const</code></summary>
+                    <p>Gets the quaternion's z axis.</p>
+                </details>
+
+                <details class="feature">
+                    <summary><code class="language-cpp">void setZ(double)</code></summary>
+                    <p>Sets the quaternion's z axis.</p>
                 </details>
             </section>
         </main>

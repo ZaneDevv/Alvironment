@@ -5,7 +5,7 @@
 
 /**
  * @brief Struct for quaternions
- * @version 1.0
+ * @version 1.2
  * @date 2026-09-07
  * @author Álvaro Fernández Barrero
  */
@@ -83,6 +83,18 @@ public:
 	// ------------------------------------------------------
 	// METHODS
 	// ------------------------------------------------------
+
+	/**
+	 * @brief Creates a  quaternion by and w scalar and an axis vector
+	 * @param W scalar
+	 * @param Axis vector
+	 * @return A quaternion with w as real component and as imaginary components has all the axis vector's axis
+	 * @version 1.0
+	 * @since 1.1
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	static Quaternion createByWAndAxis(double, const Vector3D&);
 
 	/**
 	 * @brief Normalizes the given quaternion
@@ -171,4 +183,84 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	Vector3D getAxis() const;
+
+	/**
+	 * @brief Gets the quaternion's w axis
+	 * @return Quaternion's w axis
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	double getW() const;
+
+	/**
+	 * @brief Sets the quaternion's w axis
+	 * @param Quaternion's new w axis
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setW(double);
+
+	/**
+	 * @brief Gets the quaternion's x axis
+	 * @return Quaternion's x axis
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	double getX() const;
+
+	/**
+	 * @brief Sets the quaternion's x axis
+	 * @param Quaternion's new x axis
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setX(double);
+
+	/**
+	 * @brief Gets the quaternion's y axis
+	 * @return Quaternion's y axis
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	double getY() const;
+
+	/**
+	 * @brief Sets the quaternion's y axis
+	 * @param Quaternion's new y axis
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setY(double);
+
+	/**
+	 * @brief Gets the quaternion's z axis
+	 * @return Quaternion's z axis
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	double getZ() const;
+
+	/**
+	 * @brief Sets the quaternion's z axis
+	 * @param Quaternion's new z axis
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-09-08
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setZ(double);
 };

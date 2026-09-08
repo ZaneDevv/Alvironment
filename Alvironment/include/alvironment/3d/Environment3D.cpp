@@ -6,6 +6,7 @@
 
 void Environment3D::addObject(Object3D* object)
 {
+    object->setCamera(&this->camera);
     Environment::addObject(object);
 }
 

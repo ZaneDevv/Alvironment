@@ -12,6 +12,7 @@ void SpinningCube::initialize()
 	// Creating the cube
 
 	this->cube = std::make_unique<Cube3D>();
+	this->cube->setPosition(Vector3D::k * 6);
 
 	// Adding the objects to the environment
 

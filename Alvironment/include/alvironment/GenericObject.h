@@ -8,7 +8,7 @@ class Environment;
 
 /**
  * @brief Class for generic objects
- * @version 2.2
+ * @version 2.3
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -32,9 +32,9 @@ protected:
 
 	u8_t dimensions = 2;
 
-	u32_t vao = 0;
-	u32_t vbo = 0;
-	u32_t ebo = 0;
+	u32_t vao = -1;
+	u32_t vbo = -1;
+	u32_t ebo = -1;
 
 	Shader* shader;
 
@@ -44,7 +44,7 @@ protected:
 
 	/**
 	 * @brief Updates the object's vbos
-	 * @version 1.0
+	 * @version 1.1
 	 * @since 2.2
 	 * @date 2026-09-07
 	 * @author Álvaro Fernández Barrero

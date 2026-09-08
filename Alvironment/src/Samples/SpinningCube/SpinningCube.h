@@ -14,6 +14,7 @@ private:
 	// Mathematical
 
 	Vector3D rotationAxis = Vector3D::normalize(Vector3D(1, 1, 0));
+	double theta = 0;
 
 public:
 
