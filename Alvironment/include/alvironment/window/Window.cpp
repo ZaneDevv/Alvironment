@@ -33,6 +33,9 @@ Window::Window(u16_t width, u16_t height, const char* title, bool allowResizing,
 		this->clearBuffers |= GL_DEPTH_BUFFER_BIT;
 	}
 
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	glfwSetWindowUserPointer(this->window, this);
 	glfwSetFramebufferSizeCallback(this->window, [](GLFWwindow* glfwWindow, int width, int height)
 	{
