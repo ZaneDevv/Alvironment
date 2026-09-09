@@ -20,6 +20,8 @@ void Environment3D::runInternalUpdateCallback(double deltaTime)
 
 void Environment3D::moveCamera(double deltaTime)
 {
+    bool hasCameraMoved = false;
+
     if (this->isKeyPressed(Key::MOUSE_RIGHT_BUTTON))
     {
         double newX = 0;
@@ -37,13 +39,18 @@ void Environment3D::moveCamera(double deltaTime)
         double differenceX = newX - this->lastMouseX;
         double differenceY = newY - this->lastMouseY;
 
-        Vector3D axis = Vector3D::normalize(Vector3D(-differenceY, differenceX, 0));
-        double theta = abs(deltaTime * (differenceX + differenceY) * Environment3D::CAMERA_ANGULAR_SPEED);
+        if (differenceX != 0 || differenceY != 0)
+        {
+            Vector3D axis = Vector3D::normalize(Vector3D(-differenceY, differenceX, 0));
+            double theta = abs(deltaTime * (differenceX + differenceY) * Environment3D::CAMERA_ANGULAR_SPEED);
 
-        this->camera.setRotation(this->camera.getRotation() * Quaternion(theta, axis));
+            this->camera.setRotation(this->camera.getRotation() * Quaternion(theta, axis));
 
-        this->lastMouseX = newX;
-        this->lastMouseY = newY;
+            this->lastMouseX = newX;
+            this->lastMouseY = newY;
+
+            hasCameraMoved = true;
+        }
     }
     else
     {
@@ -56,7 +63,21 @@ void Environment3D::moveCamera(double deltaTime)
         this->isKeyPressed(Key::W) ? 1 : this->isKeyPressed(Key::S) ? -1 : 0
     );
 
-    this->camera.setPosition(this->camera.getPosition() + Vector3D::normalize(direction) * (deltaTime * Environment3D::CAMERA_SPEED));
+    if (direction != Vector3D::zero)
+    {
+        direction = (this->camera.getRotation() * Quaternion::createByWAndAxis(0, direction) * Quaternion::inverse(this->camera.getRotation())).getAxis();
+
+        this->camera.setPosition(this->camera.getPosition() + Vector3D::normalize(direction) * (deltaTime * Environment3D::CAMERA_SPEED));
+        hasCameraMoved = true;
+    }
+
+    if (hasCameraMoved)
+    {
+        for (GenericObject* object : this->objectsInEnvironment)
+        {
+            object->updateVertices();
+        }
+    }
 }
 
 void Environment3D::addObject(Object3D* object)
