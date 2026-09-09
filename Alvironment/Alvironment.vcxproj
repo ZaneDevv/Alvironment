@@ -145,6 +145,7 @@
     <ClCompile Include="include\graphics\Color4.cpp" />
     <ClCompile Include="include\alvironment\3d\object\Object3D.cpp" />
     <ClCompile Include="include\math\Quaternion.cpp" />
+    <ClCompile Include="include\stb\stb_image.cpp" />
     <ClCompile Include="src\Samples\SpinningCube\SpinningCube.cpp" />
     <ClCompile Include="src\Samples\Arkanoid\Arkanoid.cpp" />
     <ClCompile Include="src\Project\MyWorld.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="include\graphics\Color4.h" />
     <ClInclude Include="include\alvironment\3d\object\Object3D.h" />
     <ClInclude Include="include\math\Quaternion.h" />
+    <ClInclude Include="include\stb\stb_image.h" />
     <ClInclude Include="src\Samples\SpinningCube\SpinningCube.h" />
     <ClInclude Include="src\Samples\Arkanoid\Arkanoid.h" />
     <ClInclude Include="include\alvironment\Key.h" />

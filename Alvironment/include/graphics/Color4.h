@@ -62,7 +62,7 @@ public:
 	 * @date 2026-09-04
 	 * @author Álvaro Fernández Barrero
 	 */
-	Color4(float, float, float, float);
+	Color4(float red, float green, float blue, float alpha) : red(red), green(green), blue(blue), alpha(alpha) {};
 
 	/**
 	 * @brief Creates a new RGBA color in hexadecimal
@@ -72,7 +72,11 @@ public:
 	 * @date 2026-09-04
 	 * @author Álvaro Fernández Barrero
 	 */
-	Color4(u32_t);
+	Color4(u32_t hexadecimal)
+		: red(static_cast<float>((hexadecimal >> 24) & 0xFF) / (float)0xFF),
+		green(static_cast<float>((hexadecimal >> 16) & 0xFF) / (float)0xFF),
+		blue(static_cast<float>((hexadecimal >> 8) & 0xFF) / (float)0xFF),
+		alpha(static_cast<float>(hexadecimal & 0xFF) / (float)0xFF) {};
 
 	// ------------------------------------------------------
 	// METHODS

@@ -10,6 +10,15 @@ const float Environment3D::CAMERA_SPEED = 50.0f;
 const float Environment3D::CAMERA_ANGULAR_SPEED = 0.6f;
 
 // ------------------------------------------------------
+// CONSTRUCTORS
+// ------------------------------------------------------
+
+Environment3D::Environment3D(WindowProperties* properties) : Environment(properties)
+{
+    this->dimensions = 3;
+}
+
+// ------------------------------------------------------
 // METHODS
 // ------------------------------------------------------
 

@@ -1,26 +1,6 @@
 #include "Color4.h"
 
 // ------------------------------------------------------
-// CONSTRUCTORS
-// ------------------------------------------------------
-
-Color4::Color4(float red, float green, float blue, float alpha)
-{
-	this->red = red;
-	this->green = green;
-	this->blue = blue;
-	this->blue = alpha;
-}
-
-Color4::Color4(u32_t hexadecimal)
-{
-	this->red = static_cast<float>((hexadecimal >> 24) & 0xFF) / (float)0xFF;
-	this->green = static_cast<float>((hexadecimal >> 16) & 0xFF) / (float)0xFF;
-	this->blue = static_cast<float>((hexadecimal >> 8) & 0xFF) / (float)0xFF;
-	this->alpha = static_cast<float>(hexadecimal & 0xFF) / (float)0xFF;
-}
-
-// ------------------------------------------------------
 // METHODS
 // ------------------------------------------------------
 

@@ -16,18 +16,11 @@ const char* const GenericObject::DEFAULT_FRAGMENT_SHADER = "include/alvironment/
 // ------------------------------------------------------
 
 GenericObject::GenericObject(u8_t dimensions, float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
+	: dimensions(dimensions),
+	vertices(vertices), verticesAmount(verticesAmount), verticesToRender(new float[verticesAmount]),
+	indices(indices), indicesAmount(indicesAmount),
+	shader(new Shader(vertexShader, fragmentShader))
 {
-	this->dimensions = dimensions;
-
-	this->vertices = vertices;
-	this->indices = indices;
-
-	this->verticesAmount = verticesAmount;
-	this->indicesAmount = indicesAmount;
-
-	this->shader = new Shader(vertexShader, fragmentShader);
-
-	this->verticesToRender = new float[verticesAmount];
 	std::copy(vertices, vertices + verticesAmount, this->verticesToRender);
 }
 

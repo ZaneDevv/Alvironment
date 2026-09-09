@@ -6,9 +6,8 @@
 // CONSTRUCTORS
 // ------------------------------------------------------
 
-Camera::Camera()
+Camera::Camera() : projectionScale(1 / tan(this->fov / 2.0f))
 {
-	this->projectionScale = 1 / tan(this->fov / 2.0f);
 	SUCCESS_PRINT("Camera created successfully");
 }
 
