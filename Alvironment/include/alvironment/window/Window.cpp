@@ -86,7 +86,7 @@ void Window::getDimensions(u32_t& width, u32_t& height) const
 
 bool Window::isKeyPressed(Key key) const
 {
-	return glfwGetKey(this->window, static_cast<int>(key)) == GLFW_PRESS;
+	return glfwGetKey(this->window, static_cast<int>(key)) == GLFW_PRESS || glfwGetMouseButton(this->window, static_cast<int>(key)) == GLFW_PRESS;
 }
 
 void Window::getMousePosition(double& x, double& y) const

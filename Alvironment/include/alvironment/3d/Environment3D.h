@@ -20,6 +20,7 @@ private:
 	// ------------------------------------------------------
 
 	static const float CAMERA_SPEED;
+	static const float CAMERA_ANGULAR_SPEED;
 
 	// ------------------------------------------------------
 	// ATTRIBUTES
@@ -28,6 +29,7 @@ private:
 	double lastMouseX = 0;
 	double lastMouseY = 0;
 
+	bool wasStartingMouseLocationSet = false;
 	bool freeCamera = false;
 
 	// ------------------------------------------------------
@@ -37,7 +39,7 @@ private:
 	/**
 	 * @brief Moves the free camera
 	 * @param Delta time
-	 * @version 1.0
+	 * @version 2.0
 	 * @since 2.0
 	 * @date 2026-09-08
 	 * @author Álvaro Fernández Barrero

@@ -58,6 +58,14 @@ void getSimulationByIndex(std::unique_ptr<AbstractWorld>&, short);
  */
 int main()
 {
+	// Cleaning terminal
+
+#if defined(_WIN32)
+	system("cls");
+#elif defined(__linux__)
+	system("clear");
+#endif
+
 	// Selecting world
 
 	std::cout << RESET_COLOR;
