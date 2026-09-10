@@ -29,7 +29,7 @@ void SolarSystem::initialize()
 
 	// Increaing camera's far and near plane
 
-	this->environment->camera.setNear(4);
+	this->environment->camera.setNear(0.2f);
 	this->environment->camera.setFar(500);
 
 	// Enable free camera movement

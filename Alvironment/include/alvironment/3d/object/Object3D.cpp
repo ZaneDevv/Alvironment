@@ -59,7 +59,6 @@ inline bool Object3D::shouldRenderTriangleByBackFaceCulling(const u32_t& index0,
 
 void Object3D::updateIndices()
 {
-    this->indices = nullptr;
     this->indicesAmount = 0;
     this->indicesToRenderVector.clear();
 
@@ -69,13 +68,13 @@ void Object3D::updateIndices()
         u32_t triangleIndex1 = this->actualIndices[i + 1];
         u32_t triangleIndex2 = this->actualIndices[i + 2];
 
-        if (this->shouldRenderTriangleByBackFaceCulling(triangleIndex0, triangleIndex1,triangleIndex2))
+        if (this->shouldRenderTriangleByBackFaceCulling(triangleIndex0, triangleIndex1, triangleIndex2))
         {
             double depthVertex0 = this->depthVertices.at(triangleIndex0);
             double depthVertex1 = this->depthVertices.at(triangleIndex1);
             double depthVertex2 = this->depthVertices.at(triangleIndex2);
 
-            if (this->isVertexZWithinFrustrum(depthVertex0) && this->isVertexZWithinFrustrum(depthVertex1) && this->isVertexZWithinFrustrum(depthVertex2))
+            if (this->isVertexZWithinFrustrum(depthVertex0) || this->isVertexZWithinFrustrum(depthVertex1) || this->isVertexZWithinFrustrum(depthVertex2))
             {
                 this->indicesToRenderVector.push_back(triangleIndex0);
                 this->indicesToRenderVector.push_back(triangleIndex1);
@@ -86,6 +85,7 @@ void Object3D::updateIndices()
         }
     }
 
+    this->indices = nullptr;
     this->indices = this->indicesToRenderVector.data();
     this->depthVertices.clear();
 

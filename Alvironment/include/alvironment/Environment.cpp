@@ -54,10 +54,11 @@ void Environment::initialize(updateMethod update)
 
         this->window->prepareWindowForRendering();
 
+        update(deltaTime);
+
         this->updateProportionsOnWindowSize();
         this->renderObjects();
 
-        update(deltaTime);
         this->runInternalUpdateCallback(deltaTime);
 
         this->window->finishRendering();
