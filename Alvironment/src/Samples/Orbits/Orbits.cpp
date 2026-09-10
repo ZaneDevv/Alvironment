@@ -46,8 +46,8 @@ void Orbits::update(double deltaTime)
 	// Increasing the angles
 
 	this->theta += deltaTime;
-	this->alpha += deltaTime * 2;
-	this->phi += deltaTime / 2;
+	this->alpha += deltaTime * 2.86345f;
+	this->phi += deltaTime / 2.345f;
 
 	// Limiting the angles to be within -tau and tau
 

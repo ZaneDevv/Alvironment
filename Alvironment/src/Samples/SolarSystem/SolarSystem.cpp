@@ -27,9 +27,10 @@ void SolarSystem::initialize()
 	this->moon->setShaderProperty("color4", Color4(0x7A7A7AFF));
 	this->moon->setScale(Vector3D::one * 6);
 
-	// Increaing camera's far plane
+	// Increaing camera's far and near plane
 
-	this->environment->camera.setFar(1000);
+	this->environment->camera.setNear(4);
+	this->environment->camera.setFar(500);
 
 	// Enable free camera movement
 
