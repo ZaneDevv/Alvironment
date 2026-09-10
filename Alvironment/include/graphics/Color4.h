@@ -30,16 +30,6 @@ public:
 	Color4() : Color4(0.0f, 0.0f, 0.0f, 1.0f) {};
 
 	/**
-	 * @brief Creates a grey color
-	 * @param Grey scale [0, 1]
-	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-09-04
-	 * @author Álvaro Fernández Barrero
-	 */
-	Color4(float grey) : Color4(grey, grey, grey, 1.0f) {};
-
-	/**
 	 * @brief Creates a new RGB color
 	 * @param Red value [0, 1]
 	 * @param Green value [0, 1]

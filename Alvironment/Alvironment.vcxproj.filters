@@ -45,7 +45,7 @@
     <ClCompile Include="include\math\Vector3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Samples\SolarSystem\SolarSystem.cpp">
+    <ClCompile Include="src\Samples\Orbits\Orbits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\alvironment\Environment.cpp">
@@ -105,6 +105,12 @@
     <ClCompile Include="include\alvironment\shaders\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\alvironment\3d\object\Sphere3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Samples\SolarSystem\SolarSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scr\Classes\Object.h">
@@ -149,7 +155,7 @@
     <ClInclude Include="include\math\Vector3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Samples\SolarSystem\SolarSystem.h">
+    <ClInclude Include="src\Samples\Orbits\Orbits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\alvironment\AbstractWorld.h">
@@ -212,12 +218,18 @@
     <ClInclude Include="include\alvironment\shaders\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\alvironment\3d\object\Sphere3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Samples\SolarSystem\SolarSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\alvironment\shaders\common_shaders\Basic.vsha" />
     <None Include="include\alvironment\shaders\common_shaders\Basic.fsha" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="src\todo.md" />
+    <Text Include="todo.md" />
   </ItemGroup>
 </Project>

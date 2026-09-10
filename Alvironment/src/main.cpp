@@ -4,10 +4,11 @@
 #include "alvironment/WorldSetUp.h"
 
 #include "./Samples/LinearInterpolation/LinearInterpolation.h"
-#include "./Samples/SolarSystem/SolarSystem.h"
+#include "./Samples/Orbits/Orbits.h"
 #include "./Samples/Dvd/Dvd.h"
 #include "./Samples/Arkanoid/Arkanoid.h"
 #include "./Samples/SpinningCube/SpinningCube.h"
+#include "./Samples/SolarSystem/SolarSystem.h"
 
 #include "debug_helper/print.h"
 
@@ -104,10 +105,11 @@ void getSimulationIndex(short& index)
 	PRINT(BACKGROUND_RED << "[Alvironment]:" << RESET_COLOR  << " Choose the simulation you want to run:");
 
 	PRINT("\t1. Linear interpolation");
-	PRINT("\t2. 2D solar system");
+	PRINT("\t2. 2D solar system -> Orbits");
 	PRINT("\t3. DVD");
 	PRINT("\t4. Arkanoid");
 	PRINT("\t5. Spinning cube");
+	PRINT("\t6. 3D solar system");
 
 	do
 	{
@@ -115,7 +117,7 @@ void getSimulationIndex(short& index)
 		std::cin >> index;
 		std::cout << RESET_COLOR;
 	}
-	while (index < 1 || index > 5);
+	while (index < 1 || index > 6);
 
 	std::cout << "\n";
 }
@@ -129,7 +131,7 @@ void getSimulationByIndex(std::unique_ptr<AbstractWorld>& world, short simulatio
 		break;
 
 	case 2:
-		world = std::make_unique<SolarSystem>();
+		world = std::make_unique<Orbits>();
 		break;
 
 	case 3:
@@ -142,6 +144,10 @@ void getSimulationByIndex(std::unique_ptr<AbstractWorld>& world, short simulatio
 
 	case 5:
 		world = std::make_unique<SpinningCube>();
+		break;
+
+	case 6:
+		world = std::make_unique<SolarSystem>();
 		break;
 
 	default:

@@ -14,24 +14,25 @@
 	* ~~Basic 2D squares/rectangles~~
 	* ~~Basic 2D triangles~~
 	* ~~Basic 2D circle~~
-	* Corner shape
+	* Boundary shape
 	* ~~Screen normalization~~
 	* ~~2D Transformations~~
-	* System for uploading images
+	* ~~System for uploading images~~
 
 * 3D:
 	* ~~General 3D shapes by vertices and indices~~
 	* ~~Basic 3D cubes~~
 	* Basic 3D pyramids
-	* Basic 3D spheres
+	* ~~Basic 3D spheres~~
 	* ~~3D transformations~~
 	* ~~3D camera~~
 	* System for uploading meshes
-	* System for uploading textures
+	* ~~System for uploading textures~~
 	* Lighting
 
 * Math:
 	* ~~Numerical constants~~
 	* ~~Vector2D & Vector3D class~~
+	* ~~Quaternions~~
 
 * ~~API~~
