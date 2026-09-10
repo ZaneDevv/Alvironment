@@ -5,7 +5,7 @@
 
 /**
  * @brief Class for creating 2D objects
- * @version 4.2
+ * @version 5.0
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -31,13 +31,47 @@ public:
 
 	/**
 	 * @brief Creates a brand new 2D object with the given vertices, indices and shaders
+	 * @param Vertices's list
+	 * @para Vertices amount
+	 * @param Indices's list
+	 * @param Indices amount
+	 * @param Vertex shader's code's path
+	 * @param Fragment shader's code's path
+	 * @param Texture's path
+	 * @version 1.1
+	 * @since 1.0
+	 * @date 2026-08-31
+	 * @author Álvaro Fernández Barrero
+	 */
+	Object2D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader, const char* texture)
+		: GenericObject(2, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader, texture) {};
+
+	/**
+	 * @brief Creates a brand new 2D object with the given vertices, indices and shaders
 	 * @param Vertices' positions list
+	 * @param Vertices amount
 	 * @param Indices' list
+	 * @parama Indices amount
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 5.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	Object2D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* texture)
+		: GenericObject(2, vertices, verticesAmount, indices, indicesAmount, texture) {};
+
+	/**
+	 * @brief Creates a brand new 2D object with the given vertices, indices and shaders
+	 * @param Vertices' positions list
+	 * @param Vertices amount
+	 * @param Indices' list
+	 * @parama Indices amount
 	 * @param Vertex shader's code's path
 	 * @param Fragment shader's code's path
 	 * @version 1.0
-	 * @since 1.0
-	 * @date 2026-08-31
+	 * @since 5.0
+	 * @date 2026-09-10
 	 * @author Álvaro Fernández Barrero
 	 */
 	Object2D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
@@ -46,15 +80,15 @@ public:
 	/**
 	 * @brief Creates a brand new 2D object with the given vertices, indices and shaders
 	 * @param Vertices' positions list
+	 * @param Vertices amount
 	 * @param Indices' list
+	 * @parama Indices amount
 	 * @version 1.0
-	 * @since 2.0
-	 * @date 2026-08-31
+	 * @since 5.0
+	 * @date 2026-09-10
 	 * @author Álvaro Fernández Barrero
 	 */
-	Object2D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount) : GenericObject(2, vertices, verticesAmount, indices, indicesAmount) {
-		this->dimensions = 2;
-	};
+	Object2D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount) : GenericObject(2, vertices, verticesAmount, indices, indicesAmount) {};
 
 	// ------------------------------------------------------
 	// METHODS

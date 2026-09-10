@@ -5,8 +5,8 @@
 
 /**
  * @brief Class for creating 2D circles
- * @version 2.4
- * @date 2026-09-01
+ * @version 3.0
+ * @date 2026-09-09
  * @author Álvaro Fernández Barrero
  */
 class Circle2D : public Object2D
@@ -37,12 +37,12 @@ private:
 	static void adjustSmoothness(double&);
 
 	/**
-	 * @brief Computes the vertices' position of the circle according to the given smoothness
+	 * @brief Computes the vertices' position and texture coordinates of the circle according to the given smoothness
 	 * @param Circle's smoothness (the lower this number is, the smoother the circle is)
-	 * @return The vertices' position
-	 * @version 1.0
+	 * @return The vertices' position and texture coordinates
+	 * @version 2.0
 	 * @since 2.1
-	 * @date 2026-09-01
+	 * @date 2026-09-09
 	 * @author Álvaro Fernández Barrero
 	 */
 	static float* computeVertices(double);
@@ -62,9 +62,9 @@ private:
 	 * @brief Computes circle's vertices amount by its smoothness
 	 * @param Circle's smoothness (the lower this number is, the smoother the circle is)
 	 * @return The circle's vertices amount
-	 * @version 1.0
+	 * @version 2.0
 	 * @since 2.1
-	 * @date 2026-09-01
+	 * @date 2026-09-09
 	 * @author Álvaro Fernández Barrero
 	 */
 	static u32_t computeVerticesAmount(double);
@@ -107,11 +107,29 @@ public:
 	// ------------------------------------------------------
 
 	/**
+	 * @brief Creates a brand new 2D circle with the given shaders and textures
+	 * @param Circle's smoothness (the lower this number is, the smoother the circle is)
+	 * @param Vertex shader's code's path
+	 * @param Fragment shader's code's path
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 1.0
+	 * @date 2026-09-01
+	 * @author Álvaro Fernández Barrero
+	 */
+	Circle2D(double smoothness, const char* vertexShader, const char* fragmentShader, const char* texture)
+		: Object2D(
+			Circle2D::computeVertices(smoothness), Circle2D::computeVerticesAmount(smoothness),
+			Circle2D::computeIndices(smoothness), Circle2D::computeIndicesAmount(smoothness),
+			vertexShader, fragmentShader, texture
+		) {};
+
+	/**
 	 * @brief Creates a brand new 2D circle with the given shaders
 	 * @param Circle's smoothness (the lower this number is, the smoother the circle is)
 	 * @param Vertex shader's code's path
 	 * @param Fragment shader's code's path
-	 * @version 1.0
+	 * @version 1.1
 	 * @since 1.0
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
@@ -124,16 +142,32 @@ public:
 		) {};
 
 	/**
+	 * @brief Creates a brand new 2D circle with the given texture
+	 * @param Circle's smoothness (the lower this number is, the smoother the circle is)
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 3.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	Circle2D(double smoothness, const char* texture)
+		: Object2D(
+			Circle2D::computeVertices(smoothness), Circle2D::computeVerticesAmount(smoothness),
+			Circle2D::computeIndices(smoothness), Circle2D::computeIndicesAmount(smoothness),
+			texture
+		) {};
+
+	/**
 	 * @brief Creates a brand new 2D circle
 	 * @param Circle's smoothness (the lower this number is, the smoother the circle is)
-	 * @version 1.0
+	 * @version 1.1
 	 * @since 1.0
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
 	Circle2D(double smoothness)
 		: Object2D(
-			Circle2D::computeVertices(smoothness), Circle2D::computeVerticesAmount(smoothness), 
+			Circle2D::computeVertices(smoothness), Circle2D::computeVerticesAmount(smoothness),
 			Circle2D::computeIndices(smoothness), Circle2D::computeIndicesAmount(smoothness)
 		) {};
 
@@ -146,7 +180,27 @@ public:
 	 * @date 2026-09-01
 	 * @author Álvaro Fernández Barrero
 	 */
-	Circle2D(const char* vertexShader, const char* fragmentShader) : Circle2D(Circle2D::DEFAULT_SMOOTHNESS, vertexShader, fragmentShader) {};
+	Circle2D(const char* vertexShader, const char* fragmentShader)
+		: Object2D(
+			Circle2D::computeVertices(Circle2D::DEFAULT_SMOOTHNESS), Circle2D::computeVerticesAmount(Circle2D::DEFAULT_SMOOTHNESS),
+			Circle2D::computeIndices(Circle2D::DEFAULT_SMOOTHNESS), Circle2D::computeIndicesAmount(Circle2D::DEFAULT_SMOOTHNESS),
+			vertexShader, fragmentShader
+		) {};
+
+	/**
+	 * @brief Creates a brand new 2D circle with the given texture
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 3.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	Circle2D(const char* texture)
+		: Object2D(
+			Circle2D::computeVertices(Circle2D::DEFAULT_SMOOTHNESS), Circle2D::computeVerticesAmount(Circle2D::DEFAULT_SMOOTHNESS),
+			Circle2D::computeIndices(Circle2D::DEFAULT_SMOOTHNESS), Circle2D::computeIndicesAmount(Circle2D::DEFAULT_SMOOTHNESS),
+			texture
+		) {};
 
 	/**
 	 * @brief Creates a brand new 2D circle

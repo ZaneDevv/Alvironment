@@ -11,7 +11,7 @@
 
 /**
  * @brief Class for creating 3D objects
- * @version 1.3
+ * @version 2.1
  * @date 2026-09-07
  * @author Álvaro Fernández Barrero
  */
@@ -28,7 +28,7 @@ private:
 	u32_t actualIndicesAmount = 0;
 
 	std::vector<u32_t> indicesToRenderVector;
-	std::vector<float> depthVertices;
+	std::vector<double> depthVertices;
 
 	// ------------------------------------------------------
 	// METHODS
@@ -54,6 +54,15 @@ private:
 	 */
 	bool isVertexZWithinFrustrum(float);
 
+	/**
+	 * @brief Sets up the indices list
+	 * @version 1.0
+	 * @since 2.0
+	 * @date 2026-09-09
+	 * @author Álvaro Fernández Barrero
+	 */
+	inline void setUpIndicesList();
+
 public:
 
 	// ------------------------------------------------------
@@ -62,8 +71,40 @@ public:
 
 	/**
 	 * @brief Creates a brand new 3D object with the given vertices, indices and shaders
-	 * @param Vertices' positions list
-	 * @param Indices' list
+	 * @param Vertices's positions list
+	 * @param Vertices amount
+	 * @param Indices's list
+	 * @param Indices amount
+	 * @param Vertex shader's code's path
+	 * @param Fragment shader's code's path
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 2.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	Object3D(float*, u32_t, u32_t*, u32_t, const char*, const char*, const char*);
+
+	/**
+	 * @brief Creates a brand new 3D object with the given vertices, indices and shaders
+	 * @param Vertices's positions list
+	 * @param Vertices amount
+	 * @param Indices's list
+	 * @param Indices amount
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 2.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	Object3D(float*, u32_t, u32_t*, u32_t, const char*);
+
+	/**
+	 * @brief Creates a brand new 3D object with the given vertices, indices and shaders
+	 * @param Vertices's positions list
+	 * @param Vertices amount
+	 * @param Indices's list
+	 * @param Indices amount
 	 * @param Vertex shader's code's path
 	 * @param Fragment shader's code's path
 	 * @version 1.0
@@ -71,29 +112,18 @@ public:
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
-		: GenericObject(3, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader) {
-		this->actualIndices = indices;
-		this->actualIndicesAmount = indicesAmount;
-
-		std::copy(indices, indices + indicesAmount, this->actualIndices);
-	};
+	Object3D(float*, u32_t, u32_t*, u32_t, const char*, const char*);
 
 	/**
 	 * @brief Creates a brand new 3D object with the given vertices, indices and shaders
 	 * @param Vertices' positions list
 	 * @param Indices' list
-	 * @version 1.0
+	 * @version 1.1
 	 * @since 2.0
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount) : GenericObject(3, vertices, verticesAmount, indices, indicesAmount) {
-		this->actualIndices = indices;
-		this->actualIndicesAmount = indicesAmount;
-
-		std::copy(indices, indices + indicesAmount, this->actualIndices);
-	};
+	Object3D(float*, u32_t, u32_t*, u32_t);
 
 	// ------------------------------------------------------
 	// METHODS

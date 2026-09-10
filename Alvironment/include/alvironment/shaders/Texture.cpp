@@ -1,6 +1,8 @@
 #include "Texture.h"
 
-#include <glad/gl.h>
+#include <GL/glew.h>
+
+#include "debug_helper/print.h"
 
 // ------------------------------------------------------
 // CONSTRUCTORS
@@ -19,6 +21,12 @@ Texture::Texture(const char* path) : path(path)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
+	if (this->textureBuffer == nullptr)
+	{
+		ERROR_PRINT("Failed to load texture: " << path << "\nReason: " << stbi_failure_reason());
+		return;
+	}
+
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, this->width, this->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, this->textureBuffer);
 	
 	glBindTexture(GL_TEXTURE_2D, 0);
@@ -27,6 +35,8 @@ Texture::Texture(const char* path) : path(path)
 	{
 		stbi_image_free(this->textureBuffer);
 	}
+
+	SUCCESS_PRINT("Texture " << path << " created successfully");
 }
 
 // ------------------------------------------------------

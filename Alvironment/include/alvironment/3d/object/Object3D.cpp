@@ -1,10 +1,44 @@
 #include "Object3D.h"
 
-#include <iostream>
+// ------------------------------------------------------
+// CONSTRUCTORS
+// ------------------------------------------------------
+
+Object3D::Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader, const char* texture)
+    : GenericObject(3, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader, texture)
+{
+    this->setUpIndicesList();
+};
+
+Object3D::Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* texture)
+    : GenericObject(3, vertices, verticesAmount, indices, indicesAmount, texture)
+{
+    this->setUpIndicesList();
+};
+
+Object3D::Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
+    : GenericObject(3, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader)
+{
+    this->setUpIndicesList();
+};
+
+Object3D::Object3D(float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount)
+    : GenericObject(3, vertices, verticesAmount, indices, indicesAmount)
+{
+    this->setUpIndicesList();
+};
 
 // ------------------------------------------------------
 // METHODS
 // ------------------------------------------------------
+
+inline void Object3D::setUpIndicesList()
+{
+    this->actualIndices = indices;
+    this->actualIndicesAmount = indicesAmount;
+
+    std::copy(indices, indices + indicesAmount, this->actualIndices);
+}
 
 bool Object3D::isVertexZWithinFrustrum(float z)
 {
@@ -23,15 +57,11 @@ void Object3D::updateIndices()
         u32_t vertexIndex1 = this->actualIndices[i + 1];
         u32_t vertexIndex2 = this->actualIndices[i + 2];
 
-        float depthVertex0 = this->depthVertices.at(vertexIndex0);
-        float depthVertex1 = this->depthVertices.at(vertexIndex1);
-        float depthVertex2 = this->depthVertices.at(vertexIndex2);
+        double depthVertex0 = this->depthVertices.at(vertexIndex0);
+        double depthVertex1 = this->depthVertices.at(vertexIndex1);
+        double depthVertex2 = this->depthVertices.at(vertexIndex2);
 
-        float vertex0Z = depthVertex0 * this->verticesToRender[vertexIndex0 * 3 + 2];
-        float vertex1Z = depthVertex1 * this->verticesToRender[vertexIndex1 * 3 + 2];
-        float vertex2Z = depthVertex2 * this->verticesToRender[vertexIndex2 * 3 + 2];
-
-        if (this->isVertexZWithinFrustrum(vertex0Z) && this->isVertexZWithinFrustrum(vertex1Z) && this->isVertexZWithinFrustrum(vertex2Z))
+        if (this->isVertexZWithinFrustrum(depthVertex0) && this->isVertexZWithinFrustrum(depthVertex1) && this->isVertexZWithinFrustrum(depthVertex2))
         {
             this->indicesToRenderVector.push_back(vertexIndex0);
             this->indicesToRenderVector.push_back(vertexIndex1);
@@ -42,9 +72,9 @@ void Object3D::updateIndices()
     }
 
     this->indices = this->indicesToRenderVector.data();
-       this->depthVertices.clear();
+    this->depthVertices.clear();
 
-    this->updateVbo();
+    this->updateEbo();
 }
 
 void Object3D::updateVertices()
@@ -55,11 +85,11 @@ void Object3D::updateVertices()
         double differenceCamearaFarNear = this->camera->getFar() - this->camera->getNear();
         double cameraDoubleFarNear = 2 * this->camera->getFar() * this->camera->getNear();
 
-        for (int i = 0; i < this->verticesAmount; i += 3)
+        for (int i = 0; i < this->verticesAmount; i += 5)
         {
-            float x = this->vertices[i] * this->scale.getX();
-            float y = this->vertices[i + 1] * this->scale.getY();
-            float z = this->vertices[i + 2] * this->scale.getZ();
+            double x = this->vertices[i] * this->scale.getX();
+            double y = this->vertices[i + 1] * this->scale.getY();
+            double z = this->vertices[i + 2] * this->scale.getZ();
 
             Vector3D rotatedVertex = (this->rotation * Quaternion(0, x, y, z) * Quaternion::inverse(this->rotation)).getAxis();
             Vector3D newVertex = rotatedVertex + this->position;
@@ -74,7 +104,7 @@ void Object3D::updateVertices()
             this->depthVertices.push_back(newVertex.getZ());
         }
 
-        this->updateEbo();
+        this->updateVbo();
         this->updateIndices();
     }
 }

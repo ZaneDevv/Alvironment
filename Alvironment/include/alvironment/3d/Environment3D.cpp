@@ -8,6 +8,7 @@
 
 const float Environment3D::CAMERA_SPEED = 50.0f;
 const float Environment3D::CAMERA_ANGULAR_SPEED = 0.6f;
+const float Environment3D::SHIFT_PRESSED_SPEED_MULTIPLIER = 0.25f;
 
 // ------------------------------------------------------
 // CONSTRUCTORS
@@ -16,6 +17,7 @@ const float Environment3D::CAMERA_ANGULAR_SPEED = 0.6f;
 Environment3D::Environment3D(WindowProperties* properties) : Environment(properties)
 {
     this->dimensions = 3;
+    this->window->enableDepth();
 }
 
 // ------------------------------------------------------
@@ -30,6 +32,7 @@ void Environment3D::runInternalUpdateCallback(double deltaTime)
 void Environment3D::moveCamera(double deltaTime)
 {
     bool hasCameraMoved = false;
+    bool isShiftPressed = this->isKeyPressed(Key::LEFT_SHIFT);
 
     if (this->isKeyPressed(Key::MOUSE_RIGHT_BUTTON))
     {
@@ -50,6 +53,12 @@ void Environment3D::moveCamera(double deltaTime)
 
         if (differenceX != 0 || differenceY != 0)
         {
+            float angularVelocity = Environment3D::CAMERA_ANGULAR_SPEED;
+            if (isShiftPressed)
+            {
+                angularVelocity *= Environment3D::SHIFT_PRESSED_SPEED_MULTIPLIER;
+            }
+
             Vector3D axis = Vector3D::normalize(Vector3D(-differenceY, differenceX, 0));
             double theta = abs(deltaTime * (differenceX + differenceY) * Environment3D::CAMERA_ANGULAR_SPEED);
 
@@ -72,11 +81,18 @@ void Environment3D::moveCamera(double deltaTime)
         this->isKeyPressed(Key::W) ? 1 : this->isKeyPressed(Key::S) ? -1 : 0
     );
 
+
+    float velocity = Environment3D::CAMERA_SPEED;
+    if (isShiftPressed)
+    {
+        velocity *= Environment3D::SHIFT_PRESSED_SPEED_MULTIPLIER;
+    }
+
     if (direction != Vector3D::zero)
     {
         direction = (this->camera.getRotation() * Quaternion::createByWAndAxis(0, direction) * Quaternion::inverse(this->camera.getRotation())).getAxis();
 
-        this->camera.setPosition(this->camera.getPosition() + Vector3D::normalize(direction) * (deltaTime * Environment3D::CAMERA_SPEED));
+        this->camera.setPosition(this->camera.getPosition() + Vector3D::normalize(direction) * (deltaTime * velocity));
         hasCameraMoved = true;
     }
 

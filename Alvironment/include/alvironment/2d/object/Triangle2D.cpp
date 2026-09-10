@@ -5,9 +5,9 @@
 // ------------------------------------------------------
 
 float Triangle2D::vertices[Triangle2D::verticesAmount] = {
-    -0.5f, -0.5f,
-     0.5f, -0.5f,
-     0.0f, 0.5f
+    -0.5f, -0.5f, 0.0f, 0.0f,
+     0.5f, -0.5f, 1.0f, 0.0f,
+     0.0f,  0.5f, 0.5f, 1.0f
 };
 
 u32_t Triangle2D::indices[Triangle2D::indicesAmount] = {

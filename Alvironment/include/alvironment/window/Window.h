@@ -11,7 +11,7 @@
 
 /**
  * @brief Class for creating a window easily using OpenGL
- * @version 3.0
+ * @version 3.1
  * @date 2026-08-31
  * @author Álvaro Fernández Barrero
  */
@@ -20,7 +20,7 @@ struct Window
 private:
 	GLFWwindow* window;
 
-	u32_t clearBuffers = GL_COLOR_BUFFER_BIT;
+	mutable u32_t clearBuffers = GL_COLOR_BUFFER_BIT;
 
 	bool isRenderLoopPaused = false;
 
@@ -43,15 +43,14 @@ public:
 	 * @param Window's height
 	 * @param Window's title
 	 * @param True if the window can be resized, false otherwise
-	 * @param True if depth is needed, false otherwise
 	 * @pre GLFW should have been initialized successfully already
 	 * @exception The window could not be created
-	 * @version 1.1
+	 * @version 1.2
 	 * @since 1.0
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	Window(u16_t, u16_t, const char*, bool, bool);
+	Window(u16_t, u16_t, const char*, bool);
 
 	// ------------------------------------------------------
 	// DESTRUCTORS
@@ -70,6 +69,16 @@ public:
 	// ------------------------------------------------------
 	// METHODS
 	// ------------------------------------------------------
+
+	/**
+	 * @brief Enables the depth
+	 * @return True if the window should have the depth enabled, false otherwise
+	 * @version 1.0
+	 * @since 3.1
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	void enableDepth() const;
 
 	/**
 	 * @brief Checks if the window should close

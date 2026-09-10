@@ -13,10 +13,10 @@ void SpinningCube::initialize()
 
 	// Creating the cube
 
-	this->cube = std::make_unique<Cube3D>();
+	this->cube = std::make_unique<Cube3D>("src/Samples/SpinningCube/texture.jpg");
 	this->cube->setPosition(Vector3D::k * 6);
-	this->cube->setScale(Vector3D(3, 1, 3));
-	this->cube->setShaderProperty("color4", Color4(0xB6B6B6FF));
+	this->cube->setScale(Vector3D(3, 3, 3));
+	this->cube->setShaderProperty("color4", Color4(0xFFFFFFFF));
 
 	// Adding the objects to the environment
 

@@ -5,14 +5,14 @@
 
 /**
  * @brief Class for creating 2D triangles
- * @version 1.0
- * @date 2026-09-01
+ * @version 1.2
+ * @date 2026-09-09
  * @author Álvaro Fernández Barrero
  */
 class Triangle2D : public Object2D
 {
 private:
-	static constexpr u32_t verticesAmount = 6;
+	static constexpr u32_t verticesAmount = 12;
 	static constexpr u32_t indicesAmount = 3;
 
 	static float vertices[Triangle2D::verticesAmount];
@@ -35,6 +35,30 @@ public:
 	 */
 	Triangle2D(const char* vertexShader, const char* fragmentShader)
 		: Object2D(Triangle2D::vertices, Triangle2D::verticesAmount, Triangle2D::indices, Triangle2D::indicesAmount, vertexShader, fragmentShader) {};
+
+	/**
+	 * @brief Creates a brand new 2D rectangle with the given texture
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 1.2
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	Triangle2D(const char* texture)
+		: Object2D(Triangle2D::vertices, Triangle2D::verticesAmount, Triangle2D::indices, Triangle2D::indicesAmount, texture) {};
+
+	/**
+	 * @brief Creates a brand new 2D rectangle with the given shaders and texture
+	 * @param Vertex shader's code's path
+	 * @param Fragment shader's code's path
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 1.2
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	Triangle2D(const char* vertexShader, const char* fragmentShader, const char* texture)
+		: Object2D(Triangle2D::vertices, Triangle2D::verticesAmount, Triangle2D::indices, Triangle2D::indicesAmount, vertexShader, fragmentShader, texture) {};
 
 	/**
 	 * @brief Creates a brand new 2D rectangle

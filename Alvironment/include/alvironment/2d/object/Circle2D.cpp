@@ -38,20 +38,24 @@ float* Circle2D::computeVertices(double smoothness)
 	Circle2D::adjustSmoothness(smoothness);
 
 	u32_t perimeterVerticesAmount = (u32_t)(TAU / smoothness);
-	u32_t verticesAmount = (perimeterVerticesAmount + 1) * 2;
+	u32_t verticesAmount = (perimeterVerticesAmount + 1) * 4;
 
 	float* vertices = new float[verticesAmount];
 
 	vertices[0] = 0.0f;
 	vertices[1] = 0.0f;
+	vertices[2] = 0.5f;
+	vertices[3] = 0.5f;
 
 	for (u32_t vertex = 0; vertex < perimeterVerticesAmount; ++vertex)
 	{
-		u32_t i = (1 + vertex) * 2;
+		u32_t i = (1 + vertex) * 4;
 		double alpha = vertex * smoothness;
 
 		vertices[i] = cosf((float)alpha) * 0.5f;
 		vertices[i + 1] = sinf((float)alpha) * 0.5f;
+		vertices[i + 2] = vertices[i] + 0.5f;
+		vertices[i + 3] = vertices[i + 1] + 0.5f;
 	}
 
 	return vertices;
@@ -81,7 +85,7 @@ u32_t* Circle2D::computeIndices(double smoothness)
 u32_t Circle2D::computeVerticesAmount(double smoothness)
 {
 	Circle2D::adjustSmoothness(smoothness);
-	return ((u32_t)(TAU / smoothness) + 1) * 2;
+	return ((u32_t)(TAU / smoothness) + 1) * 4;
 }
 
 u32_t Circle2D::computeIndicesAmount(double smoothness)

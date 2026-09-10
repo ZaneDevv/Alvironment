@@ -21,6 +21,7 @@ private:
 
 	static const float CAMERA_SPEED;
 	static const float CAMERA_ANGULAR_SPEED;
+	static const float SHIFT_PRESSED_SPEED_MULTIPLIER;
 
 	// ------------------------------------------------------
 	// ATTRIBUTES

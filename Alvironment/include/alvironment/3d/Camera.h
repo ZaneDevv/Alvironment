@@ -22,7 +22,7 @@ private:
 	float projectionScale = 0;
 
 	double far = 100;
-	double near = 0;
+	double near = 0.1;
 
 public:
 	// ------------------------------------------------------

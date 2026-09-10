@@ -11,16 +11,21 @@
 const char* const GenericObject::DEFAULT_VERTEX_SHADER = "include/alvironment/shaders/common_shaders/Basic.vsha";
 const char* const GenericObject::DEFAULT_FRAGMENT_SHADER = "include/alvironment/shaders/common_shaders/Basic.fsha";
 
+const char* const GenericObject::DEFAULT_TEXTURE = "include/default_texture.png";
+
 // ------------------------------------------------------
 // CONSTRUCTORS
 // ------------------------------------------------------
 
-GenericObject::GenericObject(u8_t dimensions, float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
+GenericObject::GenericObject(u8_t dimensions, float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader, const char* texture)
 	: dimensions(dimensions),
 	vertices(vertices), verticesAmount(verticesAmount), verticesToRender(new float[verticesAmount]),
 	indices(indices), indicesAmount(indicesAmount),
-	shader(new Shader(vertexShader, fragmentShader))
+	shader(new Shader(vertexShader == nullptr ? GenericObject::DEFAULT_VERTEX_SHADER : vertexShader, fragmentShader == nullptr ? GenericObject::DEFAULT_FRAGMENT_SHADER : fragmentShader)),
+	texture(new Texture(texture == nullptr ? GenericObject::DEFAULT_TEXTURE : texture))
 {
+	DEBUG_PRINT("CREATING OBJECT:" << "\n\tDimensions: " << this->dimensions << "\n\tVertex shader: " << vertexShader << "\n\tFragment shader: " << fragmentShader << "\n\tTexture: " << texture);
+
 	std::copy(vertices, vertices + verticesAmount, this->verticesToRender);
 }
 
@@ -54,7 +59,11 @@ void GenericObject::setUpBuffers()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indicesAmount * sizeof(u32_t), this->indices, GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, this->dimensions, GL_FLOAT, GL_FALSE, this->dimensions * sizeof(float), nullptr);
+	glVertexAttribPointer(0, this->dimensions, GL_FLOAT, GL_FALSE, (this->dimensions + 2) * sizeof(float), nullptr);
+
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, (this->dimensions + 2) * sizeof(float), (const void*)(this->dimensions * sizeof(float)));
+
 	glBindVertexArray(0);
 }
 
@@ -79,6 +88,12 @@ void GenericObject::updateEbo()
 
 void GenericObject::render()
 {
+	if (this->texture != nullptr)
+	{
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, this->texture->getId());
+	}
+
 	glUseProgram(this->shader->getShaderId());
 	glBindVertexArray(this->vao);
 	glDrawElements(GL_TRIANGLES, this->indicesAmount, GL_UNSIGNED_INT, nullptr);
@@ -99,7 +114,6 @@ void GenericObject::setShaderProperty(const char* shaderProperty, const Color4& 
 	glUseProgram(this->shader->getShaderId());
 	glUniform4f(glGetUniformLocation(this->shader->getShaderId(), shaderProperty), color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
 }
-
 
 void GenericObject::setShaderProperty(const char* shaderProperty, int value)
 {

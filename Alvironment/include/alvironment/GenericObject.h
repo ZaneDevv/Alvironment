@@ -1,8 +1,11 @@
 #pragma once
 
 #include "data_types/numbers.h"
-#include "graphics/Color4.h"
+
 #include "alvironment/shaders/Shader.h"
+#include "alvironment/shaders/Texture.h"
+
+#include "graphics/Color4.h"
 
 class Environment;
 
@@ -17,6 +20,8 @@ class GenericObject
 private:
 	static const char* const DEFAULT_VERTEX_SHADER;
 	static const char* const DEFAULT_FRAGMENT_SHADER;
+
+	static const char* const DEFAULT_TEXTURE;
 
 protected:
 	u32_t halfWindowWidth = 1;
@@ -36,7 +41,8 @@ protected:
 	u32_t vbo = -1;
 	u32_t ebo = -1;
 
-	Shader* shader;
+	Shader* shader = nullptr;
+	Texture* texture = nullptr;
 
 	// ------------------------------------------------------
 	// METHODS
@@ -76,12 +82,46 @@ public:
 	 * @param Indices amount
 	 * @param Vertex shacer's code's path
 	 * @param Fragment shader's code's path
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 1.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	GenericObject(u8_t, float*, u32_t, u32_t*, u32_t, const char*, const char*, const char*);
+
+	/**
+	 * @brief Creates a brand new abstract object with the given vertices, indices and shaders
+	 * @param Object's dimensions
+	 * @param Vertices' positions list
+	 * @param Vertices amount
+	 * @param Indices' list
+	 * @param Indices amount
+	 * @param Texture's path
+	 * @version 1.0
+	 * @since 1.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	GenericObject(u8_t dimensions, float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* texture)
+		: GenericObject(dimensions, vertices, verticesAmount, indices, indicesAmount, GenericObject::DEFAULT_VERTEX_SHADER, GenericObject::DEFAULT_FRAGMENT_SHADER, texture) {};
+
+	/**
+	 * @brief Creates a brand new abstract object with the given vertices, indices and shaders
+	 * @param Object's dimensions
+	 * @param Vertices' positions list
+	 * @param Vertices amount
+	 * @param Indices' list
+	 * @param Indices amount
+	 * @param Vertex shacer's code's path
+	 * @param Fragment shader's code's path
 	 * @version 1.0
 	 * @since 1.0
 	 * @date 2026-08-31
 	 * @author Álvaro Fernández Barrero
 	 */
-	GenericObject(u8_t, float*, u32_t, u32_t*, u32_t, const char*, const char*);
+	GenericObject(u8_t dimensions, float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount, const char* vertexShader, const char* fragmentShader)
+		: GenericObject(dimensions, vertices, verticesAmount, indices, indicesAmount, vertexShader, fragmentShader, GenericObject::DEFAULT_TEXTURE) {};
 
 	/**
 	 * @brief Creates a brand new abstract object with the given vertices and indices
@@ -98,7 +138,7 @@ public:
 	 * @author Álvaro Fernández Barrero
 	 */
 	GenericObject(u8_t dimensions, float* vertices, u32_t verticesAmount, u32_t* indices, u32_t indicesAmount)
-		: GenericObject(dimensions, vertices, verticesAmount, indices, indicesAmount, GenericObject::DEFAULT_VERTEX_SHADER, GenericObject::DEFAULT_FRAGMENT_SHADER) {};
+		: GenericObject(dimensions, vertices, verticesAmount, indices, indicesAmount, GenericObject::DEFAULT_VERTEX_SHADER, GenericObject::DEFAULT_FRAGMENT_SHADER, GenericObject::DEFAULT_TEXTURE) {};
 
 	// ------------------------------------------------------
 	// DESTRUCTORS
