@@ -11,7 +11,7 @@
 
 /**
  * @brief Class for creating 3D objects
- * @version 2.1
+ * @version 2.2
  * @date 2026-09-07
  * @author Álvaro Fernández Barrero
  */
@@ -52,7 +52,7 @@ private:
 	 * @date 2026-09-08
 	 * @author Álvaro Fernández Barrero
 	 */
-	bool isVertexZWithinFrustrum(float);
+	bool isVertexZWithinFrustrum(float) const;
 
 	/**
 	 * @brief Sets up the indices list
@@ -62,6 +62,19 @@ private:
 	 * @author Álvaro Fernández Barrero
 	 */
 	inline void setUpIndicesList();
+
+	/**
+	 * @brief Checks if the triangle given by the indices should be rendered on screen based on back-face culling
+	 * @param First triangle's index
+	 * @param Second triangle's index
+	 * @param Third triangle's 
+	 * @return True if it is a font-face triangle and thus should be rendered, false otherwise
+	 * @version 1.0
+	 * @since 2.2
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	inline bool shouldRenderTriangleByBackFaceCulling(const u32_t&, const u32_t&, const u32_t&) const;
 
 public:
 

@@ -4,6 +4,7 @@
 #include <cmath>
 #include <iostream>
 
+#include "math/constants.h"
 #include "math/Vector2D.h"
 
 // Runs when the world sets up
@@ -26,7 +27,15 @@ void Dvd::initialize()
 	// Computing the first direction to follow
 
 	srand(time(nullptr));
-	float theta = rand();
+	float theta = fmod(rand(), ONE_DEGREE_IN_RADIANS * 75);
+
+	if (theta - ONE_DEGREE_IN_RADIANS * 5)
+	{
+		theta = RIGHT_ANGLE / 2.0f;
+	}
+
+	theta *= fmod(rand(), 1) < 0.5f ? -1 : 1;
+
 	this->direction = Vector2D(cosf(theta), sinf(theta));
 
 	// Adding all the objects created to the environment so that they can be rendered on screen
