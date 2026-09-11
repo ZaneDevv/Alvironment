@@ -11,7 +11,7 @@
 
 /**
  * @brief Class for creating 3D objects
- * @version 2.2
+ * @version 2.3
  * @date 2026-09-07
  * @author Álvaro Fernández Barrero
  */
@@ -62,6 +62,19 @@ private:
 	 * @author Álvaro Fernández Barrero
 	 */
 	inline void setUpIndicesList();
+
+	/**
+	 * @brief Checks if the triangle given by the indices should is facing in the normal's direction
+	 * @param First triangle's index
+	 * @param Second triangle's index
+	 * @param Third triangle's
+	 * @return True if the triangle is facing in the normal's direction, false otherwise
+	 * @version 1.0
+	 * @since 2.3
+	 * @date 2026-09-11
+	 * @author Álvaro Fernández Barrero
+	 */
+	inline bool isTriangleLookingTowardsTheNormal(const u32_t&, const u32_t&, const u32_t&) const;
 
 	/**
 	 * @brief Checks if the triangle given by the indices should be rendered on screen based on back-face culling

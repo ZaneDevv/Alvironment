@@ -11,7 +11,7 @@
 class Cube3D : public Object3D
 {
 private:
-	static constexpr u32_t verticesAmount = 120;
+	static constexpr u32_t verticesAmount = 192;
 	static constexpr u32_t indicesAmount = 36;
 
 	static float vertices[Cube3D::verticesAmount];

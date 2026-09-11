@@ -70,7 +70,7 @@ Vector3D Vector3D::cross(const Vector3D& v, const Vector3D& w)
 {
 	return Vector3D(
 		v.getY() * w.getZ() - w.getY() * v.getZ(),
-		w.getZ() * v.getX() - v.getZ() * w.getX(),
+		v.getZ() * w.getX() - v.getX() * w.getZ(),
 		v.getX() * w.getY() - v.getY() * w.getX()
 	);
 }
@@ -100,7 +100,7 @@ double Vector3D::getMagnitude() const
 {
 	double result = 0;
 
-	if (this->x != 0 || this->y != 0)
+	if (this->x != 0 || this->y != 0 || this->z != 0)
 	{
 		result = sqrt(Vector3D::dot(*this, *this));
 	}

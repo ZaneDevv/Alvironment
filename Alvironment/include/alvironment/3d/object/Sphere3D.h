@@ -11,7 +11,7 @@
 class Sphere3D : public Object3D
 {
 private:
-	static constexpr u32_t verticesAmount = 765;
+	static constexpr u32_t verticesAmount = 1224;
 	static constexpr u32_t indicesAmount = 672;
 
 	static float vertices[Sphere3D::verticesAmount];

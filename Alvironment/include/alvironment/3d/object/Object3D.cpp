@@ -1,5 +1,9 @@
 #include "Object3D.h"
 
+#include <iostream>
+
+#define STRIDE 8
+
 // ------------------------------------------------------
 // CONSTRUCTORS
 // ------------------------------------------------------
@@ -45,16 +49,32 @@ bool Object3D::isVertexZWithinFrustrum(float z) const
     return z >= this->camera->getNear() && z <= this->camera->getFar();
 }
 
+inline bool Object3D::isTriangleLookingTowardsTheNormal(const u32_t& index0, const u32_t& index1, const u32_t& index2) const
+{
+    Vector3D vertex0Position(this->vertices[index0 * STRIDE], this->vertices[index0 * STRIDE + 1], this->vertices[index0 * STRIDE + 2]);
+    Vector3D vertex1Position(this->vertices[index1 * STRIDE], this->vertices[index1 * STRIDE + 1], this->vertices[index1 * STRIDE + 2]);
+    Vector3D vertex2Position(this->vertices[index2 * STRIDE], this->vertices[index2 * STRIDE + 1], this->vertices[index2 * STRIDE + 2]);
+
+    Vector3D vertex0Normal(this->vertices[index0 * STRIDE + 5], this->vertices[index0 * STRIDE + 6], this->vertices[index0 * STRIDE + 7]);
+    Vector3D vertex1Normal(this->vertices[index1 * STRIDE + 5], this->vertices[index1 * STRIDE + 6], this->vertices[index1 * STRIDE + 7]);
+    Vector3D vertex2Normal(this->vertices[index2 * STRIDE + 5], this->vertices[index2 * STRIDE + 6], this->vertices[index2 * STRIDE + 7]);
+
+    Vector3D segment01 = vertex1Position - vertex0Position;
+    Vector3D segment02 = vertex2Position - vertex0Position;
+
+    return Vector3D::dot(Vector3D::cross(segment01, segment02), Vector3D::normalize(vertex0Normal + vertex1Normal + vertex2Normal)) > 0;
+}
+
 inline bool Object3D::shouldRenderTriangleByBackFaceCulling(const u32_t& index0, const u32_t& index1, const u32_t& index2) const
 {
-    double crossVerticesZTerm1 = this->verticesToRender[index1 * 5] - this->verticesToRender[index0 * 5];
-    double crossVerticesZTerm2 = this->verticesToRender[index2 * 5 + 1] - this->verticesToRender[index0 * 5 + 1];
-    double crossVerticesZTerm3 = this->verticesToRender[index1 * 5 + 1] - this->verticesToRender[index0 * 5 + 1];
-    double crossVerticesZTerm4 = this->verticesToRender[index2 * 5] - this->verticesToRender[index0 * 5];
+    double crossVerticesZTerm1 = this->verticesToRender[index1 * STRIDE] - this->verticesToRender[index0 * STRIDE];
+    double crossVerticesZTerm2 = this->verticesToRender[index2 * STRIDE + 1] - this->verticesToRender[index0 * STRIDE + 1];
+    double crossVerticesZTerm3 = this->verticesToRender[index1 * STRIDE + 1] - this->verticesToRender[index0 * STRIDE + 1];
+    double crossVerticesZTerm4 = this->verticesToRender[index2 * STRIDE] - this->verticesToRender[index0 * STRIDE];
 
     double crossVerticesZ = crossVerticesZTerm1 * crossVerticesZTerm2 - crossVerticesZTerm3 * crossVerticesZTerm4;
 
-    return crossVerticesZ >= 0;
+    return crossVerticesZ <= 0;
 }
 
 void Object3D::updateIndices()
@@ -68,13 +88,13 @@ void Object3D::updateIndices()
         u32_t triangleIndex1 = this->actualIndices[i + 1];
         u32_t triangleIndex2 = this->actualIndices[i + 2];
 
-        if (this->shouldRenderTriangleByBackFaceCulling(triangleIndex0, triangleIndex1, triangleIndex2))
+        if (this->shouldRenderTriangleByBackFaceCulling(triangleIndex0, triangleIndex1, triangleIndex2) && this->isTriangleLookingTowardsTheNormal(triangleIndex0, triangleIndex1, triangleIndex2))
         {
             double depthVertex0 = this->depthVertices.at(triangleIndex0);
             double depthVertex1 = this->depthVertices.at(triangleIndex1);
             double depthVertex2 = this->depthVertices.at(triangleIndex2);
 
-            if (this->isVertexZWithinFrustrum(depthVertex0) || this->isVertexZWithinFrustrum(depthVertex1) || this->isVertexZWithinFrustrum(depthVertex2))
+            if (this->isVertexZWithinFrustrum(depthVertex0) && this->isVertexZWithinFrustrum(depthVertex1) && this->isVertexZWithinFrustrum(depthVertex2))
             {
                 this->indicesToRenderVector.push_back(triangleIndex0);
                 this->indicesToRenderVector.push_back(triangleIndex1);
@@ -100,7 +120,7 @@ void Object3D::updateVertices()
         double differenceCamearaFarNear = this->camera->getFar() - this->camera->getNear();
         double cameraDoubleFarNear = 2 * this->camera->getFar() * this->camera->getNear();
 
-        for (int i = 0; i < this->verticesAmount; i += 5)
+        for (int i = 0; i < this->verticesAmount; i += STRIDE)
         {
             double x = this->vertices[i] * this->scale.getX();
             double y = this->vertices[i + 1] * this->scale.getY();
@@ -114,7 +134,7 @@ void Object3D::updateVertices()
 
             this->verticesToRender[i] = newVertex.getX() * this->camera->getProjectionScale() / (newVertex.getZ() * this->windowAspectRatio);
             this->verticesToRender[i + 1] = newVertex.getY() * this->camera->getProjectionScale() / newVertex.getZ();
-            this->verticesToRender[i + 2] = (newVertex.getZ() * cameraFarAndNear / differenceCamearaFarNear - cameraDoubleFarNear / differenceCamearaFarNear) /  newVertex.getZ();
+            this->verticesToRender[i + 2] = (newVertex.getZ() * cameraFarAndNear / differenceCamearaFarNear - cameraDoubleFarNear / differenceCamearaFarNear) / newVertex.getZ();
 
             this->depthVertices.push_back(newVertex.getZ());
         }

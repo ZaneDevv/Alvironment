@@ -34,6 +34,8 @@ void SolarSystem::initialize()
 
 	// Enable free camera movement
 
+	this->environment->camera.setPosition(Vector3D(20, 30, -60));
+	this->environment->camera.setRotation(Quaternion(RIGHT_ANGLE / 2, Vector3D::normalize(Vector3D::j + Vector3D::i * 5)));
 	this->environment->enableFreeCamera(true);
 
 	// Including objects to environment

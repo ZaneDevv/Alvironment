@@ -37,9 +37,9 @@ protected:
 
 	u8_t dimensions = 2;
 
-	u32_t vao = -1;
-	u32_t vbo = -1;
-	u32_t ebo = -1;
+	u32_t vao = 99999999;
+	u32_t vbo = 99999999;
+	u32_t ebo = 99999999;
 
 	Shader* shader = nullptr;
 	Texture* texture = nullptr;

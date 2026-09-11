@@ -47,6 +47,9 @@ GenericObject::~GenericObject()
 
 void GenericObject::setUpBuffers()
 {
+	bool has3Dimensions = this->dimensions == 3;
+	int stride = ((this->dimensions + 2) + (has3Dimensions ? 3 : 0)) * sizeof(float);
+
 	glGenVertexArrays(1, &this->vao);
 	glBindVertexArray(this->vao);
 
@@ -59,17 +62,23 @@ void GenericObject::setUpBuffers()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indicesAmount * sizeof(u32_t), this->indices, GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, this->dimensions, GL_FLOAT, GL_FALSE, (this->dimensions + 2) * sizeof(float), nullptr);
+	glVertexAttribPointer(0, this->dimensions, GL_FLOAT, GL_FALSE, stride, nullptr);
 
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, (this->dimensions + 2) * sizeof(float), (const void*)(this->dimensions * sizeof(float)));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, stride, (const void*)(this->dimensions * sizeof(float)));
+
+	if (has3Dimensions)
+	{
+		glEnableVertexAttribArray(2);
+		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, stride, (const void*)((this->dimensions + 2) * sizeof(float)));
+	}
 
 	glBindVertexArray(0);
 }
 
 void GenericObject::updateVbo()
 {
-	if (this->vbo >= 0)
+	if (this->vbo < 99999999)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
 		glBufferData(GL_ARRAY_BUFFER, this->verticesAmount * sizeof(float), this->verticesToRender, GL_DYNAMIC_DRAW);
@@ -79,7 +88,7 @@ void GenericObject::updateVbo()
 
 void GenericObject::updateEbo()
 {
-	if (this->ebo >= 0)
+	if (this->ebo < 99999999)
 	{
 		glBindVertexArray(this->vao);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->ebo);
