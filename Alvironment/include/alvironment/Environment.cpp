@@ -24,6 +24,9 @@ Environment::Environment(WindowProperties* windowProperties)
         windowProperties->resizeable
     );
 
+    this->lastWindowWidth = windowProperties->width;
+    this->lastWindowHeight = windowProperties->height;
+
     if (glewInit() != GLEW_OK)
     {
         ERROR_PRINT("Glew could not be initialized!");
@@ -140,4 +143,10 @@ void Environment::getMousePosition(double& x, double& y) const
     y -= this->lastWindowHeight / 2;
 
     y *= -1;
+}
+
+void Environment::getScreenDimensions(double& width, double& height) const
+{
+    width = this->lastWindowWidth;
+    height = this->lastWindowHeight;
 }

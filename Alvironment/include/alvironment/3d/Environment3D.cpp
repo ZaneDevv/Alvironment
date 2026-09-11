@@ -7,7 +7,7 @@
 // ------------------------------------------------------
 
 const float Environment3D::CAMERA_SPEED = 50.0f;
-const float Environment3D::CAMERA_ANGULAR_SPEED = 0.6f;
+const float Environment3D::CAMERA_ANGULAR_SPEED = 0.3f;
 const float Environment3D::SHIFT_PRESSED_SPEED_MULTIPLIER = 0.25f;
 
 // ------------------------------------------------------

@@ -10,16 +10,20 @@ private:
 	// Simulation's parameters
 
 	const double PLAYER_Y_COORDINATE = -250;
-	const double MAX_PLAYER_X = 400;
 
 	const double PLAYER_X_SPEED = 10;
 	const double BALL_SPEED = 350;
+	const double MAXIMUM_BALL_SPEED_MULTIPLIER = 1.5;
+	const double MINIMUM_BALL_SPEED_MULTIPLIER = 1.5;
 
 	bool hasLost = false;
 
 	// Math
 
 	Vector2D direction = Vector2D::j;
+
+	double lastPlayersXPosition = 0;
+	double playersSpeed = 0;
 
 	// Objects
 
@@ -62,6 +66,25 @@ private:
 	 * @author Álvaro Fernández Barrero
 	 */
 	bool isBallHittingRectangle(Rectangle2D&);
+
+	/**
+	 * @brief Sets a random direction
+	 * @version 1.0
+	 * @since 1.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	void setRandomDirection();
+
+	/**
+	 * @brief Limits the ball's speed multipliers
+	 * @param Speed's norm
+	 * @version 1.0
+	 * @since 1.0
+	 * @date 2026-09-10
+	 * @author Álvaro Fernández Barrero
+	 */
+	void limitBallsSpeedMultiplier(double);
 
 public:
 	// ------------------------------------------------------

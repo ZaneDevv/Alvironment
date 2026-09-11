@@ -15,7 +15,7 @@ void LinearInterpolation::initialize()
 
 	// Defining colors
 
-	Color4 white(0.9f);
+	Color4 white(0xD5D5D5FF);
 	Color4 red(0xE01616FF);
 
 	// Creating the basic objects
@@ -60,7 +60,7 @@ void LinearInterpolation::update(double deltaTime)
 
 	// Checking if cursor is selecting anything
 
-	if (this->environment->isKeyPressed(Key::SPACE))
+	if (this->environment->isKeyPressed(Key::MOUSE_LEFT_BUTTON))
 	{
 		// Getting mouse's position
 

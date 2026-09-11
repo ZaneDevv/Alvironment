@@ -48,9 +48,7 @@ void Arkanoid::initialize()
 
 	// Computing random starting direction
 
-	srand(time(nullptr));
-	float theta = -fmod(rand(), static_cast<double>(PI));
-	this->direction = Vector2D(cosf(theta), sinf(theta));
+	this->setRandomDirection();
 
 	// Adding all the objects created to the environment so that they can be rendered on screen
 
@@ -84,7 +82,19 @@ void Arkanoid::updatePlayerPosition(double deltaTime)
 
 	// Limiting x position
 
-	xCursorPosition = std::max(-this->MAX_PLAYER_X, std::min(xCursorPosition, this->MAX_PLAYER_X));
+	double screenWidth = 0;
+	double screenHeight = 0;
+	this->environment->getScreenDimensions(screenWidth, screenHeight);
+
+	xCursorPosition = std::max(
+		static_cast<double>((this->player->getScale().getX() - screenWidth) / 2.0f),
+		std::min(xCursorPosition, static_cast<double>((screenWidth - this->player->getScale().getX()) / 2.0f))
+	);
+
+	// Computing speed
+
+	this->playersSpeed = std::max(static_cast<double>(-2), std::min(static_cast<double>(2), (xCursorPosition - this->lastPlayersXPosition)));
+	this->lastPlayersXPosition = xCursorPosition;
 
 	// Computing player's position
 
@@ -105,19 +115,23 @@ void Arkanoid::updateBallPosition(double deltaTime)
 
 	// Checks if the ball hitted limit
 
-	bool hasHittedVerticalLimit = this->ball->getPosition().getX() < -500 || this->ball->getPosition().getX() > 500;
+	double screenWidth = 0;
+	double screenHeight = 0;
+	this->environment->getScreenDimensions(screenWidth, screenHeight);
+
+	bool hasHittedVerticalLimit = this->ball->getPosition().getX() < -screenWidth / 2.0f || this->ball->getPosition().getX() > screenWidth / 2.0f;
 
 	if (hasHittedVerticalLimit)
 	{
 		this->direction = Vector2D::hadamard(this->direction, Vector2D(-1, 1));
 	}
 
-	if (this->ball->getPosition().getY() > 300)
+	if (this->ball->getPosition().getY() > screenHeight / 2.0f)
 	{
 		this->direction = Vector2D::hadamard(this->direction, Vector2D(1, -1));
 	}
 
-	if (this->ball->getPosition().getY() < -300)
+	if (this->ball->getPosition().getY() < -screenHeight / 2.0f)
 	{
 		this->hasLost = true;
 		std::cout << RED << "YOU HAVE LOST THE GAME!" << std::endl;
@@ -128,6 +142,16 @@ void Arkanoid::updateBallPosition(double deltaTime)
 	if (this->isBallHittingRectangle(*this->player) && this->direction.getY() < 0)
 	{
 		this->direction = Vector2D::hadamard(this->direction, Vector2D(1, -1));
+		this->direction = this->direction + Vector2D::i * this->playersSpeed;
+
+		float directionMagnitude = this->direction.getMagnitude();
+
+		if (directionMagnitude < EPSILON)
+		{
+			this->setRandomDirection();
+		}
+
+		this->limitBallsSpeedMultiplier(directionMagnitude);
 	}
 
 	// If the ball hitted a enemy, the direction must change and the enemy should be removed
@@ -159,4 +183,24 @@ bool Arkanoid::isBallHittingRectangle(Rectangle2D& rectangle)
 	overlapY &= rectangle.getPosition().getY() + rectangle.getScale().getY() / 2.0f > ball->getPosition().getY() - ball->getScale().getY() / 2.0f;
 
 	return overlapX && overlapY;
+}
+
+void Arkanoid::setRandomDirection()
+{
+	srand(time(nullptr));
+	float theta = -fmod(rand(), static_cast<double>(ONE_DEGREE_IN_RADIANS * 100));
+	this->direction = Vector2D(cosf(theta), sinf(theta));
+}
+
+void Arkanoid::limitBallsSpeedMultiplier(double directionMagnitude)
+{
+	if (directionMagnitude > this->MAXIMUM_BALL_SPEED_MULTIPLIER)
+	{
+		this->direction = Vector2D::normalize(this->direction) * this->MAXIMUM_BALL_SPEED_MULTIPLIER;
+	}
+
+	if (directionMagnitude < this->MINIMUM_BALL_SPEED_MULTIPLIER)
+	{
+		this->direction = Vector2D::normalize(this->direction) * this->MINIMUM_BALL_SPEED_MULTIPLIER;
+	}
 }

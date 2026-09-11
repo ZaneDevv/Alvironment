@@ -13,7 +13,7 @@ using updateMethod = std::function<void(double)>;
 
 /**
  * @brief Abstract class for the environments
- * @version 3.6
+ * @version 3.7
  * @date 2026-09-02
  * @author Álvaro Fernández Barrero
  */
@@ -82,6 +82,7 @@ protected:
 	 * @author Álvaro Fernández Barrero
 	 */
 	virtual void runInternalUpdateCallback(double) {};
+
 public:
 
 	// ------------------------------------------------------
@@ -146,11 +147,22 @@ public:
 	/**
 	 * @brief Gets the mouse's position relative to the screen
 	 * @param Mouse's position's x axis
-	 * @param Mouse's position's y 
+	 * @param Mouse's position's y
 	 * @version 1.0
 	 * @since 3.3
 	 * @date 2026-09-03
 	 * @author Álvaro Fernández Barrero
 	 */
 	void getMousePosition(double&, double&) const;
+
+	/**
+	 * @brief Gets the screen's dimensions
+	 * @param Screen's width
+	 * @param Screen's height
+	 * @version 1.0
+	 * @since 3.7
+	 * @date 2026-09-09
+	 * @author Álvaro Fernández Barrero
+	 */
+	void getScreenDimensions(double&, double&) const;
 };
